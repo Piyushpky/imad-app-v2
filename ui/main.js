@@ -1,3 +1,3 @@
 console.log('Loaded!');
-var element=getElementById('maint');
+var element=document.getElementById('maint');
 element.innertHTML="new Value";
