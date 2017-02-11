@@ -30,6 +30,7 @@ article1:{
                 </p>`
 },
 article2:{title:'Ar1',
+    
   heading:'Article one!',
   data: '10th Feb 2017',
   content:`<p>Here will be the contents of this page.
@@ -43,7 +44,8 @@ article2:{title:'Ar1',
                 Here will be the contents of this page.
                 Here will be the contents of this page.
                 </p>`},
-article3:{title:'Ar1',
+article3:{
+    title:'Ar1',
   heading:'Article one!',
   data: '10th Feb 2017',
   content:`<p>Here will be the contents of this page.
