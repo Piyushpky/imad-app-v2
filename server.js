@@ -105,7 +105,7 @@ app.get('/ui/main.js', function (req, res) {
 });
 
 app.get('/ui/10414834_897251250334877_162128951368834263_n.jpg', function (req, res) {
-  res.sendFile(path.join(__dirname, 'ui', 'madi.png'));
+  res.sendFile(path.join(__dirname, 'ui', '10414834_897251250334877_162128951368834263_n.jpg'));
 });
 
 
