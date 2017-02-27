@@ -82,6 +82,8 @@ var htmlTemp=`<html>
 `;
 return htmlTemp;
 }
+
+
 app.get('/counter',function(req,res){
     counter=counter+1;
     res.send(counter.toString());
