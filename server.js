@@ -123,7 +123,7 @@ app.get('/article/:articleName',function(req,res){
             res.status(500).send(err.toString());
             
         }else{
-            if(result.rows.length==0){
+            if(result.rows.length===0){
                 result.status(404).send('article Not Found');
             }else{
                 var  articleData=result.rows[0];
