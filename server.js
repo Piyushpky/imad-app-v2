@@ -21,7 +21,7 @@ var articles={
 article1:{
   
   heading:'Article one!',
-  date: '10th Feb 2017',
+  date: '10/01/2017',
   content:`<p>Here will be the contents of this page.
                 Here will be the contents of this page.
                 Here will be the contents of this page.
@@ -44,7 +44,7 @@ article1:{
 article2:{
     
   heading:'Article one!',
-  date: '10th Feb 2017',
+  date: '10/01/2017',
   content:`<p>Here will be the contents of this page.
                 Here will be the contents of this page.
                 Here will be the contents of this page.
@@ -59,7 +59,7 @@ article2:{
 article3:{
   
   heading:'Article one!',
-  date: '10th Feb 2017',
+  date: '10/01/2017',
   content:`<p>Here will be the contents of this page.
                 Here will be the contents of this page.
                 Here will be the contents of this page.
