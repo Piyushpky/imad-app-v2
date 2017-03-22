@@ -10,7 +10,7 @@ var config={
     port:'5432',
     password:process.env.D8_PASSWORD
     
-}
+};
 
 
 var app = express();
