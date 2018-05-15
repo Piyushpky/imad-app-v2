@@ -1,0 +1,2 @@
+set http_proxy=http://web-proxy.cup.hp.com:8080
+set https_proxy=http://web-proxy.cup.hp.com:8080
