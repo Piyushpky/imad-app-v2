@@ -1,0 +1,22 @@
+{
+  "version": "1.0",
+  "entity_id": "TH6551Y089",
+  "entity_model": "K7R96A",
+  "entity_name": "ENVY 7800 All-in-One Printer series",
+  "entity_version": {
+    "revision": "PALSUPMP1A001.1636A.00",
+    "date": "2016-08-24"
+  },
+  "entity_type": "devices",
+  "entity_domain": "test_domain",
+  "country_and_region_name": "hongKongSAR",
+  "language": "zh-CN",
+  "entity_additional_ids": [
+    {
+      "id_type": "printer_uuid",
+      "id_value": "503b1dc9-0f0e-5a03-a522-605df3ba3168"
+    }
+  ],
+  "reset_counter": 25,
+  "request_originator": "front_panel"
+}

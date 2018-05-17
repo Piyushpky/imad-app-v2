@@ -1,0 +1,25 @@
+{
+    "postcard_signed_info": {
+        "version": "1.0",
+        "mime_type": "application/vnd.hpi.postcard+json",
+        "application_id": "1",
+        "entity_id": "d7210a41-2d41-4e0d-b138-a63aa57c5aa3",
+        "creator": "service",
+        "postcard_id": "FLlh1L/HNlXlSH3kppwuksQ4o6v3SUwZASSJwRM6pWI=",
+        "timestamp": "2016-03-09T09:39:13Z",
+        "seq_num": 1,
+        "key_id": "402447f352134b52a16e003540dc6a28",
+        "messages": [{
+            "content_type": "application/json",
+            "compression": "gzip",
+            "encryption": "aes_128",
+            "iv": "D27E4kM3Ag7DmvBOIefiVA==",
+            "content": "I2o4MPIW9IajqDx1d+WQSqyQKIknFYldnYj43IR2caUj3PTvHiP7R48AwUyU80frtLhVW+PVek0+2qOtrjYFua6OOXq8Uc8zVFM1A65uXHbq+LHH60EeRZ8PTibdyzeZ6crinHQzYZFyLfy5PSrXIdOHuMszrtzaZ+XnvGAcCMuLx0OoH2GZqTs1i9TXu8oGQmoAZuAPB92Iqlx3lJIiX3n+4AGM8f8sv3Pj4BV+K8eVtRAAX2xdIuwki8IqsrnHN9yvEDTfO8doVQ3BYt8RmBrawLIdlBXxkwVhTmC7or17rLtCK+Fma8nDOxm4GdrwGLWz/X/CYAVZBW+zUshcZtGvfvD2moBkIREzVUTiOkNTbmpBYmePSmJucTNQItFtfILbkrS+LFq3nYLFkGzg3WwRB6C5wuyqRFEph4RMi0g="
+        }]
+    },
+    "hash": "RZ4UzUKuA8ewOqXplbec5EjRj6tSh0x5uGZr9/E4jWw=",
+    "signatures": [{
+        "signature": "j+makuy2vpO1TIIIljj68VplfsdNkJ5uolU8Y8J8taH0mcX0xAAF+TlPcoD+6OlWD/kUnfz42ZL+yvdfiGpeH496V2y//pZEt191T82Gtylqt5wwaoob1dobqdMBUKH3Au2GGlAIUh4JZwiKFZ3VZ7Zz94UVFc7k7pIECQZSTuuRylTmLVXyXyWMpi59bitmwlsfnulp1uwq/qIITznXTjZvwZJfGaLSbwoR3RmUAntBimpngP3XhrTyjIUvstBPbjjodm1kgjHmVtprr0LEhyre/Qf+pNI72EUYkPUU5rijjcrqCuYfmF+yI70wC066wfXEitiTOo2XG6nVQGknRQ==",
+        "key_id": "402447f352134b52a16e003540dc6a28"
+    }]
+}

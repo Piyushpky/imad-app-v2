@@ -1,0 +1,19 @@
+ {
+        "version": 1.0,
+        "serial_number": "SN12345678",
+        "model_number": "A9T80A",
+        "printer_ssn": "HYACGABA-SN12345678",
+        "registration_domain": "palermo_2016",
+        "printer_uuid": "seoupthe3pk",
+        "ownership_counter": 0,
+        "printer_info": {
+            "model_name": "HP Photosmart 5520g",
+            "country_and_region_name": "africa",
+            "language": "ar",
+            "firmware_version": {
+                "revision": "",
+                "date": "1957-08-13"
+            },
+            "originator": "wja"
+        }
+}

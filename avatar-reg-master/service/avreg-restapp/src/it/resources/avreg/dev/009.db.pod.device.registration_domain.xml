@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-2.0.xsd">
+
+    <changeSet author="potana" id="1464020784856-1" >
+        <createTable tableName="registration_domain"  >
+            <column autoIncrement="true" name="domain_id" type="BIGINT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="entity_domain" type="VARCHAR(64)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="domain_index" type="INT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+        <insert tableName="registration_domain" >
+            <column name="domain_id">1</column>
+            <column name="entity_domain">test_domain</column>
+            <column name="domain_index">1</column>
+        </insert>
+    </changeSet>
+    <changeSet author="potana" id="1464020784856-2">
+        <addUniqueConstraint columnNames="entity_domain" constraintName="UK_RegistrationDomain_domain" tableName="registration_domain" />
+    </changeSet>
+    <changeSet author="potana" id="1464020784856-3">
+        <addUniqueConstraint columnNames="domain_index" constraintName="UK_RegistrationDomain_index" tableName="registration_domain" />
+    </changeSet>
+
+</databaseChangeLog>

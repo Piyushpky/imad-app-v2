@@ -1,0 +1,25 @@
+{
+  "postcard_signed_info" : {
+    "version" : "1.0",
+    "mime_type" : "application/vnd.hpi.postcard+json",
+    "application_id" : "1",
+    "entity_id" : "seoupthe3pk649",
+    "creator" : "service",
+    "postcard_id" : "Jt53Q74pK1+SuDGtLlX2HrUsN59ZT5UmrWmteX+qx8U=",
+    "timestamp" : "2016-01-07T14:11:25Z",
+    "seq_num" : 1,
+    "key_id" : "key_id-1",
+    "messages" : [ {
+      "content_type" : "application/xml",
+      "compression" : "gzip",
+      "encryption" : "aes_128",
+      "iv" : "RiHnxguObbGcuG//xTLNvw==",
+      "content" : "cpPNX31UfzCeKF/SM/aCXSL8xSZvhM7f0P7Dob85nV0="
+    } ]
+  },
+  "hash" : "s7zpGEzITpMoAuQszqtaG5teV4NntZWuhcna3sNkmxw=",
+  "signatures" : [ {
+    "signature" : "vEOKGO8CfBFhBM7myy+63SzET3KT6K61IRw6isDTL54=",
+    "key_id" : "key_id-1"
+  } ]
+}

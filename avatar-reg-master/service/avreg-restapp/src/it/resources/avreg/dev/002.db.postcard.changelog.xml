@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-2.0.xsd">
+    <changeSet author="srikanth" id="pod_device-001">
+        <createTable tableName="postcard" >
+            <column autoIncrement="true" name="postcard_id" type="BIGINT UNSIGNED">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="entity_id" remarks="stores entity uuid" type="VARCHAR(40)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="key_id" remarks="stores key_id for secret generation" type="VARCHAR(32)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="shared_secret" type="VARBINARY(32)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="key_agreement_scheme" remarks="stores key agreement scheme used during key negotiation." type="VARCHAR(10)"/>
+            <column defaultValueComputed="CURRENT_TIMESTAMP" name="epoc_time" remarks="stores when secret created/updated timestamp" type="TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP" >
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="srikanth" id="pod_device-002">
+        <createTable tableName="postcard_additional_info" >
+            <column autoIncrement="true" name="id" type="BIGINT UNSIGNED">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="postcard_id" remarks="Auto generated postcard id reference of postcard" type="BIGINT UNSIGNED">
+                <constraints nullable="false"/>
+            </column>
+            <column name="application_id" remarks="stores application id" type="VARCHAR(20)">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValueNumeric="0" name="entity_seq_num" remarks="entity sequence number" type="BIGINT UNSIGNED">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValueNumeric="0" name="service_seq_num" remarks="service sequence number" type="BIGINT UNSIGNED">
+                <constraints nullable="false"/>
+            </column>
+            <column name="entity_message_id" remarks="entity message id with which postcard received" type="VARCHAR(64)"/>
+            <column name="service_message_id" remarks="service message id with which postcard constructed" type="VARCHAR(64)"/>
+            <column name="entity_signature_hash" remarks="entity signature hash with which postcard received" type="VARCHAR(512)"/>
+            <column name="service_signature_hash" remarks="service signature hash with which postcard constructed" type="VARCHAR(512)"/>
+            <column name="entity_instruction" remarks="entity instruction received in the postcard" type="VARCHAR(1024)"/>
+            <column defaultValueComputed="CURRENT_TIMESTAMP" name="epoc_time" remarks="timestamp" type="TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="srikanth" id="pod_device-003">
+        <createTable tableName="postcard_renegotiation_info" >
+            <column autoIncrement="true" name="id" type="BIGINT UNSIGNED">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="postcard_id" remarks="Auto generated postcard id reference of postcard" type="BIGINT UNSIGNED">
+                <constraints nullable="false"/>
+            </column>
+            <column name="application_id" remarks="stores application id" type="VARCHAR(20)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="credential_refresh_info" remarks="credential refresh info payload received" type="BLOB">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValueComputed="CURRENT_TIMESTAMP" name="epoc_time" remarks="timestamp" type="TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="srikanth" id="pod_device-004">
+        <addUniqueConstraint columnNames="postcard_id, application_id" constraintName="UK_postcard_additional_info_id" tableName="postcard_additional_info" />
+    </changeSet>
+    <changeSet author="srikanth" id="pod_device-005">
+        <addUniqueConstraint columnNames="entity_id" constraintName="UK_postcard_entity_id" tableName="postcard" />
+    </changeSet>
+    <changeSet author="srikanth" id="pod_device-006">
+        <addUniqueConstraint columnNames="id, postcard_id, application_id" constraintName="UK_postcard_renegotiation_info_id" tableName="postcard_renegotiation_info" />
+    </changeSet>
+    <changeSet author="srikanth" id="pod_device-007">
+        <createIndex indexName="FK_postcard_renegotiation_info_id" tableName="postcard_renegotiation_info" >
+            <column name="postcard_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="srikanth" id="pod_device-008">
+        <addForeignKeyConstraint baseColumnNames="postcard_id"  baseTableName="postcard_additional_info" constraintName="postcard_additional_info_ibfk_1" deferrable="false" initiallyDeferred="false" onDelete="CASCADE" onUpdate="NO ACTION" referencedColumnNames="postcard_id"  referencedTableName="postcard"/>
+    </changeSet>
+    <changeSet author="srikanth" id="pod_device-009">
+        <addForeignKeyConstraint baseColumnNames="postcard_id"  baseTableName="postcard_renegotiation_info" constraintName="postcard_renegotiation_info_ibfk_1" deferrable="false" initiallyDeferred="false" onDelete="CASCADE" onUpdate="NO ACTION" referencedColumnNames="postcard_id"  referencedTableName="postcard"/>
+    </changeSet>
+</databaseChangeLog>

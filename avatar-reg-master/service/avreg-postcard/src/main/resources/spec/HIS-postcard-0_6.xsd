@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning" elementFormDefault="qualified" attributeFormDefault="unqualified" version="0.6" vc:minVersion="1.1">
+	<xs:simpleType name="chip_id_type">
+		<xs:restriction base="xs:base64Binary">
+			<xs:maxLength value="44"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="domain_type">
+		<xs:restriction base="xs:NMTOKEN">
+			<xs:enumeration value="certificate_entity"/>
+			<xs:enumeration value="certificate_model"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="key_id_type">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="32"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="postcard_id_type">
+		<xs:restriction base="xs:base64Binary">
+			<xs:maxLength value="44"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="signature_type">
+		<xs:restriction base="xs:base64Binary">
+			<xs:maxLength value="343"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="challenge_type">
+		<xs:sequence>
+			<xs:element name="scheme">
+				<xs:simpleType>
+					<xs:restriction base="xs:NMTOKEN">
+						<xs:enumeration value="acumen_4_1_pace_signature"/>
+						<xs:enumeration value="gauss_2_2_crs_signature"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="chip_id" type="xs:base64Binary"/>
+			<xs:element name="bkid" type="xs:base64Binary"/>
+			<xs:element name="sdiv" type="xs:nonNegativeInteger" minOccurs="0"/>
+			<xs:element name="hdiv" type="xs:base64Binary" minOccurs="0"/>
+			<xs:choice>
+				<xs:element name="nonce" type="xs:base64Binary" minOccurs="0"/>
+				<xs:element name="signature" type="xs:base64Binary" minOccurs="0"/>
+			</xs:choice>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="message_type">
+		<xs:sequence>
+			<xs:element name="content_type">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="60"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="compression">
+				<xs:simpleType>
+					<xs:restriction base="xs:NMTOKEN">
+						<xs:enumeration value="none"/>
+						<xs:enumeration value="gzip"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="encryption">
+				<xs:simpleType>
+					<xs:restriction base="xs:NMTOKEN">
+						<xs:enumeration value="none"/>
+						<xs:enumeration value="aes_128"/>
+						<xs:enumeration value="aes_256"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="iv" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:base64Binary">
+						<xs:maxLength value="44"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="content" type="xs:base64Binary"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="service_instruction_type">
+		<xs:sequence>
+			<xs:element name="commands" minOccurs="0" maxOccurs="unbounded">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="command">
+							<xs:simpleType>
+								<xs:restriction base="xs:NMTOKEN">
+									<xs:enumeration value="generate_new_secret"/>
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:element>
+						<xs:element name="options" minOccurs="0" maxOccurs="unbounded">
+							<xs:simpleType>
+								<xs:restriction base="xs:NMTOKEN">
+									<xs:enumeration value="sign_with_entity_private_key"/>
+									<xs:enumeration value="entity_certificate_key_id_only"/>
+									<xs:enumeration value="enrypt_with_new_secret"/>
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="challenge" type="challenge_type" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="entity_instruction_type">
+		<xs:sequence>
+			<xs:element name="last_valid_postcard" minOccurs="0">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="postcard_id" type="postcard_id_type"/>
+						<xs:element name="seq_num" type="xs:positiveInteger"/>
+						<xs:element name="signature_hash" type="xs:base64Binary"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="last_postcard_error" minOccurs="0">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="violation">
+							<xs:simpleType>
+								<xs:restriction base="xs:NMTOKEN">
+									<xs:enumeration value="truncated"/>
+									<xs:enumeration value="parsing_error"/>
+									<xs:enumeration value="unknown_application_id"/>
+									<xs:enumeration value="stale_seq_num"/>
+									<xs:enumeration value="hash_error"/>
+									<xs:enumeration value="unknown_key_id"/>
+									<xs:enumeration value="deprecated_key_id"/>
+									<xs:enumeration value="signature_error"/>
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:element>
+						<xs:element name="postcard_id" type="postcard_id_type" minOccurs="0"/>
+						<xs:element name="seq_num" type="xs:positiveInteger" minOccurs="0"/>
+						<xs:element name="signature_hash" type="xs:base64Binary" minOccurs="0"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="challenge" type="challenge_type" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="key_type">
+		<xs:sequence>
+			<xs:element name="domain" type="domain_type"/>
+			<xs:element name="postcard_secret_key_id" type="key_id_type"/>
+			<xs:element name="key_agreement">
+				<xs:complexType>
+					<xs:choice>
+						<xs:element name="rsa_kem">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="server_public_key_id">
+										<xs:simpleType>
+											<xs:restriction base="xs:string">
+												<xs:maxLength value="40"/>
+											</xs:restriction>
+										</xs:simpleType>
+									</xs:element>
+									<xs:element name="key_data">
+										<xs:simpleType>
+											<xs:restriction base="xs:base64Binary">
+												<xs:maxLength value="343"/>
+											</xs:restriction>
+										</xs:simpleType>
+									</xs:element>
+									<xs:element name="entity_signature_validation">
+										<xs:simpleType>
+											<xs:restriction base="xs:base64Binary">
+												<xs:maxLength value="44"/>
+											</xs:restriction>
+										</xs:simpleType>
+									</xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+					</xs:choice>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="entity_signature" minOccurs="0">
+				<xs:complexType>
+					<xs:choice>
+						<xs:element name="entity_certificate_key_id" type="key_id_type"/>
+						<xs:element name="pem_certificate" type="xs:string" minOccurs="0"/>
+					</xs:choice>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="postcard_type">
+		<xs:sequence>
+			<xs:element name="postcard_signed_info">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="version" type="xs:string"/>
+						<xs:element name="mime_type" type="xs:string"/>
+						<xs:element name="application_id">
+							<xs:simpleType>
+								<xs:restriction base="xs:string">
+									<xs:maxLength value="16"/>
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:element>
+						<xs:element name="entity_id">
+							<xs:simpleType>
+								<xs:restriction base="xs:string">
+									<xs:maxLength value="40"/>
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:element>
+						<xs:element name="creator">
+							<xs:simpleType>
+								<xs:restriction base="xs:NMTOKEN">
+									<xs:enumeration value="entity"/>
+									<xs:enumeration value="service"/>
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:element>
+						<xs:element name="postcard_id" type="postcard_id_type"/>
+						<xs:element name="timestamp" type="xs:dateTime" minOccurs="0"/>
+						<xs:element name="seq_num" type="xs:positiveInteger"/>
+						<xs:element name="key_id" type="key_id_type"/>
+						<xs:element name="keys" type="key_type" minOccurs="0" maxOccurs="2"/>
+						<xs:element name="messages" type="message_type" minOccurs="0" maxOccurs="unbounded"/>
+						<xs:element name="control" type="message_type" minOccurs="0"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="hash" type="xs:base64Binary"/>
+			<xs:element name="signatures" maxOccurs="3">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="key_id" type="key_id_type"/>
+						<xs:element name="signature" type="signature_type"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="postcard" type="postcard_type"/>
+	<xs:element name="entity_instruction" type="entity_instruction_type"/>
+	<xs:element name="service_instruction" type="service_instruction_type"/>
+</xs:schema>

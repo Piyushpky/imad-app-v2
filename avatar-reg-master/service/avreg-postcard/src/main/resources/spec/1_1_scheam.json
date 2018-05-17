@@ -1,0 +1,174 @@
+{
+  "type" : "object",
+  "properties" : {
+    "postcardSignedInfo" : {
+      "type" : "object",
+      "properties" : {
+        "version" : {
+          "type" : "string"
+        },
+        "mimeType" : {
+          "type" : "string"
+        },
+        "applicationId" : {
+          "type" : "string"
+        },
+        "entityId" : {
+          "type" : "string"
+        },
+        "creator" : {
+          "type" : "string"
+        },
+        "postcardId" : {
+          "type" : "array",
+          "items" : {
+            "type" : "string"
+          }
+        },
+        "timestamp" : {
+          "type" : "string"
+        },
+        "seqNum" : {
+          "type" : "integer"
+        },
+        "keyId" : {
+          "type" : "string"
+        },
+        "keys" : {
+          "type" : "array",
+          "items" : {
+            "type" : "object",
+            "properties" : {
+              "domain" : {
+                "type" : "string",
+                "enum" : [ "CERTIFICATE_ENTITY", "CERTIFICATE_MODEL" ]
+              },
+              "postcardSecretKeyId" : {
+                "type" : "string"
+              },
+              "keyAgreement" : {
+                "type" : "object",
+                "properties" : {
+                  "rsaKem" : {
+                    "type" : "object",
+                    "properties" : {
+                      "serverPublicKeyId" : {
+                        "type" : "string"
+                      },
+                      "keyData" : {
+                        "type" : "array",
+                        "items" : {
+                          "type" : "string"
+                        }
+                      },
+                      "entitySignatureValidation" : {
+                        "type" : "array",
+                        "items" : {
+                          "type" : "string"
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "entitySignature" : {
+                "type" : "object",
+                "properties" : {
+                  "entityCertificateKeyId" : {
+                    "type" : "string"
+                  },
+                  "pemCertificate" : {
+                    "type" : "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "messages" : {
+          "type" : "array",
+          "items" : {
+            "type" : "object",
+            "properties" : {
+              "contentType" : {
+                "type" : "string"
+              },
+              "compression" : {
+                "type" : "string",
+           	 	"enum" : [ "gzip", "none", "deflate", "http_gzip" ]
+              },
+              "encryption" : {
+                "type" : "string"
+              },
+              "iv" : {
+                "type" : "array",
+                "items" : {
+                  "type" : "string"
+                }
+              },
+              "content" : {
+                "type" : "array",
+                "items" : {
+                  "type" : "string"
+                }
+              }
+            }
+          }
+        },
+        "control" : {
+          "type" : "object",
+          "properties" : {
+            "contentType" : {
+              "type" : "string"
+            },
+            "compression" : {
+              "type" : "string"
+            },
+            "encryption" : {
+              "type" : "string"
+            },
+            "iv" : {
+              "type" : "array",
+              "items" : {
+                "type" : "string"
+              }
+            },
+            "content" : {
+              "type" : "array",
+              "items" : {
+                "type" : "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    "hash" : {
+      "type" : "array",
+      "items" : {
+        "type" : "string"
+      }
+    },
+    "signatures" : {
+      "type" : "array",
+      "items" : {
+        "type" : "object",
+        "properties" : {
+          "keyId" : {
+            "type" : "string"
+          },
+          "signature" : {
+            "type" : "array",
+            "items" : {
+              "type" : "string"
+            }
+          },
+          "signatureScheme" : {
+            "type" : "string",
+            "enum" : [ "hmac_sha256", "raw_rsassa_pss", "sha256_with_rsa_and_mfg1" ]
+          }
+        }
+      }
+    }
+  }
+}

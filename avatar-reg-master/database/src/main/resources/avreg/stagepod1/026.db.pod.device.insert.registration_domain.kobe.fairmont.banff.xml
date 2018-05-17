@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-2.0.xsd">
+
+  	
+	<changeSet author="bnshr" id="026.db.pod.device.insert.registration_domain.Banff" >
+	<insert tableName="registration_domain" schemaName="pod_device">
+		<column name="domain_id">43</column>
+		<column name="entity_domain">Banff_2018_43</column>
+		<column name="domain_index">43</column>
+	</insert>
+    </changeSet>	
+	
+	<changeSet author="bnshr" id="026.db.pod.device.insert.registration_domain.Kobe" >
+	<insert tableName="registration_domain" schemaName="pod_device">
+		<column name="domain_id">44</column>
+		<column name="entity_domain">Kobe_2018_44</column>
+		<column name="domain_index">44</column>
+	</insert>
+    </changeSet>	
+	
+	<changeSet author="bnshr" id="026.db.pod.device.insert.registration_domain.Fairmont" >
+	<insert tableName="registration_domain" schemaName="pod_device">
+		<column name="domain_id">45</column>
+		<column name="entity_domain">Fairmont_2018_45</column>
+		<column name="domain_index">45</column>
+	</insert>
+    </changeSet>	
+</databaseChangeLog>

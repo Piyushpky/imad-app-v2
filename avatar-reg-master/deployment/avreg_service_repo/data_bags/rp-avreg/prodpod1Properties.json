@@ -1,0 +1,111 @@
+{
+  "id": "prodpod1Properties",
+  "location": {
+    "encrypted_data": "blLiXVAPtWmGFJvWdLxx3MDLzEiTgMsxJBD3vHhJDouKEpoVn+tD+kWIuawg\nIKot1hJhtXk6Q7q4+iGqm4w/0A==\n",
+    "iv": "AD/Az6/h31Sr1ZJM+D15aQ==\n",
+    "version": 1,
+    "cipher": "aes-256-cbc"
+  },
+  "location_withoutauth": {
+    "encrypted_data": "b/DqtzHXZwlpJ117WVCm+BF/1+B/3mC8wd1W6tNHi5o=\n",
+    "iv": "U4Oelvt8DowB9HzNm46cgw==\n",
+    "version": 1,
+    "cipher": "aes-256-cbc"
+  },
+  "proxypass": {
+    "encrypted_data": "NbT00VKSulTG8QcYSN6uCTODLMeOkwyBht9gjApYJR1kgq26z7NSWvnOBedL\nOt+rUe/HrfK/khCbbmnAolVhwZJKgRuqWAOG2SFwC6LCKxWFHoiO/sm2wRRf\njGzuBjq6J7ig274KD8XbPn2hgOIMTQ==\n",
+    "iv": "YsAVMoJkJKZqrk5U5Y25fA==\n",
+    "version": 1,
+    "cipher": "aes-256-cbc"
+  },
+  "credentials": {
+    "encrypted_data": "xvmFwg7Acy+3GaN6QTEkmNlJ3S8p//FJ4clDHHUsS7bvaHgZ4JJR4l36ZNzn\nN5/van4aXr7g9SnfBEF4KSP8DndweAHaUuq4wqUKlwDo07GnKvZOEU1i7kZq\nDVJvioXxkr05DzkefxdRg2r0kFfx9mlbYDzdkvLw9o7zb+TEuH/7fodfLK52\nctdEwGwRvHA+NPEqrqWU3Y0ziscMnOVyPVFIzZ/pYT0C1Ydxh0yKPh44OxLs\nJ03oRdPomNeISAcIUzGeaswvPWFl4kq+25isDJF7MH55aJwOeD01MQorBuNh\nOfWlJzNv252BcCmapJbbTEcIA371y8T3QjV4k080021cMKsio0l4hwJMEeVx\nPfaBqMTGJTI8ST9Z7C1T9q7xjBzrDL3gDKuj/Gpbj8oPFr38qDHr1fuSNzAU\nP2LjXK5MTGGCF11tEmTJQe/xyy134vsB/ZKN330s0NtPyvOeJcx3aBsevaIq\nhxMtniOfBTjAHsvgxEtM/AmWRxlV5wtNlIi3YPw/4kGNZKNUImSjk4lcHTBY\nxe0YpHz/vbrw7lGRQscWx+qwppnh8PCNEf1c+j906m4OOtxTVdmVP29utnyZ\nqyqWToVGCDoqr+1XKNzk4LpH+XcngM59hu6hTM3mBPl65QqAXeYG1mLm8AkX\n3fGjXIe14SkIdzQ1K8cmg3bfU9+6GaaxuTUTqGtyHtBR4etgIdyZiUlanVcs\n9fqgCIeMHthW78O90QgVhmLoV69y6qzyXKN/yGRti1FZ/RxHynXwKXgx4P5o\njkIwhAOwxA==\n",
+    "iv": "K/nupDdEKUqXg0/pSz/Z8g==\n",
+    "version": 1,
+    "cipher": "aes-256-cbc"
+  },
+  "workerprocess": {
+    "encrypted_data": "XgTLXLE411Hl5tPf3swcW7mDlZYzwFltKwDEUc0rqhc=\n",
+    "iv": "o/Vg71O38hmLZ2eo82hLNQ==\n",
+    "version": 1,
+    "cipher": "aes-256-cbc"
+  },
+  "master_process": {
+    "encrypted_data": "mgVriikPE1w7a/mLDJ0iZjJAp9NE97550rV5MUvshEQ=\n",
+    "iv": "4EODZ2y/9/rj0I+onf0gfw==\n",
+    "version": 1,
+    "cipher": "aes-256-cbc"
+  },
+  "listen_port": {
+    "encrypted_data": "8AQF10RUhfEa+N43WjtHWpOOdzfO/zbIfI111w2KSVY=\n",
+    "iv": "7ZWCoWPr22WDeMSwWzRMKg==\n",
+    "version": 1,
+    "cipher": "aes-256-cbc"
+  },
+  "user": {
+    "encrypted_data": "NkPKjkKTFAUE12Jveuk9TeGG+beepNu49DZQl4Zrpbg=\n",
+    "iv": "YXoJr9XcUDZ2SZZq8yEdrg==\n",
+    "version": 1,
+    "cipher": "aes-256-cbc"
+  },
+  "worker_connections": {
+    "encrypted_data": "86GT0AmTOEdV2qVNJcydLl79P+8JOCZyn9hTe+NV+LQ=\n",
+    "iv": "TpM70I7rbeLdAE31PJlilg==\n",
+    "version": 1,
+    "cipher": "aes-256-cbc"
+  },
+  "keepalive_timeout ": {
+    "encrypted_data": "QQDRuirFq+e9m2cZPCdue8+py6L8kB8cKB/uG9hemZM=\n",
+    "iv": "JFlJUDzrT3ONKPHxaOqV0g==\n",
+    "version": 1,
+    "cipher": "aes-256-cbc"
+  },
+  "logpath": {
+    "encrypted_data": "jnNmlHBCZpeFDSWgBJniQWinyAf1XKfsbrQh2xfUji8=\n",
+    "iv": "OrJUgwKnqg2NO98HyBwhDg==\n",
+    "version": 1,
+    "cipher": "aes-256-cbc"
+  },
+  "jvm_path": {
+    "encrypted_data": "UF/RHsYIIGIiLQb/9wqtE2SxotU4IOa6ZzPVnMt+q8nIRI18vWK8O2z9Dtl4\nKCqclkmHB5ORbGJOrcMIPbfPu+N3HiAqiWdIsCsC11HOz/gX1RwbQdb0Ioag\n+31uqF3tsoBNIoJXyRA/P8K99QRRUg==\n",
+    "iv": "mrf4q+w5oGfZjbhTS7zdzg==\n",
+    "version": 1,
+    "cipher": "aes-256-cbc"
+  },
+  "jvm_classpath": {
+    "encrypted_data": "Bn09cAvpTWn5DGVRaespHr2DpngjQGxWHLgn5vvNdJ0=\n",
+    "iv": "o+xZMbavybl2f0UYuHeowA==\n",
+    "version": 1,
+    "cipher": "aes-256-cbc"
+  },
+  "min_heap": {
+    "encrypted_data": "oYNztJzRxVoYFT4VHB877LYU8ryVXgwz3WiQUMSioKI=\n",
+    "iv": "4vUTJgabpxBaV2Rf9Iavhg==\n",
+    "version": 1,
+    "cipher": "aes-256-cbc"
+  },
+  "max_heap": {
+    "encrypted_data": "1mlstEKCJL60NziKd/SSEgkgGL8CbS8fasRLA1PBEy4=\n",
+    "iv": "BwwnfGyOXa92rBHN31zn8Q==\n",
+    "version": 1,
+    "cipher": "aes-256-cbc"
+  },
+  "jmxremote_port": {
+    "encrypted_data": "G2mkr8J7trcNLF5Qc1oRfM8+fg68X28+R6bU4HiZFP8=\n",
+    "iv": "jZTcmBtZif1kFhTUY/iufQ==\n",
+    "version": 1,
+    "cipher": "aes-256-cbc"
+  },
+  "proxyheader": {
+    "encrypted_data": "p0GQz7QISnHhQfSJCX0zZ+83m/OiWJqke8oteqy3U9OsQZukuWOVIUQWZAQi\nnQaVFQ983G4t10Ifm9sdcYXQkK3f13dvIWm9xEp4Jzk59bg=\n",
+    "iv": "enNsPFxgCQ91WcyCSEGD8Q==\n",
+    "version": 1,
+    "cipher": "aes-256-cbc"
+  },
+  "auth_basic": {
+    "encrypted_data": "jIhBx+11MZyBsMmo00vUk6h5knXYX3SbpojCIUMpvck=\n",
+    "iv": "H/D1gBHYeve08EsObZOoVg==\n",
+    "version": 1,
+    "cipher": "aes-256-cbc"
+  }
+}

@@ -1,0 +1,28 @@
+---
+driver:
+  name: ec2
+  instance_type: t2.micro
+
+transport:
+  username: ec2-user
+  ssh_key: /home/ec2-user/aws-test.pem
+  
+provisioner:
+  name: chef_zero
+  cookbooks_path: ../../cookbooks
+  environments_path: ../../environments
+  client_rb:
+    environment: dev
+  data_bags_path: ../../data_bags
+
+platforms:
+  - name: chef_base
+    driver:
+      image_id: ami-54cf0139
+      region: us-east-1
+
+suites:
+  - name: default
+    run_list: ["recipe[rp-avreg::default]"","recipe[zabbixagent::agent_dereg]"]
+    attributes: { "users":{"deployment_scripts":{"directory":"/tmp/kitchen"}} }
+

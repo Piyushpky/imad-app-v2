@@ -1,0 +1,8 @@
+source "https://supermarket.chef.io"
+
+
+
+metadata
+
+cookbook "gen2_base", git: "git@github.azc.ext.hp.com:/WPPg2/DevOps-Deployment.git", rel: "chef-repos/gen2-repo/cookbooks/gen2_base"
+cookbook "gen2_database", git: "git@github.azc.ext.hp.com:/WPPg2/DevOps-Deployment.git", rel: "chef-repos/gen2-repo/cookbooks/gen2_database"

@@ -1,0 +1,6 @@
+{
+  "commands" : [ {
+    "command" : "generate_new_secret",
+    "options" : [ "sign_with_entity_private_key" ]
+  } ]
+}

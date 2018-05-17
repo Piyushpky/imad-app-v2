@@ -1,0 +1,33 @@
+{
+  "id": "db_prodpod1_properties",
+  "config_db_user": {
+    "encrypted_data": "9l+SYOVNrBCL5H3fMyJdqnC5KgtUvgxVmS5cNcMil7o=\n",
+    "iv": "oG0nbpt+ylY2M998ReiSNQ==\n",
+    "version": 1,
+    "cipher": "aes-256-cbc"
+  },
+  "config_db_password": {
+    "encrypted_data": "5MMWfpTP4GrsjzOeeeGvboefpuaa+YfCya0LC3YkOwIIsm7KuqASIjUyeXMb\nPN0g\n",
+    "iv": "W07qvXoyEgsGaiegTjj7vQ==\n",
+    "version": 1,
+    "cipher": "aes-256-cbc"
+  },
+  "config_db_driver": {
+    "encrypted_data": "h8j9bGUk96PoW8UhVigw4O9tR13SoGXlosZiy7fX05ftsAFlQ9xstyAmOBcW\nyUlW\n",
+    "iv": "BmTS3DB38LJAKqEG+jQg4w==\n",
+    "version": 1,
+    "cipher": "aes-256-cbc"
+  },
+  "config_db_jdbcurl": {
+    "encrypted_data": "s4w05HXyB4iK3hzmLvk9SE1j1apLuumau2J9oxcg4gmI/aNcHZT7GrPZNy47\nwlp+bYZqirqwr/qMIRRCIQE/HmCdzhEbPyyh+G7EXHt3YyRV5v2Py3LGGhp8\nbgHnExPis16mNVyZrXh7j2kwwibJY79xoVfzHZg5UmEjiSed/KZQdm8FYtNg\nN3KGStX1KGhSRHREBsIhvAJI7CR8zB2MDQ==\n",
+    "iv": "IHl9TjFg5XxjfV+/QQ1tDA==\n",
+    "version": 1,
+    "cipher": "aes-256-cbc"
+  },
+  "config_db_host": {
+    "encrypted_data": "PYrCMVX6nJDu9LIweO/2drDsrNM5NAlvzBpC9DwtOLjD3TV9RLOdO361ES0u\n4Iw4W5eEm7gFactC588qJFFHgE/OqTrtOEsxnUapfpIRQcc=\n",
+    "iv": "B5QRskU+UpZsPbGW/UuZmg==\n",
+    "version": 1,
+    "cipher": "aes-256-cbc"
+  }
+}

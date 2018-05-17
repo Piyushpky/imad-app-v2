@@ -1,0 +1,48 @@
+{
+  "name": "dev",
+  "description": "Dev environment",
+  "cookbook_versions": {
+
+  },
+  "json_class": "Chef::Environment",
+  "chef_type": "environment",
+  "default_attributes": {
+	"environment_name": "dev",
+  	"repo": {
+		"description": "It holds Infra artifacts and cookbooks. //todo: add description of key - value ",
+		"base_url": "http://repository.cd.wppg2.com/nexus/service/local/repositories",
+		"repo_name": "devops-test-releases",
+		"prefix": "content/external",
+		"wars_path": "/wars",
+		"archives_path": "/archives",
+		"rpms_path" : "/rpms"
+		
+	},
+	"artifact_repo": {
+		"base_url": "http://repository.cd.wppg2.com/nexus/service/local/repositories",
+		"repo_name": "devops-test-releases",
+		"orion_realeases_repo_name": "orionreleases",
+		"orion_snapshots_repo_name": "orionsnapshots",
+		"morpheus_releases_repo_name": "morpheusreleases",
+		"morpheus_snapshots_repo_name": "morpheussnapshots",
+		"prefix": "content/com/hp/wpp"
+		
+	},
+	"proxy": {
+		"url": "http://web-proxy.ind.hp.com:8080",
+		"host": "web-proxy.ind.hp.com",
+		"port": "8080",
+		"method": "http"
+	},
+	"zabbix": {
+         "environment": "test.cloud",
+		 "prefix": "Avatar: SERVICENAME: dev"
+    },
+	"splunk": {
+         "prefix": "dev_"
+    }
+  },
+  "override_attributes": {
+
+  }
+}

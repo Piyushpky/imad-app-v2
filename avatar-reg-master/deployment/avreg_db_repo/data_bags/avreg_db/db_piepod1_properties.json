@@ -1,0 +1,8 @@
+{
+	"id": "db_piepod1_properties",
+	"app_db_user": "liquibaseuser",
+	"app_db_password": "liquibasepiepass",
+	"app_db_driver": "com.mysql.jdbc.Driver",
+	"app_db_jdbcurl": "jdbc:mysql://pie-dvc-pod1-rds-avreg-db.pie-wppinternal.com:3306/liquibasedb",
+	"app_db_host": "pie-dvc-pod1-rds-avreg-db.pie-wppinternal.com"
+}

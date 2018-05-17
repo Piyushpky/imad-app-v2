@@ -1,0 +1,12 @@
+source "https://supermarket.chef.io"
+
+
+
+metadata
+
+cookbook "gen2_base", git: "git@github.azc.ext.hp.com:/WPPg2/DevOps-Deployment.git", rel: "chef-repos/gen2-repo/cookbooks/gen2_base"
+cookbook 'nginxclojure', git: "git@github.azc.ext.hp.com:WPPg2/DevOps-Deployment.git", rel: "chef-repos/gen2-repo/cookbooks/nginxclojure"
+cookbook "java_jdk", git: "git@github.azc.ext.hp.com:/WPPg2/DevOps-Deployment.git", rel: "chef-repos/gen2-repo/cookbooks/java_jdk"
+cookbook 'splunkforwarder', git: "git@github.azc.ext.hp.com:WPPg2/DevOps-Deployment.git", rel: "chef-repos/gen2-repo/cookbooks/splunkforwarder"
+cookbook 'zabbixagent', git: "git@github.azc.ext.hp.com:/WPPg2/DevOps-Deployment.git", rel: "chef-repos/gen2-repo/cookbooks/zabbixagent"
+cookbook 'users', git: "git@github.azc.ext.hp.com:WPPg2/DevOps-Deployment.git", rel: "chef-repos/gen2-repo/cookbooks/users"

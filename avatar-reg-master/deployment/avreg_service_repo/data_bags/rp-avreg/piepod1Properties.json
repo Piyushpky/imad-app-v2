@@ -1,0 +1,26 @@
+{"id": "pieProperties",
+	"location": "/avatar/v1/entities/validation/" ,
+	"location_withoutauth": "/avatar/v1/", 
+	"proxypass": "http://pie-dvc-pod1-llb-avreg.pie-wppinternal.com:8080",
+	"credentials" : [
+		{ "user-name":"svc_connectivity",  	"password": "c3ZjX2Nvbm5lY3Rpdml0eTphdmF0YXI=" },
+		{ "user-name":"avc_sbs1_1016_dev",  	"password": "ODQ1OWM4NzQtNDM3Ny00MDIxLWJiMDgtNDZjOWMyZjYzZmQ4" },
+		{ "user-name":"svc_websocket",          "password": "NDA2NWU5OGMtYmNlYS00OTA1LWIyYTYtMWZhYjE5OTQ3NGI2" },
+	        { "user-name":"avc_vpdevice_2016_dev",  "password": "NzdmYTQ3NDEtMDhlMy00MjUxLWE1YzMtZGI1NjdhYWQwNDZi"},
+	        { "user-name":"avc_ips1_3016_dev",  "password": "YWU2NTE2ZjktMjNiNy00YmJjLTlhZWEtNThkMTgyNjRiMjJm"}
+	],
+	"workerprocess": "1",
+	"master_process": "off",
+	"listen_port": "8080",
+	"user": "ec2-user",
+	"worker_connections": "1024",
+	"keepalive_timeout ": "65",
+	"logpath": "access.log",
+	"jvm_path": "/usr/lib/jvm/java-1.7.0-openjdk-1.7.0.85-2.6.1.2.el7_1.x86_64/jre/lib/amd64/server/libjvm.so",
+	"jvm_classpath": "jars/*",
+	"min_heap": "256m",
+	"max_heap": "512m",
+	"jmxremote_port": "11300" ,
+	"proxyheader":"www-authenticate 'Basic realm=\"svc_avatar\"'",
+	"auth_basic":"svc_avatar"
+}

@@ -1,0 +1,111 @@
+{
+  "id": "stagepod1Properties",
+  "location": {
+    "encrypted_data": "VvmGySpWwe2UiUFemOAJwJVzbvYbaYOA4qX1OIo2VvF5zElR1jBEsPQJ6mAV\nqjIe3TP2eL+M1p0zCaytuqPkkQ==\n",
+    "iv": "WNBCLMkK0maTGrRiMoebRg==\n",
+    "version": 1,
+    "cipher": "aes-256-cbc"
+  },
+  "location_withoutauth": {
+    "encrypted_data": "4at2nTv1lYqCOTDNHSZ0aOgLT4+a5YnKFBUDPq4FZyM=\n",
+    "iv": "SPwBlkYjWg87V53XtepClQ==\n",
+    "version": 1,
+    "cipher": "aes-256-cbc"
+  },
+  "proxypass": {
+    "encrypted_data": "GgQrpDJMGfdsTrmle7247NBNxyeExqUqVYkgCbfpU8pcHfsETrvCiteeMiBO\neoHtcLtSVvToweOqa29bsk3yrayKIoMZc/tNPV8oO5qB3CuWnCVKzOHOfRWo\nWHF88niMLzROqeUKF9XEBy8zRxE0eQ==\n",
+    "iv": "sSdxY6OFq4m3NyeBLPvySQ==\n",
+    "version": 1,
+    "cipher": "aes-256-cbc"
+  },
+  "credentials": {
+    "encrypted_data": "RwYDk+bAhkrBbr38jdiD54GzUmIZVP0xqdR9p5w+P/6WUDyr2evwZBJdOlKS\nySwwDnejDede6xFDB0vszO4LN0olf9Ka6ATsPHNRtNDBtVpAug7VUYAccXI1\naRoel+TTPFdIlojqANHwnCuyj+TgRoqoVFisOZQkkfP9VWekTlZ6cNzu4xLT\nTLO8P8snmUjGBgDzj3Kwp/LUzHdxaKHQcNYTtAglfl4xdFqQdLOGtQbDzirY\nJUJAVIqaW1CYo34G+MQrGSMieYO/pgZIDEcnJFOWagpKY60xPNCecb3GySVm\n4bCKSPKPoCK7w132lV9DWlqmkfhxFqcVo9QwZxOm6KowoBYwTq9nZ0Bcgx/i\nkh2MuEVmzLj0nqhtP2yLlC6he8QIIEzkquH8TJrEpGjCKzgSZZ9hvYgFbqlV\nmgaPkKu5T4uW8rxIbnKZB6yPOMZzb0rM22bInBxf9oPioUDGEm3I4xSvUdCy\nd2Si7s/O+tC4KYTGKOP4TiJZj/czwwjTDy7n0i36lRhfW/ThdzDSACg6XaGg\n2F2ubN0Uc2jURSyzftLxm74ILZxCmze83MuPnAM4/0yEoCCVOvOdaiOUDcJL\nWh71FgvY6h4jYvJ+duFRyn+ByeyNbvpNxoX7XO4AfpZavmU5/fMeSyHer5Ev\nzw==\n",
+    "iv": "0zeyPhbUpWBDrcjTVqrb5Q==\n",
+    "version": 1,
+    "cipher": "aes-256-cbc"
+  },
+  "workerprocess": {
+    "encrypted_data": "s1NsBy3ikJhEjNlk7MAKBhy3Vsi41IX0eO+XOF4NNvI=\n",
+    "iv": "8OCEiScpgMqCvmIJGD8ktQ==\n",
+    "version": 1,
+    "cipher": "aes-256-cbc"
+  },
+  "master_process": {
+    "encrypted_data": "dmIYMMoXCi0NDJv81WL0PmFjuus3LCuGdjhOOTjoWks=\n",
+    "iv": "tfF0VdWDFFXI1iAjm2S0pA==\n",
+    "version": 1,
+    "cipher": "aes-256-cbc"
+  },
+  "listen_port": {
+    "encrypted_data": "EVP2pX2PDg5jWGH3hsVP5tCNUh1wsB2W59ufoTBXXcw=\n",
+    "iv": "bsFxGXsOO5GDsYVPKjAyVA==\n",
+    "version": 1,
+    "cipher": "aes-256-cbc"
+  },
+  "user": {
+    "encrypted_data": "5n+5LE3kETNHZIcDmol7it/8YlPQ0IO7qj7LQN6d7so=\n",
+    "iv": "6+5sO3LB6GGT7KjD9NjNpg==\n",
+    "version": 1,
+    "cipher": "aes-256-cbc"
+  },
+  "worker_connections": {
+    "encrypted_data": "8HFxozaZL1csuboQ36aqR21HvFY40hpuXLDSJuHRXxI=\n",
+    "iv": "VgiDwNPxTqfyn7TCtQKEzw==\n",
+    "version": 1,
+    "cipher": "aes-256-cbc"
+  },
+  "keepalive_timeout ": {
+    "encrypted_data": "Q866PZ7U9fZVd1Da6evC1TgUqrZtc2JU5ueVKJHnmOA=\n",
+    "iv": "pU7AqI/rs1opEnuamkIOhA==\n",
+    "version": 1,
+    "cipher": "aes-256-cbc"
+  },
+  "logpath": {
+    "encrypted_data": "nLPfVvrsz5lA75Js33MNGAYDAC34bUPjS4NoAnJ8M38=\n",
+    "iv": "G6K/bCrT6ciUAbFj4w0p7w==\n",
+    "version": 1,
+    "cipher": "aes-256-cbc"
+  },
+  "jvm_path": {
+    "encrypted_data": "GnyhFRqXdeEa94g0BtP4eqGjZIVT8oLnIPSGrxc0A39SxX+n3gtcpIKzpagu\nodRAbRTinYyuUPUhhmkTFm9tbUgVJW86fk5X3sBYlzY1wEvQi7EO6n7xHsZF\njiiPkMzP80TvZnrPCM42COQ4DD16RQ==\n",
+    "iv": "Ie78/fEZ3C9Tc3qIt5VFlQ==\n",
+    "version": 1,
+    "cipher": "aes-256-cbc"
+  },
+  "jvm_classpath": {
+    "encrypted_data": "j9DlOsZkT8bpLUmvzBZ3T9FDg1fljxcptzmqZmVYIII=\n",
+    "iv": "UeGCvWuY7itfglTGyZr4kQ==\n",
+    "version": 1,
+    "cipher": "aes-256-cbc"
+  },
+  "min_heap": {
+    "encrypted_data": "aJks6aFCCE4wDD7zG51zIcC/+escEH7SgGKwg+2xtBI=\n",
+    "iv": "Wa74WfPesqcnEQszeWoUWw==\n",
+    "version": 1,
+    "cipher": "aes-256-cbc"
+  },
+  "max_heap": {
+    "encrypted_data": "dwZmdBAECUhthd8ilG8W4RCJKB+dmTgiPEH4Lkr7lkA=\n",
+    "iv": "/yYs+1/optzNxbu2nuFqXA==\n",
+    "version": 1,
+    "cipher": "aes-256-cbc"
+  },
+  "jmxremote_port": {
+    "encrypted_data": "2Yj8oZbZBa3haGAJlTuZsp6K5CrU7CHfXbfeU5zwfB8=\n",
+    "iv": "Yb0h6ziQj7JTzXN62NFt9g==\n",
+    "version": 1,
+    "cipher": "aes-256-cbc"
+  },
+  "proxyheader": {
+    "encrypted_data": "auZ4iC4ZXrrAk3Z6+gfKLKWtewi6bSLRqjvfP5TsJHAw/4RfycK1koXcYzG6\n5DQtimwaTsLaySf11nbac57tHiuiaX26eOum5qo5vc9UM1A=\n",
+    "iv": "P2tJ22UJ8qIwqnus/vu4Mg==\n",
+    "version": 1,
+    "cipher": "aes-256-cbc"
+  },
+  "auth_basic": {
+    "encrypted_data": "j21F2W73oCbx9ssBlbkt8P3Pke3JzEMi4waq2zeRL7M=\n",
+    "iv": "6+AzoYH5XGv7xYmvlRsT4g==\n",
+    "version": 1,
+    "cipher": "aes-256-cbc"
+  }
+}

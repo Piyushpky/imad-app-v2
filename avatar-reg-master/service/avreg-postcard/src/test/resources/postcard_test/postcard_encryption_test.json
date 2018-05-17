@@ -1,0 +1,23 @@
+{
+  "version" : "1.0",
+  "mime_type" : "application/vnd.hp.cloudprint.postcard+json",
+  "signed_info" : {
+    "protocol_version" : "1.0",
+    "application_id" : "1",
+    "device_id" : "seoupthe3pk-2",
+    "creator" : "service",
+    "key_id" : "key_id-2",
+    "timestamp" : "1432185232657",
+    "application_seq_num" : 1,
+    "postcard_id" : "mh4ffLLphFWm+KBt3QMenfmOevZmVeSn1aQVitWv60g=",
+    "message" : [ {
+      "content_type" : "application/xml",
+      "compression" : "gzip",
+      "encryption" : "aes_128",
+      "iv" : "o+LyvRTf5rIN3k9SvwwL7A==",
+      "content" : "1rTN5hbqlmT09fj9zJlNFXGXTvvPr594sKhkQtrLy6ME6rWPQhK5CoG8nZ2/NZc1"
+    } ]
+  },
+  "hash" : "7p+ktUzUHsphiq//RW6fv7hMeYv1jRsbNGlqt7h/Wc0=",
+  "signature" : "Am9P17Slb3MLfIg5fHXpyGNe3qDArZFRVzBr6ZFDmi0="
+}

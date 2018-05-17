@@ -1,0 +1,139 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-2.0.xsd">
+
+    <preConditions>
+        <dbms type="hsqldb"/>
+        <runningAs username="SA" />
+    </preConditions>
+
+    <changeSet id="createpoddb" author="root" context="poddb">
+        <createTable tableName="printer">
+            <column name="id" autoIncrement="true" type="bigint">
+                <constraints primaryKey="true" nullable="false" primaryKeyName="pk_Printer_id" />
+            </column>
+            <column name="printer_id" type="char(32)" defaultValue="">
+                <constraints unique="true" uniqueConstraintName="uq_Printer_printer_id" nullable="false" />
+            </column>
+            <column name="serial_number" type="varchar(50)" defaultValue="0">
+                <constraints nullable="false" />
+            </column>
+            <column name="model_number" type="varchar(10)" defaultValue="">
+                <constraints nullable="false" />
+                </column>
+            <column name="model_name" type="varchar(30)" defaultValue="">
+                <constraints nullable="true" />
+             </column>
+             <column name="ownership_counter" type="int" defaultValue="0">
+                <constraints nullable="false" />
+            </column>
+            <column name="registration_domain " type="varchar(50)" defaultValue="">
+                <constraints nullable="true" />
+            </column>
+            <column name="printer_UUID" type="varchar(50)" defaultValue="0">
+                <constraints nullable="false" />
+            </column>
+            <column name="created_at" type="timestamp" defaultValueDate="current_timestamp">
+                <constraints nullable="true" />
+            </column>
+            </createTable>
+           
+            <createTable tableName="printer_information">
+            <column name="id" type="bigint">
+                <constraints primaryKey="true" nullable="false" primaryKeyName="pk_PrinterInformation_id" />
+            </column>
+            <column name="printer_id" type="char(32)" defaultValue="">
+                <constraints unique="true" nullable="false" />
+            </column>
+            <column name="country_and_region_name" type="varchar(10)" defaultValue="">
+                <constraints nullable="false" />
+            </column>
+            <column name="LANGUAGE" type="varchar(10)" defaultValue="">
+                <constraints nullable="false" />
+            </column>
+            
+             <column name="originator" type="varchar(50)" defaultValue="">
+                <constraints nullable="false" />
+            </column>
+             <column name="firmware_version" type="varchar(50)" defaultValue="">
+                <constraints nullable="false" />
+            </column>
+             <column name="firmware_date" type="timestamp" defaultValueDate="current_timestamp">
+                <constraints nullable="true" />
+            </column>
+            <column name="spec_version" type="varchar(5)" defaultValue="">
+                <constraints nullable="false" />
+            </column>
+              <column name="created_at" type="timestamp" defaultValueDate="current_timestamp">
+                <constraints nullable="true" />
+            </column>
+            </createTable>
+            
+             <addForeignKeyConstraint baseColumnNames="id"
+            baseTableName="printer_information"
+            constraintName="fk_printer_information_printer"
+            onDelete="CASCADE"
+            onUpdate="RESTRICT"
+            referencedColumnNames="id"
+            referencedTableName="printer"/>
+           
+            
+            <createTable tableName="service_instance">
+            <column name="id" autoIncrement="true" type="bigint">
+                <constraints primaryKey="true" nullable="false" primaryKeyName="pk_ServiceInstance_id" />
+            </column>
+            <column name="service_type" type="varchar(20)" defaultValue="">
+                <constraints nullable="false" />
+            </column>
+            <column name="service_url" type="varchar(50)" defaultValue="0">
+                <constraints nullable="false" />
+            </column>
+            <column name="spec_version" type="varchar(10)" defaultValue="0">
+                <constraints nullable="false" />
+            </column>
+            </createTable>
+            
+            <sql
+            endDelimiter="\nGO"
+            splitStatements="true"
+            stripComments="true">Insert into Public.service_instance (service_type ,service_url,spec_version) values('testService','http://localhost:8080/testService/','1.0');
+            </sql>
+            
+             <sql
+            endDelimiter="\nGO"
+            splitStatements="true"
+            stripComments="true">Insert into Public.service_instance (service_type ,service_url,spec_version) values('print_caps','http://localhost:8080/testService/','1.0');
+            </sql>
+            
+             <sql
+            endDelimiter="\nGO"
+            splitStatements="true"
+            stripComments="true">Insert into Public.service_instance (service_type ,service_url,spec_version) values('connectivity_config','http://localhost:8080/testService/','1.0');
+            </sql>
+            
+            <createTable tableName="serial_number_key">
+            <column name="id" autoIncrement="true" type="bigint">
+                <constraints primaryKey="true" nullable="false" primaryKeyName="pk_SerialNumberKey_id" />
+            </column>
+            <column name="serial_number_key" type="varchar(50)" defaultValue="">
+                <constraints nullable="false" />
+            </column>
+            <column name="serial_number" type="varchar(10)" defaultValue="0">
+                <constraints nullable="false" />
+            </column>
+            </createTable>
+            
+    
+    
+  <!--   <addUniqueConstraint catalogName="poddb"
+    columnNames="serialNumber, modelNumber"
+            constraintName="uk_Printer_SN_MN"
+            disabled="true"
+            schemaName="poddb"
+            tableName="Printer"
+            tablespace="A String"/>        
+             -->
+   
+            </changeSet>
+
+</databaseChangeLog>

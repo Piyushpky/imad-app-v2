@@ -1,0 +1,75 @@
+{
+    "env_name": "piepod1",
+    "service_sourcetype" : "rp-avreg-logs",
+    "zabbix_hostgroups": ["RP-Avatar-Reg"],
+    "zabbix_service_name": "rp-avreg",
+    "worker_processes": "1",
+    "worker_connections": "1024",
+    "proxy_buffering": "off",
+    "client_max_body_size": "10m",
+    "listen_port": "8080",
+    "credentials" : [
+        { "user-name":"svc_connectivity",  	"password": "c3ZjX2Nvbm5lY3Rpdml0eTphdmF0YXI=" },
+        { "user-name":"svc_welcomepage",  	"password": "ZTE1NDliNjctMGJhYS00NzkzLWIxODYtNmQyNTAwYjE4NDU3" },
+	{ "user-name":"avc_sbs1_1016_dev",  	"password": "ODQ1OWM4NzQtNDM3Ny00MDIxLWJiMDgtNDZjOWMyZjYzZmQ4" },
+	{ "user-name":"svc_websocket",          "password": "NDA2NWU5OGMtYmNlYS00OTA1LWIyYTYtMWZhYjE5OTQ3NGI2" },
+	{ "user-name":"avc_vpdevice_2016_dev",	"password": "NzdmYTQ3NDEtMDhlMy00MjUxLWE1YzMtZGI1NjdhYWQwNDZi"},
+	{ "user-name":"avc_ips1_3016_dev",	"password": "YWU2NTE2ZjktMjNiNy00YmJjLTlhZWEtNThkMTgyNjRiMjJm"},
+    	{ "user-name":"avc_ocm1_2716_dev",	"password": "MmVlMjMxNGYtYjIxYi00ZTc0LTlmZTEtMTRmMGE0MzkwNTY5"},
+      	{"user-name":"svc_virtualprinter",  	"password": "NTc5NTNkYTYtNDRlMS00MTMxLWI2YmMtNGQ3ZGI5ZjJkMTQz" },
+      	{"user-name":"avc_smartux_app_gallery1_2417_dev",  "password": "MDAwNmVkODctYjg4Mi00Y2M4LWE2OWMtZmEwZTg4OTBhMDg4" }
+    ],
+    "llb_url": "http://pie-dvc-pod1-llb-avreg.pie-wppinternal.com:8080",
+    "configurations": [
+    {
+      "api_name": "BasicAuthProtectedMessageValidationResource",
+      "uri": "/avatar/v1/entities/message_validation",
+      "redirects": {
+      	"pre_steps": [],
+        "supported_method": "POST",
+        "header_validations": [],
+        "post_steps": ["return BASIC_AUTH,OAUTH2"]
+      }
+    },
+    {
+      "api_name": "BasicAuthProtectedResource",
+      "uri": "/avatar/v1/entities/validation",
+      "redirects": {
+        "pre_steps": [],
+        "supported_method": "POST",
+        "header_validations": [],
+        "post_steps": ["return BASIC_AUTH,OAUTH2"]
+      }
+    },
+        {
+          "api_name": "NoAuthResource",
+          "uri": "/avatar/v1/",
+          "redirects": {
+            "pre_steps": [],
+            "supported_method": "GET|POST",
+            "header_validations": [],
+            "post_steps": ["return NO_AUTH"]
+          }
+    },
+	{
+ 	  "api_name": "HealthCheckStatus",
+ 	  "uri": "= /avatar/health/status",
+ 	  "redirects": {
+ 		"pre_steps": [],
+ 		"supported_method": "HEAD|GET",
+ 		"header_validations": [],
+ 		"post_steps": ["return NO_AUTH"]
+ 	  }
+ 	}, 
+	{
+ 	  "api_name": "HealthCheckDetail",
+ 	  "uri": "= /avatar/health/detail",
+ 	  "redirects": {
+ 		"pre_steps": [],
+ 		"supported_method": "HEAD|GET",
+ 		"header_validations": [],
+ 		"post_steps": ["return NO_AUTH"]
+ 	  }
+	}
+    ]
+}

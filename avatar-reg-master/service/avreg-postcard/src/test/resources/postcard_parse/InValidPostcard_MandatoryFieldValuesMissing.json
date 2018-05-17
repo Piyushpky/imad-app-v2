@@ -1,0 +1,24 @@
+{
+  "postcard_signed_info": {
+  	"version": "1.0",
+  	"mime_type": "application/vnd.hpi.postcard+json",
+    "application_id": "1",
+    "entity_id": "",
+    "creator": "service",
+    "key_id": "",
+    "timestamp": "12345678",
+    "seq_num": 1,
+    "postcard_id": "",
+    "message": [
+      {
+        "content_type": "application/xml",
+        "compression": "gzip",
+        "encryption": "aes_128",
+        "iv": "RQpL6CA9w+8E0Mf+w/Y8Cw==",
+        "content": "RHn6/Lm943rkGRlpVu+auimLxThzjGKOh35xVZNQJwDxFUehm27rmrExZuRonOYt6QTrxAypUlfUZnrSgjcT8A=="
+      }
+    ]
+  },
+  "hash": "",
+  "signatures": ""
+}

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-2.0.xsd">
+
+  	
+	<changeSet author="bnshr" id="016.db.pod.device.insert.registration_domain.Shimanto" >
+	<insert tableName="registration_domain" schemaName="pod_device">
+		<column name="domain_id">38</column>
+		<column name="entity_domain">Shimanto_2018_48</column>
+		<column name="domain_index">48</column>
+	</insert>
+    </changeSet>
+	
+	<changeSet author="bnshr" id="016.db.pod.device.insert.registration_domain.Clearwater" >
+	<insert tableName="registration_domain" schemaName="pod_device">
+		<column name="domain_id">39</column>
+		<column name="entity_domain">Clearwater_2018_49</column>
+		<column name="domain_index">49</column>
+	</insert>
+    </changeSet>
+	
+	<changeSet author="bnshr" id="016.db.pod.device.insert.registration_domain.Teton" >
+	<insert tableName="registration_domain" schemaName="pod_device">
+		<column name="domain_id">40</column>
+		<column name="entity_domain">Teton_2018_50</column>
+		<column name="domain_index">50</column>
+	</insert>
+    </changeSet>
+	
+	<changeSet author="bnshr" id="016.db.pod.device.insert.registration_domain.Mogami" >
+	<insert tableName="registration_domain" schemaName="pod_device">
+		<column name="domain_id">41</column>
+		<column name="entity_domain">Mogami_2018_51</column>
+		<column name="domain_index">51</column>
+	</insert>
+    </changeSet>
+	
+</databaseChangeLog>

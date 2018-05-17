@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+	<!-- For assistance related to logback-translator or configuration  -->
+	<!-- files in general, please contact the logback user mailing list -->
+	<!-- at http://www.qos.ch/mailman/listinfo/logback-user             -->
+	<!--                                                                -->
+	<!-- For professional support please see                            -->
+	<!--    http://www.qos.ch/shop/products/professionalSupport         -->
+	<!--                                                                -->
+<configuration scan="true" scanPeriod="2 minutes">
+	<property name="APP_NAME" value="SSN" />
+
+	<property name="LOG_FORMAT"
+		value="[%date{ISO8601}][%t][${APP_NAME}][%5level][%file:%line] %msg%n" />
+	
+	<appender name="file" class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<File>${catalina.home}/logs/plt-logback.log</File>
+		<Append>true</Append>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<fileNamePattern>${catalina.home}/logs/plt-logback.log.%d{yyyy-MM-dd}
+			</fileNamePattern>
+		</rollingPolicy>
+		<encoder>
+			<Pattern>${LOG_FORMAT}</Pattern>
+		</encoder>
+	</appender>
+
+	<appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+		<encoder>
+			<pattern>${LOG_FORMAT}</pattern>
+		</encoder>
+	</appender>
+
+	<logger name="net" level="off" />
+	<logger name="com.hp.wpp" level="all">
+		<appender-ref ref="file" />
+	</logger>
+	<logger name="javassist" level="warn" />
+	<logger name="net.sf.hibernate" level="off" />
+	<logger name="org" level="off" />
+	<logger name="javax" level="warn" />
+	<logger name="sun" level="warn" />
+	<logger name="antlr" level="warn" />
+	<logger name="java" level="warn" />
+	<logger name="httpclient" level="off" />
+	<logger name="org.hibernate" level="off" />
+	<logger name="org.springframework.security" level="off" />
+	<logger name="EDU" level="warn" />
+
+	<root level="warn">
+		<appender-ref ref="CONSOLE" />
+	</root>
+</configuration>

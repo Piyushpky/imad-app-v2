@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-2.0.xsd">
+         
+    <!-- hsql supports keyword as a "language", hence we should not use the same as a column name.
+    	with the above reason,  service_additional_info.LANGUAGE created in capital letters. -->
+    	
+    <changeSet author="potana (generated)" id="1446476952811-1">
+        <createTable tableName="entity_device">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="cloud_id" type="CHAR(32)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="entity_id" type="VARCHAR(100)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="entity_uuid" type="VARCHAR(100)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="entity_model" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="entity_name" type="VARCHAR(30)"/>
+            <column name="reset_counter" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="entity_domain" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValueComputed="CURRENT_TIMESTAMP" name="created_at" type="datetime(6)">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValueComputed="CURRENT_TIMESTAMP" name="last_updated" remarks="stores when ask created/updated timestamp" type="TIMESTAMP(19)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="potana (generated)" id="1446476952811-2">
+        <createTable tableName="hashed_entity_identifier">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="hashed_entity_identifier" type="VARCHAR(100)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="entity_identifier" type="VARCHAR(100)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="potana (generated)" id="1446476952811-3">
+        <createTable tableName="device_additional_info">
+            <column name="id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="cloud_id" type="CHAR(32)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="entity_revision" type="VARCHAR(50)"/>
+            <column name="entity_version_date" type="VARCHAR(20)"/>
+            <column name="country_and_region_name" type="VARCHAR(32)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="LANGUAGE" type="VARCHAR(10)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="spec_version" type="VARCHAR(10)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="originator" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="entity_additional_ids" type="TEXT"/>
+            <column name="entity_info" type="TEXT"/>
+            <column defaultValueComputed="CURRENT_TIMESTAMP" name="created_at" type="datetime(6)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="entity_mcid" type="VARCHAR(1024)">
+                <constraints nullable="true"/>
+            </column>
+            <column defaultValueComputed="CURRENT_TIMESTAMP" name="last_upated" remarks="stores when ask created/updated timestamp" type="TIMESTAMP(19)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="potana (generated)" id="1446476952811-4">
+        <createTable tableName="service_instance">
+            <column autoIncrement="true" name="service_instance_id" type="BIGINT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="service_type" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="service_url" type="VARCHAR(256)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="spec_version" type="VARCHAR(10)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+        <insert tableName="service_instance">
+			<column name="service_instance_id">1</column>
+			<column name="service_type">connectivity_config</column>
+			<column name="service_url">https://avatar.hpeprint.com/avatar/connectivityconfig/printers/%s</column>
+			<column name="spec_version">1.0</column>
+		</insert>
+		 <insert tableName="service_instance">
+			<column name="service_instance_id">2</column>
+			<column name="service_type">printer_caps</column>
+			<column name="service_url">https://vp.hpeprint.com/printers/%s/printerconfig</column>
+			<column name="spec_version">1.0</column>
+		</insert>
+    </changeSet>
+    <changeSet author="potana (generated)" id="1446476952811-5">
+        <addPrimaryKey columnNames="id" constraintName="PRIMARY" tableName="device_additional_info"/>
+    </changeSet>
+    <changeSet author="potana (generated)" id="1446476952811-6">
+        <addUniqueConstraint columnNames="cloud_id" constraintName="UK_cloud_id" tableName="entity_device"/>
+    </changeSet>
+    <changeSet author="potana (generated)" id="1446476952811-7">
+        <addUniqueConstraint columnNames="entity_id, entity_model" constraintName="UK_entity_id_model" tableName="entity_device"/>
+    </changeSet>
+    <changeSet author="potana (generated)" id="1446476952811-8">
+        <addForeignKeyConstraint baseColumnNames="id" baseTableName="device_additional_info" constraintName="device_additional_info_ibfk_1" deferrable="false" initiallyDeferred="false" onDelete="CASCADE" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="entity_device"/>
+    </changeSet>
+    <changeSet author="potana (generated)" id="1446476952811-9">
+        <addUniqueConstraint columnNames="entity_uuid" constraintName="UK_entity_uuid" tableName="entity_device"/>
+    </changeSet>
+
+    <changeSet author="potana (generated)" id="1464020784856-1">
+        <createTable tableName="registration_domain">
+            <column autoIncrement="true" name="domain_id" type="BIGINT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="entity_domain" type="VARCHAR(64)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="domain_index" type="INT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+        <insert tableName="registration_domain">
+            <column name="domain_id">1</column>
+            <column name="entity_domain">test_domain</column>
+            <column name="domain_index">0</column>
+        </insert>
+    </changeSet>
+    <changeSet author="potana (generated)" id="1464020784856-2">
+        <addUniqueConstraint columnNames="entity_domain" constraintName="UK_RegistrationDomain_domain" tableName="registration_domain"/>
+    </changeSet>
+    <changeSet author="potana (generated)" id="1464020784856-3">
+        <addUniqueConstraint columnNames="domain_index" constraintName="UK_RegistrationDomain_index" tableName="registration_domain"/>
+    </changeSet>    
+    <changeSet author="bnshr (generated)" id="1464020784856-4">
+         <addUniqueConstraint columnNames="entity_identifier" constraintName="UK_entity_identifier" tableName="hashed_entity_identifier"/>
+    </changeSet>
+     <changeSet author="bnshr (generated)" id="1464020784856-5">
+         <addUniqueConstraint columnNames="hashed_entity_identifier" constraintName="UK_hashed_entity_identifier" tableName="hashed_entity_identifier"/>
+    </changeSet>
+</databaseChangeLog>

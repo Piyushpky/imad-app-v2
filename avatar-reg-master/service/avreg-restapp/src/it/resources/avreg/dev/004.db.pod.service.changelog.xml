@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-2.0.xsd">
+         
+    	
+    <changeSet author="srikanth" id="service-001">
+        <createTable tableName="entity_service" >
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="cloud_id" type="CHAR(32)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="entity_id" type="VARCHAR(64)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="entity_model" type="VARCHAR(64)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="entity_uuid" type="VARCHAR(64)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="entity_name" type="VARCHAR(128)"/>
+            <column name="reset_counter" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="entity_domain" type="VARCHAR(64)">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValueComputed="CURRENT_TIMESTAMP" name="created_at" type="TIMESTAMP">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValueComputed="CURRENT_TIMESTAMP" name="last_updated" remarks="stores when entity created/updated timestamp" type="TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="srikanth" id="service-002">
+        <createTable tableName="hashed_entity_identifier" >
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="hashed_entity_identifier" type="VARCHAR(128)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="entity_identifier" type="VARCHAR(64)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="srikanth" id="service-003">
+        <createTable tableName="service_additional_info" >
+            <column name="id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="cloud_id" type="CHAR(32)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="entity_revision" type="VARCHAR(64)"/>
+            <column name="entity_version_date" type="VARCHAR(32)"/>
+            <column name="country_and_region_name" type="VARCHAR(64)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="language" type="VARCHAR(8)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="spec_version" type="VARCHAR(8)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="originator" type="VARCHAR(32)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="entity_additional_ids" type="TEXT"/>
+            <column name="entity_info" type="TEXT"/>
+            <column defaultValueComputed="CURRENT_TIMESTAMP" name="created_at" type="TIMESTAMP">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValueComputed="CURRENT_TIMESTAMP" name="last_upated" remarks="stores when entity created/updated timestamp" type="TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="srikanth" id="service-004">
+        <createTable tableName="service_instance" >
+            <column autoIncrement="true" name="service_instance_id" type="BIGINT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="service_type" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="service_url" type="VARCHAR(256)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="spec_version" type="VARCHAR(10)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="srikanth" id="service-005">
+        <addPrimaryKey columnNames="id" constraintName="service_additional_info_PRIMARY" tableName="service_additional_info" />
+    </changeSet>
+    <changeSet author="srikanth" id="service-006">
+        <addUniqueConstraint columnNames="cloud_id" constraintName="UK_entity_service_cloud_id" tableName="entity_service" />
+    </changeSet>
+    <changeSet author="srikanth" id="service-007">
+        <addUniqueConstraint columnNames="entity_id, entity_model" constraintName="UK_entity_service_entity_id_model" tableName="entity_service" />
+    </changeSet>
+    <changeSet author="srikanth" id="service-008">
+        <addForeignKeyConstraint baseColumnNames="id"  baseTableName="service_additional_info" constraintName="service_additional_info_ibfk_1" deferrable="false" initiallyDeferred="false" onDelete="CASCADE" onUpdate="NO ACTION" referencedColumnNames="id"  referencedTableName="entity_service"/>
+    </changeSet>
+</databaseChangeLog>

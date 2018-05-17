@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx" xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="
+       http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+       http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.0.xsd
+       http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.0.xsd
+       http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd"
+	default-autowire="byName">
+
+	<context:spring-configured />
+
+	<context:component-scan base-package="com.hp.wpp.postcard" />
+
+	<bean
+		class="org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor" />
+
+	<bean id="postcardDS" class="com.mchange.v2.c3p0.ComboPooledDataSource">
+		<property name="dataSourceName" value="avregPostcardDataSource"></property>
+		<property name="driverClass" value="${postcard.db.driver.class}"></property>
+		<property name="jdbcUrl" value="${postcard.db.jdbc.url}"></property>
+		<property name="user" value="${postcard.db.user}"></property>
+		<property name="password" value="${postcard.db.password}"></property>
+		<property name="maxPoolSize" value="${postcard.db.max.pool.size}" />
+		<property name="maxStatements" value="${postcard.db.max.statements}" />
+		<property name="minPoolSize" value="${postcard.db.min.pool.size}" />
+		<property name="maxIdleTime" value="${postcard.db.max.idle.time}" />
+		<property name="maxIdleTimeExcessConnections"
+			value="${postcard.db.max.idle.time.excess.connections}" />
+		<property name="checkoutTimeout" value="${postcard.db.checkout.timeout}" />
+		<property name="acquireIncrement" value="${postcard.db.acquire.increment}" />
+		<property name="acquireRetryAttempts" value="${postcard.db.acquire.retry.attempt}" />
+		<property name="acquireRetryDelay" value="${postcard.db.acquire.retry.delay}" />
+		<property name="numHelperThreads" value="${postcard.db.num.helper.threads}" />
+		<property name="testConnectionOnCheckout" value="${postcard.db.test.connection.on.checkout}" />
+		<property name="testConnectionOnCheckin" value="${postcard.db.test.connection.on.checkin}" />
+		<property name="idleConnectionTestPeriod" value="${postcard.db.idle.connection.test.period}" />
+		<property name="preferredTestQuery" value="${postcard.db.preferred.test.query}" />
+	</bean>
+
+
+	<bean id="postcardEntityManagerFactory"
+		class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
+		<property name="dataSource" ref="postcardDS" />
+		<property name="persistenceUnitName" value="postcard" />
+		<property name="jpaVendorAdapter">
+			<bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter">
+				<property name="showSql" value="${postcard.db.show.sql}" />
+				<property name="generateDdl" value="${postcard.db.generate.ddl}" />
+				<property name="databasePlatform" value="${postcard.db.dialect.class}" />
+			</bean>
+		</property>
+		<property name="jpaProperties">
+			<map>
+				<entry key="hibernate.connection.isolation" value="2" />
+			</map>
+		</property>
+	</bean>
+
+	<bean id="postcardTransactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
+		<property name="entityManagerFactory" ref="postcardEntityManagerFactory" />
+		<property name="nestedTransactionAllowed" value="true"></property>
+	</bean>
+	<tx:annotation-driven transaction-manager="postcardTransactionManager" />
+
+	<!-- business beans -->
+	<bean id="postcardDao" class="com.hp.wpp.postcard.dao.impl.PostcardDaoImpl" scope="singleton" />
+	<bean id="postcard" class="com.hp.wpp.postcard.impl.PostcardImpl" scope="singleton" />
+	<bean id="postcardClient" class="com.hp.wpp.postcard.client.PostcardClientImpl" scope="singleton" />
+	<bean id="postcardParser" class="com.hp.wpp.postcard.parser.impl.PostcardParserImpl" scope="singleton" />
+	<bean id="postcardValidator" class="com.hp.wpp.postcard.validator.PostcardValidatorImpl" scope="singleton" />
+	<bean id="postcardCryptoService" class="com.hp.wpp.postcard.service.impl.PostcardCryptoServiceImpl" scope="singleton" />
+	<bean id="postcardInstructionGenerator" class="com.hp.wpp.postcard.instruction.ServiceInstructionGenerator" scope="singleton" />
+	<bean id="secretGenerator" class="com.hp.wpp.postcard.key.generator.PostcardSecretGenerator" scope="prototype" />
+	<bean id="postcardCipher" class="com.hp.wpp.postcard.cipher.PostcardRSACipher" scope="prototype" />
+	<bean id="integrityValidator" class="com.hp.wpp.postcard.key.generator.RSAIntegrityValidator" scope="prototype" />
+	<bean id="cipherKey" class="com.hp.wpp.postcard.cipher.RSACipherKey" scope="prototype" />
+	<bean id="dkGenerator" class="com.hp.wpp.postcard.key.generator.LinearDKGenerator" scope="prototype" />
+	<bean id="compressor" class="com.hp.wpp.postcard.compression.ZipCompressor" scope="singleton" />
+	<bean id="keyNegotiator" class="com.hp.wpp.postcard.key.generator.RSAKeyNegotiator" scope="singleton" />
+	<bean id="certificateManager" class="com.hp.wpp.postcard.cipher.PostcardRSACertificateManager" scope="singleton" />
+
+	<bean id="postcardParserProvider" class="com.hp.wpp.postcard.parser.impl.JacksonPostcardParser" scope="singleton" />
+	<bean name="postcardConfig" class="com.hp.wpp.postcard.common.PostcardConfig" />
+
+	<bean name="dynamicPropertyFactory" class="com.netflix.config.DynamicPropertyFactory" factory-method="getInstance" />
+	<bean id="postcardVersionFactory" class="com.hp.wpp.postcard.version.factory.PostcardVersionStrategyFactory" scope="singleton" />
+	<bean id="postcardCertValidator" class="com.hp.wpp.postcard.cipher.PostcardCertValidator" scope="singleton" />
+	
+</beans>

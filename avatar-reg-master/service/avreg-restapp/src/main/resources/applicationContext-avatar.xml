@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:context="http://www.springframework.org/schema/context"	
+	xsi:schemaLocation="
+       http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+       http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.0.xsd
+       http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.0.xsd
+       http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd"
+       default-autowire="byName">
+	
+	<context:spring-configured />
+	
+	
+	<import resource="classpath:applicationContext-postcard.xml"/>
+	<import resource="classpath:applicationContext-ssn.xml"/>
+	<import resource="classpath:applicationContext-device.xml"/>
+	<import resource="classpath:applicationContext-podService.xml"/>
+	<import resource="classpath:applicationContext-framework.xml"/>
+	
+	<context:component-scan base-package="com.hp.wpp.avatar.restapp" />
+	
+	
+	<bean name="avatarConfig" class="com.hp.wpp.avatar.restapp.common.config.AvatarApplicationConfig" />
+	<bean name="dynamicPropertyFactory" class="com.netflix.config.DynamicPropertyFactory" factory-method="getInstance" />
+	
+	<bean id="entityTypeProcessorMap" class="com.hp.wpp.avatar.restapp.processor.EntityTypeProcessorMap">
+		<property name="entityTypeToProcessorMap">
+			<map>
+				<entry key="services" value-ref="serviceRegistrationProcessor"/>
+				<entry key="devices" value-ref="deviceRegistrationProcessor"/>
+			</map>
+		</property>
+	</bean>
+	<bean id="serviceRegistrationProcessor" class="com.hp.wpp.avatar.registration.service.processor.ServiceRegistrationProcessor">
+		<property name="podCode" value="${avatar-reg.pod.code}"/>
+		<property name="deRegistrationStreamName" value="${avatar-reg.event-notifier.dereg.stream.name}" />
+	</bean>
+	
+	<bean id="deviceClaimHeaders" class="com.hp.wpp.avatar.registration.device.processor.DeviceClaimHeaders">
+		<property name="deviceClaimUrl" value="${avatar-reg.reg-device.device.claim.url}"/>
+		<property name="deviceClaimAuthHeader" value="${avatar-reg.device.claim.authentication.header}"/>	
+   </bean>
+	
+	<bean id="deviceRegistrationProcessor" class="com.hp.wpp.avatar.registration.device.processor.DeviceRegistrationProcessor">
+		<property name="podCode" value="${avatar-reg.pod.code}"/>
+	    <property name="deviceClaimHeaders" ref="deviceClaimHeaders"/>
+		<property name="deRegistrationStreamName" value="${avatar-reg.event-notifier.dereg.stream.name}" />
+		<!--property name="ssnEnabled" value="${avatar-reg.reg-device.ssn.enabled.flag}"/-->
+		<constructor-arg ref="deviceClaimHttpClient"/>
+		<constructor-arg ref="pendingThreadPoolExecutor"/>
+	</bean>
+
+	<bean id="deviceClaimClientHttpConfig" class="com.hp.wpp.http.config.WppHttpConfig">
+		<property name="socketTimeout" value="${avatar-reg.http.socket.timeout.in.millis}" />
+		<property name="maxTotalConnections" value="${avatar-reg.http.max.total.connections}" />
+		<property name="maxConnectionsPerRoute" value="${avatar-reg.http.max.connections.per.route}" />
+		<property name="proxyEnabled" value="${avatar-reg.http.proxy.enabled}"/>
+		<property name="proxyHost" value="${avatar-reg.http.proxy.host}"/>
+		<property name="proxyPort" value="${avatar-reg.http.proxy.port}"/>
+		<property name="disableHostnameVerification" value="${avatar-reg.http.disable.hostname.verification}"/>
+	</bean>
+
+	<bean name="pendingThreadPoolExecutor" class="java.util.concurrent.ThreadPoolExecutor">
+		<constructor-arg index="0" value="${avatar-reg.thread.pool.core.size}"/>
+		<constructor-arg index="1" value="${avatar-reg.thread.pool.maximum.size}"/>
+		<constructor-arg index="2" value="${avatar-reg.thread.pool.keep.alive.time.in.ms}"/>
+		<constructor-arg index="3" value="MILLISECONDS" />
+		<constructor-arg index="4" ref="pendingThreadQueue" />
+		<constructor-arg index="5" ref="pendingThreadPoolName" />
+	</bean>
+	
+	<bean id="pendingThreadQueue" class="java.util.concurrent.LinkedBlockingQueue">
+		<constructor-arg value="${avatar-reg.thread.pool.core.size}"/>
+	</bean>
+
+	<bean id="pendingThreadPoolName" class="org.springframework.scheduling.concurrent.CustomizableThreadFactory">
+		<constructor-arg value="deviceClaim-handler-" />
+	</bean>
+		
+	<bean id="deviceClaimHttpClient" class="com.hp.wpp.http.WppHttpClient">
+		<constructor-arg ref="deviceClaimClientHttpConfig" />
+		<constructor-arg value="avatar-reg" />
+	</bean>
+
+	<bean name="cloudIdGenerator" class="com.hp.wpp.cidgenerator.impl.CloudIdGeneratorImpl"/>
+
+
+	
+</beans>

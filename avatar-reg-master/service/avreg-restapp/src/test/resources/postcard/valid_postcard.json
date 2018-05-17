@@ -1,0 +1,25 @@
+{
+  "version": "3.0",
+  "mime_type": "application/vnd.hp.cloudprint.postcard+json",
+  "signed_info": {
+    "protocol_version": "1.0",
+    "application_id": "1",
+    "device_id": "seoupthe3pk",
+    "creator": "service",
+    "key_id": "key_id-1",
+    "timestamp": "1432203713765",
+    "application_seq_num": 1,
+    "postcard_id": "uGs8/tOK1ItOo13pHaMiwMTPi+jl7+1bMiWS+3Dbfj8=",
+    "message": [
+      {
+        "content_type": "application/json",
+        "compression": "gzip",
+        "encryption": "aes_128",
+        "iv": "ay0Z3q+7Ab9QI4gP79Jd3A==",
+        "content": "tdupQaT7S5n2eCkhKzihiytuWKkCviCsWSPe4/MlbjU34aolc5uER7vicurBEJbZALDhDzTBnUNbHQbbWIPfNC+5qVEZ3vYXKhruPmOoRkwd/U3z1WRppKGpF/4/yoOmjYgl9ToDfcOUX/2PS3ZsoFd8tKBR9gCWK35c+AOJKaCiYM+Hp1/3QAQsMkDxb8n/QTy+arQlz4a1u9JoWS6KvnKJMkAUH6XqOcTItmB3YQkQxNBDZVaI8GI84NsX6vgxt3993Ols4fStiaTFq6pXXoj0EX3+GKPZsfqz2pMM+WMyIjEyWYC+mZ7CJmd/I6zVZ/utfzZQnt4BI7oxi/ySxLYg+FTNsmrbQdNHyOXdXFjx5DVBXHPWjYorDzNHL0/YjrEwVWMauNz2saEJkgjZGFiXxcVLLbRExxZiRyJwuJg="
+      }
+    ]
+  },
+  "hash": "TMzxoZVa5t6Vt0pQBv53G0cOARuSg1EzFu/R3Bn08nE=",
+  "signature": "Sa8vUrLBsquy4KTTUzy6407peMDJ7b73tu/oPg7aP3Y="
+}

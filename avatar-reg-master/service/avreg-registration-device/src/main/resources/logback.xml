@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- For assistance related to logback-translator or configuration -->
+<!-- files in general, please contact the logback user mailing list -->
+<!-- at http://www.qos.ch/mailman/listinfo/logback-user -->
+<!-- -->
+<!-- For professional support please see -->
+<!-- http://www.qos.ch/shop/products/professionalSupport -->
+<!-- -->
+<configuration scan="true" scanPeriod="2 minutes">
+	<property name="APP_NAME" value="avatar" />
+
+	<!-- Get the local host. -->
+
+	<property name="LOG_FORMAT" value="[%h][%date{ISO8601}][${APP_NAME}][%5level][%classFileNameAndLine][%marker] [%mdc] %msg%n" />
+
+	<appender name="file1"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<!--See http://logback.qos.ch/manual/appenders.html#RollingFileAppender -->
+		<!--and http://logback.qos.ch/manual/appenders.html#TimeBasedRollingPolicy -->
+		<!--for further documentation -->
+		<File>${catalina.home}/logs/${APP_NAME}-logback.log</File>
+		<Append>true</Append>
+		<encoder>
+			<pattern>%-5p | %d{ISO8601} | %t | %m | %X{logUID} %n</pattern>
+		</encoder>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<fileNamePattern>${catalina.home}/logs/${APP_NAME}-logback.log.%d{.yyyy-MM-dd}
+			</fileNamePattern>
+		</rollingPolicy>
+	</appender>
+	
+	<appender name="LogUID"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<!--See http://logback.qos.ch/manual/appenders.html#RollingFileAppender -->
+		<!--and http://logback.qos.ch/manual/appenders.html#TimeBasedRollingPolicy -->
+		<!--for further documentation -->
+		<Append>true</Append>
+		<File>${catalina.home}/logs/LogUIDs.log</File>
+		<encoder>
+			<pattern>| %m |%n</pattern>
+		</encoder>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<fileNamePattern>${catalina.home}/logs/LogUIDs.log.%d{.yyyy-MM-dd}
+			</fileNamePattern>
+		</rollingPolicy>
+	</appender>
+	
+	<appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+		<encoder>
+			<pattern>%-5p | %d{ISO8601} | %t | %m | %X{logUID} %n</pattern>
+		</encoder>
+	</appender>
+	
+	<appender name="FILE"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<File>${catalina.home}/wp_${APP_NAME}.log</File>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<!-- daily rollover -->
+			<FileNamePattern>${catalina.home}/wp_${APP_NAME}.%d{yyyy-MM-dd}.log
+			</FileNamePattern>
+			<!-- keep 5 days worth of history -->
+			<maxHistory>5</maxHistory>
+		</rollingPolicy>
+		<encoder>
+			<Pattern>${LOG_FORMAT}</Pattern>
+		</encoder>
+	</appender>
+
+	<appender name="ConsoleAppender" class="ch.qos.logback.core.ConsoleAppender">
+		<encoder>
+			<Pattern>${LOG_FORMAT}</Pattern>
+		</encoder>
+	</appender>
+	
+	<appender name="eventLogger"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<File>${catalina.home}/logs/${APP_NAME}_eventlogger-logback.log</File>
+		<Append>true</Append>
+		<encoder>
+			<pattern>%-5p | %d{ISO8601} | %t | %m | %X{logUID} %n</pattern>
+		</encoder>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<fileNamePattern>${catalina.home}/logs/${APP_NAME}_eventlogger-logback.log.%d{.yyyy-MM-dd}
+			</fileNamePattern>
+		</rollingPolicy>
+	</appender>
+
+	<appender name="events"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<File>${catalina.home}/logs/wp_${APP_NAME}_eventLogger.log</File>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<!-- daily rollover -->
+			<FileNamePattern>${catalina.home}/logs/wp_${APP_NAME}_eventLogger.%d{yyyy-MM-dd}.log
+			</FileNamePattern>
+			<!-- keep 5 days worth of history -->
+			<maxHistory>5</maxHistory>
+		</rollingPolicy>
+		<encoder>
+			<Pattern>${LOG_FORMAT}</Pattern>
+		</encoder>
+	</appender>
+
+	<logger name="EventLogger" additivity="false" level="info">
+		<appender-ref ref="events" />
+	</logger>
+	<logger name="net" level="off" />
+	<logger name="javassist" level="warn" />
+	<logger name="net.sf.hibernate" level="off" />
+	<logger name="org" level="off" />
+	<logger name="javax" level="warn" />
+	<logger name="sun" level="warn" />
+	<logger name="antlr" level="warn" />
+	<logger name="com.hp.cloudprint.util.logging.impl" additivity="false"
+		level="info">
+		<appender-ref ref="LogUID" />
+	</logger>
+	<logger name="java" level="warn" />
+	<logger name="httpclient" level="info" />
+	<logger name="org.hibernate" level="off" />
+	<logger name="org.springframework.security" level="off" />
+	<logger name="EDU" level="warn" />
+	<logger name="com.hp.wpp" level="trace">
+		<appender-ref ref="file1" />
+	</logger>
+
+	<root level="trace">
+		<appender-ref ref="CONSOLE" />
+	</root>
+</configuration>

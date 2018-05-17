@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-2.0.xsd">
+
+    <changeSet author="srikanth" id="pod_device-001">
+        <createTable tableName="printerregistrationdomain" >
+            <column autoIncrement="true" name="domainID" type="BIGINT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="registrationDomain" type="VARCHAR(127)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="SSNIndex" type="INT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="srikanth" id="pod_device-002">
+        <createTable tableName="printerregistrationdomainkey" >
+            <column autoIncrement="true" name="domainID" type="BIGINT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="registrationDomainKey" type="VARCHAR(127)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="srikanth" id="pod_device-003">
+        <createTable tableName="signedserialnumber" >
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="serialNumber" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="issuanceCounter" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="overrunBit" type="BIT(1)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="domainIndex" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="instantInk" type="BIT(1)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="version" type="VARCHAR(5)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="srikanth" id="pod_device-004">
+        <addUniqueConstraint columnNames="serialNumber" constraintName="signedserialnumber_SerialNumber" tableName="signedserialnumber" />
+    </changeSet>
+    <changeSet author="srikanth" id="pod_device-005">
+        <addUniqueConstraint columnNames="registrationDomain" constraintName="UK_PrinterRegistrationDomain_domain" tableName="printerregistrationdomain" />
+    </changeSet>
+    <changeSet author="srikanth" id="pod_device-006">
+        <addUniqueConstraint columnNames="SSNIndex" constraintName="UK_PrinterRegistrationDomain_ssnIndex" tableName="printerregistrationdomain" />
+    </changeSet>
+    <changeSet author="srikanth" id="pod_device-007">
+        <addForeignKeyConstraint baseColumnNames="domainID" baseTableName="printerregistrationdomainkey" constraintName="printerregistrationdomainkey_ibfk_1" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="domainID" referencedTableName="printerregistrationdomain"/>
+    </changeSet>
+    <changeSet author="srikanth" id="pod_device-008">
+    	<insert tableName="printerregistrationdomain" >
+			<column name="domainID">1</column>
+			<column name="registrationDomain">test-domain</column>
+			<column name="SSNIndex">0</column>
+		</insert>
+		<insert tableName="printerregistrationdomainkey" >
+			<column name="domainID">1</column>
+			<column name="registrationDomainKey">testDomainKey</column>
+		</insert>
+	</changeSet>
+</databaseChangeLog>

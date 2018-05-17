@@ -1,0 +1,76 @@
+<project
+    xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.hp.wpp.gen2.cd.rp-avreg</groupId>
+    <artifactId>rp-avreg-service-cookbook</artifactId>
+   <version>1.1.2</version>
+    <name>rp-avreg-service-cookbook</name>
+    <packaging>pom</packaging>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>1.6</source>
+                    <target>1.6</target>
+                </configuration>
+            </plugin>
+            <plugin>
+                <artifactId>maven-antrun-plugin</artifactId>
+                <version>1.7</version>
+                <executions>
+                    <execution>
+                        <id>rp-avreg-cookbook-package</id>
+                        <phase>package</phase>
+                        <configuration>
+                            <target>
+                                <echo message="Packaging cookbooks" />
+                                <exec executable="berks">
+                                    <arg value="vendor"/>
+                                    <arg value="${project.basedir}/packages/cookbooks_pkg/cookbooks"/>
+                                </exec>
+                                <tar destfile="${project.build.directory}/${project.artifactId}-${project.version}.tar" basedir="${project.basedir}/packages/cookbooks_pkg" />
+                                <gzip destfile="${project.build.directory}/${project.artifactId}-${project.version}.tar.gz" src="${project.build.directory}/${project.artifactId}-${project.version}.tar" />
+
+                            </target>
+                        </configuration>
+                        <goals>
+                            <goal>run</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>build-helper-maven-plugin</artifactId>
+                <version>1.3</version>
+                <executions>
+                    <execution>
+                        <id>attach-distribution</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>attach-artifact</goal>
+                        </goals>
+                        <configuration>
+                            <artifacts>
+                                <artifact>
+                                    <file>target/${project.artifactId}-${project.version}.tar.gz</file>
+                                    <type>tar.gz</type>
+                                </artifact>
+                            </artifacts>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+    <distributionManagement>
+        <repository>
+            <id>devops-releases</id>
+            <url>http://repository.cd.wppg2.com/nexus/content/repositories/devops-releases/</url>
+        </repository>
+    </distributionManagement>
+</project>

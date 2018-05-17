@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:jpa="http://www.springframework.org/schema/data/jpa"	
+	xsi:schemaLocation="
+       http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+       http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.0.xsd
+       http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.0.xsd
+       http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd
+       http://www.springframework.org/schema/data/jpa
+       http://www.springframework.org/schema/data/jpa/spring-jpa.xsd"
+       default-autowire="byName">
+	
+	<context:spring-configured />
+	
+	<context:component-scan base-package="com.hp.wpp.avatar.regitration.service" />
+	
+	<jpa:repositories base-package="com.hp.wpp.avatar.registration.service.repository"
+                      entity-manager-factory-ref="podServiceEntityManagerFactory"
+                      transaction-manager-ref="podServiceTransactionManager"/>
+	
+	<bean class="org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor" />
+	
+    <bean id="podServiceDS" class="com.mchange.v2.c3p0.ComboPooledDataSource">
+		<property name="dataSourceName" value="avregPodServiceDataSource"></property>
+		<property name="driverClass" value="${avatar-reg.reg-service.db.driver.class}"></property>
+		<property name="jdbcUrl" value="${avatar-reg.reg-service.db.jdbc.url}"></property>
+		<property name="user" value="${avatar-reg.reg-service.db.user}"></property>
+		<property name="password" value="${avatar-reg.reg-service.db.password}"></property>
+		<property name="maxPoolSize" value="${avatar-reg.reg-service.db.max.pool.size}" />
+		<property name="maxStatements" value="${avatar-reg.reg-service.db.max.statements}" />
+		<property name="minPoolSize" value="${avatar-reg.reg-service.db.min.pool.size}" />
+		<property name="maxIdleTime" value="${avatar-reg.reg-service.db.max.idle.time}"/>		
+		<property name="maxIdleTimeExcessConnections" value="${avatar-reg.reg-service.db.max.idle.time.excess.connections}"/>
+		<property name="checkoutTimeout" value="${avatar-reg.reg-service.db.checkout.timeout}"/>			
+		<property name="acquireIncrement" value="${avatar-reg.reg-service.db.acquire.increment}"/>
+		<property name="acquireRetryAttempts" value="${avatar-reg.reg-service.db.acquire.retry.attempt}"/>
+		<property name="acquireRetryDelay" value="${avatar-reg.reg-service.db.acquire.retry.delay}"/>
+		<property name="numHelperThreads" value="${avatar-reg.reg-service.db.num.helper.threads}"/>
+		<property name="testConnectionOnCheckout" value="${avatar-reg.reg-service.db.test.connection.on.checkout}"/>
+		<property name="testConnectionOnCheckin" value="${avatar-reg.reg-service.db.test.connection.on.checkin}"/>		
+		<property name="idleConnectionTestPeriod" value="${avatar-reg.reg-service.db.idle.connection.test.period}"/> 
+		<property name="preferredTestQuery" value="${avatar-reg.reg-service.db.preferred.test.query}"/>
+	</bean>
+
+	<bean id="podServiceEntityManagerFactory"
+		class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
+		<property name="dataSource" ref="podServiceDS" />
+		<property name="persistenceUnitName" value="pod_service" />
+		<property name="jpaVendorAdapter">
+			<bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter">
+				<property name="showSql" value="${avatar-reg.reg-service.db.show.sql}" />
+				<property name="generateDdl" value="${avatar-reg.reg-service.db.generate.ddl}" />
+        		<property name="databasePlatform" value="${avatar-reg.reg-service.db.dialect.class}"/>
+			</bean>
+		</property>
+		<property name="jpaProperties">
+			<map>
+				<!--
+				TRANSACTION_NONE	     		= 0
+				TRANSACTION_READ_UNCOMMITTED 	= 1
+				TRANSACTION_READ_COMMITTED   	= 2 
+				TRANSACTION_REPEATABLE_READ  	= 4
+				TRANSACTION_SERIALIZABLE     	= 8
+				 -->
+				<entry key="hibernate.connection.isolation" value="2" />
+			</map>
+		</property>
+	</bean>
+
+	<bean id="podServiceTransactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
+		<property name="entityManagerFactory" ref="podServiceEntityManagerFactory" />
+		<property name="nestedTransactionAllowed" value="true"></property>
+	</bean>
+	<tx:annotation-driven transaction-manager="podServiceTransactionManager" />
+</beans>

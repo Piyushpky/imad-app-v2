@@ -1,0 +1,6 @@
+Story ID: X
+DB Change[YES/NO]: NO
+Config Change[YES/NO]: NO
+Cookbook Change[YES/NO]: NO
+Spec Change[YES/NO]: NO
+Description: This is a test message

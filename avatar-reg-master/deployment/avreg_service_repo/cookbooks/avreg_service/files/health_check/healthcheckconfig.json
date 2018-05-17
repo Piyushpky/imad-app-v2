@@ -1,0 +1,118 @@
+{
+  "healthcheck_configuration" : {
+	"service_name": "Avatar-Reg",
+	"service_version": "1.0.25",
+	"healthchecks":[
+	{
+		"healthcheck_name":"DLS HealthCheck",
+		"healthcheck_description":"HealthCheck for DLS",
+		"healthcheck_type":"net.url",
+		"options":[{
+			"option_key":"net.url.httpmethodname",
+			"option_value":"GET"
+		},{
+           "option_key": "net.url.location",
+            "option_value": "config://avatar-reg.reg-device.device.claim.url"
+        }, {
+            "option_key": "net.url.remote.uri",
+            "option_value": "/virtualprinter/v1/about"
+        },{
+			"option_key":"net.url.expectedResponseCodes",
+			"option_value":"200"
+		}],
+		"scope":"external",
+		"criticality":"critical"
+	},{
+		"healthcheck_name":"CPU HealthCheck",
+		"healthcheck_description":"HealthCheck for CPU",
+		"healthcheck_type":"system.cpu",
+		"options":[{
+			"option_key":"system.cpu.load.avg.threshold",
+			"option_value":"2"
+		}],
+		"scope":"internal",
+		"criticality":"non_critical"
+	},{
+		"healthcheck_name":"Memory HealthCheck",
+		"healthcheck_description":"HealthCheck for Memory",
+		"healthcheck_type":"system.jvm.memory",
+		"options":[{
+			"option_key":"system.jvm.memory.threshold",
+			"option_value":"95"
+		}],
+		"scope":"internal",
+		"criticality":"non_critical"
+	},{
+		"healthcheck_name":"Avatar-Reg Pod Device DB HealthCheck",
+		"healthcheck_description":"HealthCheck for Avatar-Reg Pod Device DB",
+		"healthcheck_type":"storage.db",
+		"options":[{
+			"option_key":"storage.db.c3p0.dataSourceName",
+			"option_value":"avregPodDeviceDataSource"
+		},{
+			"option_key":"storage.db.c3p0.dbusername",
+			"option_value":"config://avatar-reg.reg-device.db.user/default"
+		},{
+			"option_key":"storage.db.c3p0.dbpassword",
+			"option_value":"config://avatar-reg.reg-device.db.password/default"
+		}],
+		"scope":"external",
+		"criticality":"critical"
+	},{
+		"healthcheck_name":"Avatar-Reg Pod Service DB HealthCheck",
+		"healthcheck_description":"HealthCheck for Avatar-Reg Pod Service DB",
+		"healthcheck_type":"storage.db",
+		"options":[{
+			"option_key":"storage.db.c3p0.dataSourceName",
+			"option_value":"avregPodServiceDataSource"
+		},{
+			"option_key":"storage.db.c3p0.dbusername",
+			"option_value":"config://avatar-reg.reg-service.db.user/default"
+		},{
+			"option_key":"storage.db.c3p0.dbpassword",
+			"option_value":"config://avatar-reg.reg-service.db.password/default"
+		}],
+		"scope":"external",
+		"criticality":"critical"
+	},{
+		"healthcheck_name":"Postcard DB HealthCheck",
+		"healthcheck_description":"HealthCheck for Postcard DB",
+		"healthcheck_type":"storage.db",
+		"options":[{
+			"option_key":"storage.db.c3p0.dataSourceName",
+			"option_value":"avregPostcardDataSource"
+		},{
+			"option_key":"storage.db.c3p0.dbusername",
+			"option_value":"config://postcard.db.user/default"
+		},{
+			"option_key":"storage.db.c3p0.dbpassword",
+			"option_value":"config://postcard.db.password/default"
+		}],
+		"scope":"external",
+		"criticality":"critical"
+	},{
+		"healthcheck_name":"SSN DB HealthCheck",
+		"healthcheck_description":"HealthCheck for SSN DB",
+		"healthcheck_type":"storage.db",
+		"options":[{
+			"option_key":"storage.db.c3p0.dataSourceName",
+			"option_value":"avregSSNDataSource"
+		},{
+			"option_key":"storage.db.c3p0.dbusername",
+			"option_value":"config://avatar-reg.ssn.db.user/default"
+		},{
+			"option_key":"storage.db.c3p0.dbpassword",
+			"option_value":"config://avatar-reg.ssn.db.password/default"
+		}],
+		"scope":"external",
+		"criticality":"critical"
+	},{
+            "healthcheck_name": "Ops DB HealthCheck",
+            "healthcheck_description": "HealthCheck for Ops DB",
+            "healthcheck_type": "config.db",
+            "options": [],
+            "scope": "external",
+            "criticality": "critical"
+        }]
+  }
+}

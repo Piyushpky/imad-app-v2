@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<databaseChangeLog
+  xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+	
+	<changeSet author="srikanth" id="avreg-001">	
+	<sql
+		dbms="mysql"
+		endDelimiter="\nGO"
+        splitStatements="true"
+        stripComments="true">create schema IF NOT EXISTS ssndb DEFAULT CHARACTER SET utf8;
+	</sql>
+	</changeSet>
+  	
+  	<changeSet author="srikanth" id="avreg-002">	
+	<sql
+		dbms="mysql"
+		endDelimiter="\nGO"
+        splitStatements="true"
+        stripComments="true">create schema IF NOT EXISTS postcarddb DEFAULT CHARACTER SET utf8;
+	</sql>
+	</changeSet>
+	
+  	<changeSet author="srikanth" id="avreg-003">	
+	<sql
+		dbms="mysql"
+		endDelimiter="\nGO"
+        splitStatements="true"
+        stripComments="true">create schema IF NOT EXISTS pod_device DEFAULT CHARACTER SET utf8;
+	</sql>
+	</changeSet>
+	
+	<changeSet author="srikanth" id="avreg-004">	
+	<sql
+		dbms="mysql"
+		endDelimiter="\nGO"
+        splitStatements="true"
+        stripComments="true">create schema IF NOT EXISTS pod_service DEFAULT CHARACTER SET utf8;
+	</sql>
+	</changeSet>
+	
+  	<include file="001.db.ssn.changelog.xml"/> 
+  	<include file="002.db.postcard.changelog.xml"/>
+  	<include file="003.db.pod.device.changelog.xml"/>
+  	<include file="004.db.pod.service.changelog.xml"/>
+  	<include file="007.db.pod.device.alter.changelog.xml"/>
+  	<include file="008.db.pod.service.alter.changelog.xml"/>
+	<include file="009.db.pod.device.registration_domain.xml"/>
+	<include file="010.db.pod.device.insert.registration_domain.simulator.xml"/>
+	<include file="011.db.pod.device.hashed_entity_identifier.alter.changelog.xml"/>
+	<include file="012.db.pod_device.domain_index.update.changelog.sql"/>
+	<include file="013.db.pod_device.domain_index.simulator.update.changelog.sql"/>
+	<include file="014.db.pod_device.blacklistrules.create.tables.sql"/>
+	<include file="015.db.pod_device.device_additional_info.alter.table.xml"/>
+  	<includeAll path="pie"/> 	
+  
+</databaseChangeLog>

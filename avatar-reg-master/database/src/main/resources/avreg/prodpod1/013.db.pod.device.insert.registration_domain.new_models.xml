@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-2.0.xsd">
+
+    <changeSet author="bnshr" id="013.db.pod.device.insert.registration_domain.Mercury" >
+	<insert tableName="registration_domain" schemaName="pod_device">
+		<column name="domain_id">21</column>
+		<column name="entity_domain">Mercury_2017_17</column>
+		<column name="domain_index">17</column>
+	</insert>
+    </changeSet>
+	
+    <changeSet author="bnshr" id="013.db.pod.device.insert.registration_domain.Denali" >
+	<insert tableName="registration_domain" schemaName="pod_device">
+		<column name="domain_id">22</column>
+		<column name="entity_domain">Denali_2017_18</column>
+		<column name="domain_index">18</column>
+	</insert>
+    </changeSet>
+	
+    <changeSet author="bnshr" id="013.db.pod.device.insert.registration_domain.Sapphire" >
+	<insert tableName="registration_domain" schemaName="pod_device">
+		<column name="domain_id">23</column>
+		<column name="entity_domain">Sapphire_2017_19</column>
+		<column name="domain_index">19</column>
+	</insert>
+    </changeSet>
+	
+    <changeSet author="bnshr" id="013.db.pod.device.insert.registration_domain.Everest" >
+	<insert tableName="registration_domain" schemaName="pod_device">
+		<column name="domain_id">24</column>
+		<column name="entity_domain">Everest_2017_20</column>
+		<column name="domain_index">20</column>
+	</insert>
+    </changeSet>
+	
+    <changeSet author="bnshr" id="013.db.pod.device.insert.registration_domain.Azalea" >
+	<insert tableName="registration_domain" schemaName="pod_device">
+		<column name="domain_id">25</column>
+		<column name="entity_domain">Azalea_2017_21</column>
+		<column name="domain_index">21</column>
+	</insert>
+    </changeSet>
+	
+    <changeSet author="bnshr" id="013.db.pod.device.insert.registration_domain.Camas" >
+	<insert tableName="registration_domain" schemaName="pod_device">
+		<column name="domain_id">26</column>
+                <column name="entity_domain">Camas_2017_22</column>
+		<column name="domain_index">22</column>
+	</insert>
+    </changeSet>
+	
+    <changeSet author="bnshr" id="013.db.pod.device.insert.registration_domain.Fiji" >
+	<insert tableName="registration_domain" schemaName="pod_device">
+		<column name="domain_id">27</column>
+		<column name="entity_domain">Fiji_2017_23</column>
+		<column name="domain_index">23</column>
+	</insert>
+    </changeSet>
+	
+    <changeSet author="bnshr" id="013.db.pod.device.insert.registration_domain.Tahiti" >
+        <insert tableName="registration_domain" schemaName="pod_device">
+            <column name="domain_id">28</column>
+            <column name="entity_domain">Tahiti_2017_24</column>
+            <column name="domain_index">24</column>
+        </insert>
+    </changeSet>
+	
+   <changeSet author="bnshr" id="013.db.pod.device.insert.registration_domain.Autobahn" >
+	<insert tableName="registration_domain" schemaName="pod_device">
+		<column name="domain_id">29</column>
+		<column name="entity_domain">Autobahn_2017_25</column>
+		<column name="domain_index">25</column>
+	</insert>
+    </changeSet>
+	
+    <changeSet author="bnshr" id="013.db.pod.device.insert.registration_domain.Moto" >
+	<insert tableName="registration_domain" schemaName="pod_device">
+		<column name="domain_id">30</column>
+		<column name="entity_domain">Moto_2017_26</column>
+		<column name="domain_index">26</column>
+	</insert>
+    </changeSet>
+	
+     <changeSet author="bnshr" id="013.db.pod.device.insert.registration_domain.StarGarnet" >
+	<insert tableName="registration_domain" schemaName="pod_device">
+		<column name="domain_id">31</column>
+		<column name="entity_domain">StarGarnet_2017_27</column>
+		<column name="domain_index">27</column>
+	</insert>
+    </changeSet>
+	
+	 <changeSet author="bnshr" id="013.db.pod.device.insert.registration_domain.Redwood" >
+	<insert tableName="registration_domain" schemaName="pod_device">
+		<column name="domain_id">32</column>
+		<column name="entity_domain">Redwood_2017_28</column>
+		<column name="domain_index">28</column>
+	</insert>
+    </changeSet>
+	
+	<changeSet author="bnshr" id="013.db.pod.device.insert.registration_domain.Cypress" >
+	<insert tableName="registration_domain" schemaName="pod_device">
+		<column name="domain_id">33</column>
+		<column name="entity_domain">Cypress_2017_29</column>
+		<column name="domain_index">29</column>
+	</insert>
+    </changeSet>
+	
+	<changeSet author="bnshr" id="013.db.pod.device.insert.registration_domain.Maple" >
+	<insert tableName="registration_domain" schemaName="pod_device">
+		<column name="domain_id">34</column>
+		<column name="entity_domain">Maple_2017_30</column>
+		<column name="domain_index">30</column>
+	</insert>
+    </changeSet>
+</databaseChangeLog>

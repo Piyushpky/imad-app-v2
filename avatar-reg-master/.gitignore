@@ -1,0 +1,5 @@
+*.name
+.idea
+*.pyc
+target
+*.iml

@@ -1,0 +1,63 @@
+
+###you can uncomment next two lines for easy debug
+###Warning: if master_process is off, there will be only one nginx worker running. Only use it for debug propose.
+
+daemon  off;
+
+master_process  <%= node['rp-avreg']['master_process'] %>;
+
+user  <%= node['rp-avreg']['user'] %>;
+
+events {
+    worker_connections  <%= node['rp-avreg']['worker_connections'] %>;
+}
+
+worker_processes  <%= node['rp-avreg']['workerprocess'] %>;
+http {
+    include       mime.types;
+    default_type  application/octet-stream;
+    log_format  main  '$remote_addr - $remote_user [$time_local] "$request" '
+                      '$status $body_bytes_sent "$http_referer" '
+                      '"$http_user_agent" "$http_x_forwarded_for"';
+
+    access_log  logs/<%= node['rp-avreg']['logpath'] %>  main;
+   
+    sendfile        on;
+    keepalive_timeout  <%= node['rp-avreg']['keepalive_timeout '] %>;
+
+   	jvm_path "<%= node['rp-avreg']['jvm_path'] %>";
+    jvm_classpath "<%= node['rp-avreg']['jvm_classpath'] %>";
+  
+    jvm_options "-Xms<%= node['rp-avreg']['min_heap'] %>";
+    jvm_options "-Xmx<%= node['rp-avreg']['max_heap'] %>";
+	jvm_options "-XX:+HeapDumpOnOutOfMemoryError";
+   
+   #for enable java remote debug uncomment next two lines
+
+   jvm_options "-Dcom.sun.management.jmxremote";
+   jvm_options "-Dcom.sun.management.jmxremote.port=<%= node['rp-avreg']['jmxremote_port'] %>";
+   jvm_options "-Dcom.sun.management.jmxremote.local.only=false";
+   jvm_options "-Dcom.sun.management.jmxremote.authenticate=false";
+    jvm_options "-Dcom.sun.management.jmxremote.ssl=false";
+    
+    server {
+        listen       <%= node['rp-avreg']['listen_port'] %>;
+        server_name  localhost;
+		
+        location <%= node['rp-avreg']['location'] %> {
+			auth_basic "<%= node['rp-avreg']['auth_basic'] %>";
+            auth_basic_user_file <%= node['rp-avreg']['path'] %>/.htpasswd;
+			proxy_pass <%= node['rp-avreg']['proxypass'] %>;
+			proxy_set_header <%= node['rp-avreg']['proxyheader'] %>;
+		}
+		location <%= node['rp-avreg']['location_withoutauth'] %> {
+			proxy_pass <%= node['rp-avreg']['proxypass'] %>;
+		}
+		location = / {
+		 deny all;
+                }
+			
+        }
+	
+        error_page   500 502 503 504  /50x.html;
+}

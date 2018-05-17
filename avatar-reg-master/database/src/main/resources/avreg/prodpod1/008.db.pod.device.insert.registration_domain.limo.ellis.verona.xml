@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-2.0.xsd">
+
+    <changeSet author="potana" id="008.db.pod.device.insert.registration_domain.Verona" >
+        <insert tableName="registration_domain" schemaName="pod_device">
+            <column name="domain_id">4</column>
+            <column name="entity_domain">Verona_2017_6</column>
+            <column name="domain_index">6</column>
+        </insert>
+    </changeSet>
+    <changeSet author="potana" id="008.db.pod.device.insert.registration_domain.Limo" >
+	<insert tableName="registration_domain" schemaName="pod_device">
+		<column name="domain_id">5</column>
+                <column name="entity_domain">Limo_2017_7</column>
+		<column name="domain_index">7</column>
+	</insert>
+    </changeSet>
+    <changeSet author="potana" id="008.db.pod.device.insert.registration_domain.Ellis" >
+	<insert tableName="registration_domain" schemaName="pod_device">
+		<column name="domain_id">6</column>
+		<column name="entity_domain">Ellis_2017_8</column>
+		<column name="domain_index">8</column>
+	</insert>
+    </changeSet>
+</databaseChangeLog>

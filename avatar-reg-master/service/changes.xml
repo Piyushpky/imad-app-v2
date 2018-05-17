@@ -1,0 +1,29 @@
+	<document xmlns="http://maven.apache.org/changes/1.0.0"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://maven.apache.org/changes/1.0.0 http://maven.apache.org/xsd/changes-1.0.0.xsd">
+  <properties>
+    <title>Changes Parent pom  Project</title>
+    <author email="VijayKookal@hpidevops.com">VijayKookal</author>
+  </properties>
+  <body>
+    <release version="1.1" date="2016-08-01" description="Subsequent release">
+      <action dev="Venu" type="add">
+        Added additional documentation on how to configure the plugins.
+		Venu Please fix any issues in the project site 
+      </action>
+      <action dev="Gautham" type="fix" issue="Norally">
+        Enable and Creating maven site deploy in linux instance .
+      </action>
+      <action dev="Sreekanth" type="remove" due-to="Sreekanth Potana" due-to-email="Sreekanth@hpi.com">
+        Description: enabling gateway/genisys service team to access validation api.
+        
+      </action>
+    </release>
+
+    <release version="1.0" date="2016-05-01" description="First release">
+      <action dev="MadanKumar T" type="add">
+        Description: Re-issuing credentials :: enabling gateway/genisys service team to access validation api.
+      </action>
+    </release>
+  </body>
+</document>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-2.0.xsd">
+
+	<changeSet id="device_alter-001" author="som">
+		<modifyDataType tableName="entity_device" columnName="entity_model"
+			newDataType="VARCHAR(64)" schemaName="pod_device" />
+
+		<modifyDataType tableName="entity_device" columnName="entity_name"
+			newDataType="VARCHAR(256)" schemaName="pod_device" />
+
+		<modifyDataType tableName="entity_device" columnName="entity_domain"
+			newDataType="VARCHAR(64)" schemaName="pod_device" />
+	</changeSet>
+
+	<changeSet id="device_alter-002" author="som">
+
+		<modifyDataType tableName="device_additional_info"
+			columnName="entity_revision" newDataType="VARCHAR(64)" schemaName="pod_device" />
+
+		<modifyDataType tableName="device_additional_info"
+			columnName="entity_version_date" newDataType="VARCHAR(64)"
+			schemaName="pod_device" />
+
+		<modifyDataType tableName="device_additional_info"
+			columnName="country_and_region_name" newDataType="VARCHAR(64)"
+			schemaName="pod_device" />
+
+		<modifyDataType tableName="device_additional_info"
+			columnName="language" newDataType="VARCHAR(8)" schemaName="pod_device" />
+
+		<modifyDataType tableName="device_additional_info"
+			columnName="spec_version" newDataType="VARCHAR(8)" schemaName="pod_device" />
+
+		<modifyDataType tableName="device_additional_info"
+			columnName="originator" newDataType="VARCHAR(32)" schemaName="pod_device" />
+
+	</changeSet>
+</databaseChangeLog>
+	
+       

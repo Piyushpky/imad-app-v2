@@ -1,0 +1,28 @@
+---
+driver:
+  name: ec2
+  instance_type: t2.micro
+
+transport:
+  username: ec2-user
+  ssh_key: /home/ec2-user/aws-test.pem
+  
+provisioner:
+  name: chef_zero
+  cookbooks_path: ../../cookbooks
+  environments_path: ../../environments
+  client_rb:
+    environment: dev
+  data_bags_path: ../../data_bags
+
+platforms:
+  - name: chef_base
+    driver:
+      image_id: ami-d315f9b3
+#      username: ec2-user
+      region: us-west-2
+
+suites:
+  - name: default
+    run_list: ["recipe[avreg_db::default]"]
+#   attributes: { "secret-file": "/tmp/kitchen/dna.json"}

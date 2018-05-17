@@ -1,0 +1,29 @@
+{
+  "postcard_signed_info": {
+  	"version": "1.0",
+  	"mime_type": "application/vnd.hpi.eprint.postcard+json",
+    "application_id": "1",
+    "entity_id": "ab51bf6e-c11b-4d7e-8a15-e4f9d92daf65",
+    "creator": "service",
+    "key_id": "76906363ecc465ed0f249b334e241c725",
+    "timestamp": "12345678",
+    "seq_num": 1,
+    "postcard_id": "8U4JRPW/VFbxwGBw5R91IxELJiBoKfCWp73vxJEXRbo=",
+    "messages": [
+      {
+        "content_type": "application/xml",
+        "compression": "gzip",
+        "encryption": "aes_128",
+        "iv": "RQpL6CA9w+8E0Mf+w/Y8Cw==",
+        "content": "RHn6/Lm943rkGRlpVu+auimLxThzjGKOh35xVZNQJwDxFUehm27rmrExZuRonOYt6QTrxAypUlfUZnrSgjcT8A=="
+      }
+    ]
+  },
+  "hash": "nz5HBN7KytYPZY0+LzS+5imr0NiMXkfN8MwfMnHFiYw=",
+  "signatures": [
+	  {
+	  	"key_id": "76906363ecc465ed0f249b334e241c725",
+	  	"signature": "tKb+A6GFfvyetpgOuvtmbFTGJABs3Y4uxX9je6UGnRk="
+	  }
+	]
+}

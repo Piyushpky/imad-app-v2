@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:jpa="http://www.springframework.org/schema/data/jpa"	
+	xsi:schemaLocation="
+       http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+       http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.0.xsd
+       http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.0.xsd
+       http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd
+       http://www.springframework.org/schema/data/jpa
+       http://www.springframework.org/schema/data/jpa/spring-jpa.xsd"
+       default-autowire="byName">
+
+	<bean id="kinesisHelper" class="com.hp.wpp.avatar.restapp.util.KinesisHelper" scope="singleton"/>
+	<bean id="eventProducerConfig" class="com.hp.wpp.stream.messages.config.EventProducerConfig">
+		<property name="applicationName" value="avreg" />
+		<property name="region" value="#{kinesisHelper.getRegion()}" />
+		<property name="proxyEnabled" value="${avatar-reg.event-notifier.proxy.enabled}" />
+		<property name="proxyHost" value="${avatar-reg.event-notifier.proxy.host}" />
+		<property name="proxyPort" value="${avatar-reg.event-notifier.proxy.port}" />
+		<property name="accessKeyId" value="${avatar-reg.event-notifier.access.key.id}" />
+		<property name="secretKey" value="${avatar-reg.event-notifier.secret.key}" />
+		<property name="clientConfigVersion" value="${avatar-reg.event-notifier.client.config.version}" />
+	</bean>
+
+	<bean id="eventProducer" class="com.hp.wpp.stream.messages.client.impl.EventProducerImpl">
+		<constructor-arg ref="eventProducerConfig" />
+	</bean>
+
+	<bean id="registrationEventProducer" class="com.hp.wpp.stream.producer.RegistrationEventProducer">
+		<constructor-arg ref="eventProducer" />
+		<constructor-arg ref="generateResponse" />
+		<constructor-arg name="streamName" value="${avatar-reg.event-notifier.registration.stream.name}" />
+	</bean>
+</beans>

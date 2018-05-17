@@ -1,0 +1,563 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.hp.wpp.avreg</groupId>
+	<artifactId>Avatar-Registration</artifactId>
+	<version>${avreg.version}</version>
+	<packaging>pom</packaging>
+
+	<name>Avreg</name>
+	<url>https://jenkins.cd.dev.avatar.ext.hp.com/</url>
+	<description>Avater-regesitration.</description>
+
+	<!-- Issue management details -->
+	<issueManagement>
+		<url>https://rally1.rallydev.com/slm/login.op</url>
+		<system>Avreg issues</system>
+	</issueManagement>
+
+	<!-- >This is to provide developer details of the team </!-->
+	<developers>
+		<developer>
+			<email>madankumar.t@hp.com</email>
+			<name>Madan Kumar T</name>
+			<url>https://github.com/tmadan</url>
+			<id>tmadan</id>
+		</developer>
+		<developer>
+			<email>srikanth.potana@hp.com</email>
+			<name>srikanth</name>
+			<url>https://github.com/srikanth</url>
+			<id>srikanthp</id>
+		</developer>
+	</developers>
+
+
+	<!-- >This is to provide contributors details of the team including Architect ,Devlopers, testing and Devops </!-->
+	<contributors>
+		<contributor>
+			<name>Madan Thogata </name>
+			<roles>
+				<role>DevOps</role>
+			</roles>
+		</contributor>
+		<contributor>
+			<name>Srikanth Potana </name>
+			<roles>
+				<role>developer</role>
+			</roles>
+		</contributor>
+		<contributor>
+			<name>Rajat </name>
+			<roles>
+				<role>developer</role>
+			</roles>
+		</contributor>
+		<contributor>
+			<name>Venu</name>
+			<roles>
+				<role>Architect</role>
+			</roles>
+		</contributor>
+	</contributors>
+
+	<!-- >This is to provide CI management details </!-->
+	<ciManagement>
+		<system>Jenkins </system>
+		<url>https://jenkins.cd.dev.avatar.ext.hp.com</url>
+		<notifiers>
+			<notifier>
+				<type>mail</type>
+				<sendOnError>true</sendOnError>
+				<sendOnFailure>true</sendOnFailure>
+				<sendOnSuccess>false</sendOnSuccess>
+				<sendOnWarning>false</sendOnWarning>
+				<configuration>
+					<address>continuum@127.0.0.1</address>
+				</configuration>
+			</notifier>
+		</notifiers>
+	</ciManagement>
+
+	<!-- >This is to provide Licesences details </!-->
+	<licenses>
+		<license>
+			<name>Apache License, Version 2.0</name>
+			<url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+			<distribution>repo</distribution>
+		</license>
+	</licenses>
+	<modules>
+		<module>avreg-postcard</module>
+		<module>avreg-ssn</module>
+		<module>avreg-framework</module>
+		<module>avreg-registration-service</module>
+		<module>avreg-registration-device</module>
+		<module>avreg-restmodel</module>
+		<module>avreg-restapp</module>	
+		<module>avreg-event-notifier</module>
+	</modules>
+	<build>
+		<plugins>
+			<!-- > Add fortify source code analyzer dependency to your project pom file</! -->
+			<plugin>
+				<groupId>com.fortify.ps.maven.plugin</groupId>
+				<artifactId>maven-sca-plugin</artifactId>
+				<version>2.6.0002-SNAPSHOT</version>
+			</plugin> 
+
+	<!-- > Add dCompiler Plugin is used to compile the sources of project </! -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>${maven.compiler.plugin.version}</version>
+				<configuration>
+					<source>${jdk.version}</source>
+					<target>${jdk.version}</target>
+				</configuration>
+			</plugin>
+			<!-- > The PMD Plugin allows you to automatically run the PMD code analysis tool on your project's source code and generate a site report with its results </! -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-pmd-plugin</artifactId>
+				<version>2.4</version>
+				<executions>
+					<execution>
+						<id>PMD</id>
+						<phase>test</phase>
+						<goals>
+							<goal>pmd</goal>
+							<goal>cpd</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<outputDirectory>${project.reporting.outputDirectory}</outputDirectory>
+					<targetDirectory>${project.build.directory}</targetDirectory>
+					<targetJdk>1.7</targetJdk>
+					<linkXref>true</linkXref>
+					<sourceEncoding>utf-8</sourceEncoding>
+					<minimumTokens>100</minimumTokens>
+				</configuration>
+			</plugin>
+			<!-- > The dependency plugin provides the capability to manipulate artifacts. It can copy and/or unpack artifacts from local or remote repositories to a specified location. </! -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-dependency-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>dependency</id>
+						<phase>package</phase>
+						<goals>
+							<goal>analyze-dep-mgt</goal>
+							<goal>analyze-only</goal>
+						</goals>
+						<configuration>
+							<ignoreNonCompile>true</ignoreNonCompile>
+							<outputXML>true</outputXML>
+							<verbose>false</verbose>
+							<!-- configure the plugin here -->
+						</configuration>
+					</execution>
+				</executions>
+			</plugin> 
+			<!-- > This plugin is designed to give you a build number </! -->
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>buildnumber-maven-plugin</artifactId>
+				<version>1.3</version>
+				<executions>
+					<execution>
+						<phase>validate</phase>
+						<goals>
+							<goal>create</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<doCheck>false</doCheck>
+					<doUpdate>false</doUpdate>
+					<getRevisionOnlyOnce>true</getRevisionOnlyOnce>
+					<useLastCommittedRevision>true</useLastCommittedRevision>
+					<timestampFormat>{0,date,MM/dd/yyyy hh:mm:ss a}</timestampFormat>
+				</configuration>
+			</plugin>
+			<!-- > This plugin provides the capability to build jars </! -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-jar-plugin</artifactId>
+				<version>2.1</version>
+				<configuration>
+
+					<archive>
+						<manifest>
+							<addDefaultImplementationEntries>true</addDefaultImplementationEntries>
+						</manifest>
+						<manifestEntries>
+							<Artifact-Version>${project.version}</Artifact-Version>
+							<Artifact-Name>${project.artifactId}</Artifact-Name>
+							<SVN_Revision>${buildNumber}</SVN_Revision>
+							<Build-Time>${timestampFormat}</Build-Time>
+						</manifestEntries>
+					</archive>
+				</configuration>
+			</plugin>
+			<!-- > This plugin provides the capability to build jars </! -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-war-plugin</artifactId>
+				<version>2.1.1</version>
+				<configuration>
+					<archive>
+						<manifest>
+							<addDefaultImplementationEntries>true</addDefaultImplementationEntries>
+						</manifest>
+						<manifestEntries>
+							<Artifact-Version>${project.version}</Artifact-Version>
+							<Artifact-Name>${project.artifactId}</Artifact-Name>
+							<SVN_Revision>${buildNumber}</SVN_Revision>
+							<Build-Time>${timestampFormat}</Build-Time>
+						</manifestEntries>
+					</archive>
+				</configuration>
+			</plugin>
+			<!-- >  This plugin provides the features of Cobertura within the Maven 2 & 3 environment.</! -->
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>cobertura-maven-plugin</artifactId>
+				<version>2.7</version>
+				<executions>
+					<execution>
+						<id>coverageReportGeneration</id>
+						<!--<phase>test</phase>-->
+						<goals>
+							<goal>cobertura</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<instrumentation>
+						<includes>
+							<include>**/*.class</include>
+						</includes>
+						<excludes>
+							<exclude>com/hp/wpp/ssn/**/entities/*.class</exclude>
+							<exclude>com/hp/wpp/avatar/framework/**/*.class</exclude>
+							<exclude>com/hp/wpp/avatar/restmodel/**/*.class</exclude>
+							<exclude>com/hp/wpp/postcard/schema/validator/*.class</exclude>
+							<exclude>com/hp/wpp/postcard/version/factory/*.class</exclude>
+							<exclude>com/hp/wpp/postcard/entities/*.class</exclude>
+							<exclude>com/hp/wpp/postcard/common/*.class</exclude>
+							<exclude>com/hp/wpp/postcard/util/*.class</exclude>
+							<exclude>com/hp/wpp/postcard/json/schema/*.class</exclude>
+							<exclude>**/*Test.class</exclude>
+							<exclude>**/*$AjcClosure*</exclude>
+						</excludes>
+
+					</instrumentation>
+					<formats>
+						<format>html</format>
+						<format>xml</format>
+					</formats>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.jacoco</groupId>
+				<artifactId>jacoco-maven-plugin</artifactId>
+				<version>0.7.4.201502262128</version>
+				<executions>
+					<execution>
+						<id>default-prepare-agent-integration</id>
+						<goals>
+							<goal>prepare-agent-integration</goal>
+						</goals>
+						<configuration>
+							<includes>
+								<include>com/hp/wpp/*</include>
+							</includes>
+						</configuration>
+					</execution>
+					<execution>
+						<id>default-report-integration</id>
+						<goals>
+							<goal>report-integration</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+
+			<!-- >  The Maven Changelog Plugin generates reports regarding the recent changes in your Software Configuration Management or SCM. These reports include the changelog report, developer activity report and the file activity report.</! -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-changelog-plugin</artifactId>
+				<version>2.3</version>
+			</plugin>
+
+			<!-- >  This plugin is used to inform your users of the changes that have occurred between different releases of your project. The plugin can extract these changes, either from a changes.xml file or from an issue management system (Jira, Trac and GitHub supported), and presents them as a report.</! -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-changes-plugin</artifactId>
+				<version>2.12</version>
+				<executions>
+					<execution>
+						<id>check-changes</id>
+						<phase>verify</phase>
+						<goals>
+							<goal>changes-check</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<!-- >  The Maven Site Plugin is a plugin that generates a site for the current project.</! -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-site-plugin</artifactId>
+				<version>3.3</version>
+				<dependencies>
+					<dependency>
+
+						<groupId>org.apache.maven.wagon</groupId>
+						<artifactId>wagon-ssh</artifactId>
+						<version>2.0</version>
+					</dependency>
+				</dependencies>
+			</plugin>
+
+		</plugins>
+	</build>
+	<properties>
+		<!--Healthcheck -->
+		<wpp-web-healthcheck.version>1.0.11</wpp-web-healthcheck.version>
+		<!-- JDK Properties -->
+		<jdk.version>1.8</jdk.version>
+
+		<!-- avatar registration jars-->
+
+		<avreg.version>1.0.49</avreg.version>
+
+		<avreg-postcard.version>1.1.2</avreg-postcard.version>
+		<maven.deploy.plugin.version>2.8.2</maven.deploy.plugin.version>
+		<!-- wpp related jars -->
+		<wpp-logger.version>2.1.0</wpp-logger.version>
+		<wpp-about.version>0.9.5</wpp-about.version>
+		<wpp-config.version>1.0.0</wpp-config.version>
+		<wpp-cidgenerator.version>0.9.2</wpp-cidgenerator.version>
+		<wpp-httpclient.version>2.3.1</wpp-httpclient.version>
+		<httpclient-version>4.5.1</httpclient-version>
+		<wpp-stream-producer.version>1.0.2</wpp-stream-producer.version>
+		<!-- Jersey Version -->
+		<com.sun.jersey>1.8</com.sun.jersey>
+		<resteasy-version>3.0.19.Final</resteasy-version>
+
+		<!-- Testing Framework Vesrions -->
+		<rest-assured.version>2.4.0</rest-assured.version>
+		<org.testng.version>6.9.4</org.testng.version>
+		<org.mockito.version>1.9.5</org.mockito.version>
+		<powermock.version>1.5.5</powermock.version>
+
+		<!-- Hibernate Versions -->
+		<hibernate-version>4.3.8.Final</hibernate-version>
+		<hibernate-validator.version>5.1.3.Final</hibernate-validator.version>
+		<asm-all-version>2.2.3</asm-all-version>
+		<cglib-version>2.1_3</cglib-version>
+
+		<!-- Aspectj versions -->
+		<aspectjrt.version>1.6.6</aspectjrt.version>
+		<aspectjweaver.version>1.6.6</aspectjweaver.version>
+
+		<!-- Spring versions -->
+		<spring.version>4.1.2.RELEASE</spring.version>
+		<spring.data.jpa.version>1.8.2.RELEASE</spring.data.jpa.version>
+		<spring-mock.version>2.0.8</spring-mock.version>
+		<!-- Hystrix Version -->
+		<hystrix.version>1.4.14</hystrix.version>
+
+		<!-- HTTP Components versions -->
+		<httpcomponents.client.version>4.1.3</httpcomponents.client.version>
+		<httpcomponents.core.version>4.1.4</httpcomponents.core.version>
+
+		<!-- commons jars-->
+		<commons.io.version>2.4</commons.io.version>
+		<commons.codec.version>1.7</commons.codec.version>
+		<commons.lang.version>2.6</commons.lang.version>
+		<commons-dbcp2.version>2.0</commons-dbcp2.version>
+		<commons-codec.version>1.5</commons-codec.version>
+		<commons-bean-utils.version>1.8.3</commons-bean-utils.version>
+
+		<asm.all.version>3.1</asm.all.version>
+
+		<!-- Google gson versions -->
+		<google.gson.version>2.3.1</google.gson.version>
+
+		<quick-json.version>1.0.4</quick-json.version>
+
+		<!-- Logging Versions -->
+		<org.slf4j.version>1.6.4</org.slf4j.version>
+		<ch.qos.logback.version>1.0.0</ch.qos.logback.version>
+
+		<!-- maven plugin versions -->
+		<maven.compiler.plugin.version>2.0.2</maven.compiler.plugin.version>
+		<maven.surefire.plugin.version>2.4.2</maven.surefire.plugin.version>
+		<maven.assembly.plugin.version>2.3</maven.assembly.plugin.version>
+		<maven.war.plugin.version>2.1.1</maven.war.plugin.version>
+		<maven.build.info.plugin.version>1.1</maven.build.info.plugin.version>
+        <maven.buildnumber.plugin.version>1.3</maven.buildnumber.plugin.version>
+		<!-- mysql jars-->
+		<mysql.connector.version>5.1.34</mysql.connector.version>
+		<c3p0.version>0.9.5.2</c3p0.version>
+
+		<!--hsqldb jars-->
+		<hsqldb.version>2.3.2</hsqldb.version>
+		<!--h2db jars-->
+		<h2db.version>1.4.190</h2db.version>
+		<commons.httpclient.version>3.1</commons.httpclient.version>
+		<maven.antrun.plugin.version>1.3</maven.antrun.plugin.version>
+		<maven.failsafe.plugin.version>2.18.1</maven.failsafe.plugin.version>
+		<build.helper.maven.plugin.version>1.10</build.helper.maven.plugin.version>
+		<tjws.version>3.0.11.Final</tjws.version>
+		<restito.version>0.4</restito.version>
+		<servelet-api.version>2.5</servelet-api.version>
+		<buildnumber.maven.version>1.3</buildnumber.maven.version>
+		<junit.version>4.11</junit.version>
+
+		<cucumber.version>1.2.0</cucumber.version>
+
+		<liquibase-core.version>3.4.2</liquibase-core.version>
+
+		<org.bouncycastle.version>1.51</org.bouncycastle.version>
+
+		<jackson-jaxrs.version>1.9.13</jackson-jaxrs.version>
+
+		<validation-api.version>1.1.0.Final</validation-api.version>
+
+		<javax.el-api.version>2.2.4</javax.el-api.version>
+		<glassfish.web.el-impl.version>2.2</glassfish.web.el-impl.version>
+		<jackson-module-jaxb-annotations.version>2.7.2</jackson-module-jaxb-annotations.version>
+		<json-schema-validator.version>2.2.6</json-schema-validator.version>
+		<guava.version>19.0</guava.version>
+		<jackson-annotations.version>2.7.2</jackson-annotations.version>
+
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		<aws.kinesis.client.version>1.7.2</aws.kinesis.client.version>
+		<aws.sdk.version>1.11.75</aws.sdk.version>
+
+	</properties>
+
+	<reporting>
+			
+		<plugins>
+			<plugin>
+           <groupId>org.apache.maven.plugins</groupId>
+           <artifactId>maven-pmd-plugin</artifactId>
+           <version>2.4</version>
+           <configuration>
+                <outputDirectory>${project.reporting.outputDirectory}</outputDirectory>
+           </configuration>
+           <reportSets>
+               <reportSet>
+                        <reports>
+                            <report>pmd</report>
+                            <report>cpd</report>
+                        </reports>
+               </reportSet>
+            </reportSets>
+       </plugin>
+			
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-project-info-reports-plugin</artifactId>
+				<version>2.7</version>
+
+				<configuration>
+					<dependencyLocationsEnabled>false</dependencyLocationsEnabled>
+				</configuration>
+			</plugin>
+
+
+			<!-- integrate maven emma plugin to project site  -->
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>emma-maven-plugin</artifactId>
+				<version>1.0-alpha-3</version>
+				<inherited>true</inherited>
+			</plugin>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>cobertura-maven-plugin</artifactId>
+				<version>2.7</version>
+				<configuration>
+					<formats>
+						<format>html</format>
+						<format>xml</format>
+					</formats>
+				</configuration>
+			</plugin> 
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-changelog-plugin</artifactId>
+				<version>2.3</version>
+			</plugin>
+			<plugin>
+				<inherited>true</inherited>
+				<artifactId>maven-source-plugin</artifactId>
+
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-changes-plugin</artifactId>
+				<version>2.12</version>
+				<configuration>
+					<aggregated>true</aggregated>
+					<xmlPath>${basedir}/changes/changes.xml</xmlPath>
+					<outputName>Release-History</outputName>
+				</configuration>
+				<reportSets>
+					<reportSet>
+						<id>aggregate</id>
+						<inherited>false</inherited>
+						<reports>
+							<report>changes-report</report>
+						</reports>
+					</reportSet>
+				</reportSets>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-jxr-plugin</artifactId>
+				<version>2.5</version>
+			</plugin>
+			<!-- > Add deploy plugin to project pom file</! -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-deploy-plugin</artifactId>
+				<version>${maven.deploy.plugin.version}</version>
+				<configuration>
+					<skip>true</skip>
+				</configuration>
+			</plugin>
+		</plugins>			
+	</reporting>
+
+	
+	<!-- This is to get details of source code  -->
+	<scm>
+		<connection>scm:git:git://github.azc.ext.hp.com/WPPg2/VP-Avatar.git</connection>
+		<developerConnection>scm:git:git://github.azc.ext.hp.com/WPPg2/VP-Avatar.git</developerConnection>
+		<url>scm:git:git://github.azc.ext.hp.com/WPPg2/VP-Avatar.git</url>
+	</scm>
+	<dependencies>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-expression</artifactId>
+			<version>${spring.version}</version>
+			<!-- test coment-->
+		</dependency>
+	</dependencies>
+	<distributionManagement>
+		<repository>
+			<id>releases</id>
+			<url>http://repository.cd.wppg2.com/nexus/content/repositories/releases/</url>
+		</repository>
+    </distributionManagement>
+</project>

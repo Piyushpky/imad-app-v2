@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration scan="true" scanPeriod="2 minutes">
+
+	<property name="APP_NAME" value="avreg" />
+	<property name="LOG_FORMAT"
+		value="[%t][%date{ISO8601}][${APP_NAME}][%5level][%c][%marker] %msg%n" />
+
+	<appender name="genericAppender"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<!--See http://logback.qos.ch/manual/appenders.html#RollingFileAppender -->
+		<!--and http://logback.qos.ch/manual/appenders.html#TimeBasedRollingPolicy -->
+		<!--for further documentation -->
+		<File>${catalina.home}/logs/logback.log</File>
+		<Append>true</Append>
+		<encoder>
+			<pattern>${LOG_FORMAT}</pattern>
+		</encoder>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<fileNamePattern>${catalina.home}/logs/logback.log.%d{.yyyy-MM-dd}
+			</fileNamePattern>
+		</rollingPolicy>
+	</appender>
+
+	<appender name="ConsoleAppender" class="ch.qos.logback.core.ConsoleAppender">
+		<encoder>
+			<pattern>${LOG_FORMAT}</pattern>
+		</encoder>
+	</appender>
+
+	<appender name="AppAppender"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<File>${catalina.home}/logs/wpp_${APP_NAME}.log</File>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<!-- daily rollover -->
+			<FileNamePattern>${catalina.home}/logs/wpp_${APP_NAME}.%d{yyyy-MM-dd}.log
+			</FileNamePattern>
+			<!-- keep 5 days worth of history -->
+			<maxHistory>5</maxHistory>
+		</rollingPolicy>
+		<encoder>
+			<Pattern>${LOG_FORMAT}</Pattern>
+		</encoder>
+	</appender>
+
+	<logger name="com.hp.wpp.avatar" additivity="false" level="info">
+		<appender-ref ref="AppAppender" />
+	</logger>
+	<logger name="com.hp.wpp.postcard" additivity="false" level="info">
+		<appender-ref ref="AppAppender" />
+	</logger>
+
+	<logger name="java" level="warn"/>
+	<logger name="org.apache.httpcomponents" level="warn" />
+	<logger name="org.hibernate" level="warn"/>
+	<logger name="org.springframework" level="warn"/>
+	<logger name="EDU" level="warn"/>
+	<logger name="net" level="warn"/>
+	<logger name="com.netflix.archaius" level="warn" />
+	<logger name="org.jboss.resteasy" level="warn" />
+	<logger name="com.hp.wpp" level="info">
+		<appender-ref ref="ConsoleAppender"/>
+		<appender-ref ref="GenericAppender" />
+	</logger>
+
+	<root level="warn">
+		<appender-ref ref="ConsoleAppender"/>
+		<appender-ref ref="GenericAppender" />
+	</root>
+</configuration>

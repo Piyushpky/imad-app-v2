@@ -1,0 +1,31 @@
+{
+        "version": 1.0,
+        "entity_id": "CN835455GH",
+        "entity_model": "A9T80A",
+        "entity_name": "HP Photosmart 5520g",
+        "entity_version": {
+            "revision": "PM1540AR",
+            "date": "1015-08-13"
+        },
+        "entity_type": "devices",
+        "entity_classifier": "printer",
+        "entity_domain": "palermo_2016",
+        "country_and_region_name": "unitedStates",
+        "language": "en",
+        "entity_additional_ids": [
+            {  
+            "id_type": "ssn",
+            "id_value": "1dhue9-jdj8sjbj-28jsl"
+            },
+            {
+            "id_type": "printer_uuid",
+            "id_value": "12345678-1234-1234-1234-123456789012"
+            },
+            {
+            "id_type": "printer_mcid",
+            "id_value": "12345678-1224-1234-1234-123456789012"
+            }
+        ],
+        "reset_counter": 0,
+        "request_originator": "sw"
+}

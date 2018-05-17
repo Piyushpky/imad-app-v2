@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-2.0.xsd">
+
+  	
+	<changeSet author="bnshr" id="023.db.pod.device.insert.registration_domain.Poseidon" >
+	<insert tableName="registration_domain" schemaName="pod_device">
+		<column name="domain_id">36</column>
+		<column name="entity_domain">Poseidon_2018_13</column>
+		<column name="domain_index">13</column>
+	</insert>
+    </changeSet>
+	
+	<changeSet author="bnshr" id="023.db.pod.device.insert.registration_domain.Infinity" >
+	<insert tableName="registration_domain" schemaName="pod_device">
+		<column name="domain_id">37</column>
+		<column name="entity_domain">Infinity_2018_14</column>
+		<column name="domain_index">14</column>
+	</insert>
+    </changeSet>
+	
+</databaseChangeLog>

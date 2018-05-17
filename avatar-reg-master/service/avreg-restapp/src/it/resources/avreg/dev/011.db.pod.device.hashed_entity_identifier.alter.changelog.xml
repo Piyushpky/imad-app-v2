@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-2.0.xsd">
+
+	<changeSet id="device_alter-001" author="bnshr">
+		 <addUniqueConstraint columnNames="entity_identifier" constraintName="UK_entity_identifier" tableName="hashed_entity_identifier" />
+	</changeSet>
+	<changeSet id="device_alter-002" author="bnshr">
+		 <addUniqueConstraint columnNames="hashed_entity_identifier" constraintName="UK_hashed_entity_identifier" tableName="hashed_entity_identifier" />
+	</changeSet>
+</databaseChangeLog>
+	

@@ -1,0 +1,31 @@
+{
+        "version": 1.0,
+        "entity_id": "12345678-1234-1234-1234-123456789067",
+        "entity_model": "JAMC",
+        "entity_name": "JAMC 2016",
+        "entity_version": {
+            "revision": "JM1.0",
+            "date": "2015-08-13"
+        },
+        "entity_type": "services",
+        "entity_classifier": "jamc",
+        "entity_domain": "JAMC_2016",
+        "country_and_region_name": "unitedStates",
+        "language": "en",
+        "entity_info": [
+            {
+                "info_type": "enterprise_name",
+                "info_value": "hp"
+            },
+            {
+                "info_type": "service_contact",
+                "info_value": "HP Support Team"
+            },
+            {
+                "info_type": "service_contact_email",
+                "info_value": "support.jamc@hp.com"
+            }
+        ],
+        "ownership_counter": 0,
+        "request_originator": "JAMC"
+}

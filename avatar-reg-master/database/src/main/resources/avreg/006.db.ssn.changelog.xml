@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+    <changeSet author="srikanth" id="006.db.ssn.changelog-001">
+        <createTable tableName="printer_registration_domain" schemaName="ssndb">
+            <column autoIncrement="true" name="domain_id" type="BIGINT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="registration_domain" type="VARCHAR(127)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="ssn_index" type="INT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="srikanth" id="006.db.ssn.changelog-002">
+        <createTable tableName="printer_registration_domain_key" schemaName="ssndb">
+            <column autoIncrement="true" name="domain_id" type="BIGINT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="registration_domain_key" type="VARCHAR(127)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="srikanth" id="006.db.ssn.changelog-003">
+        <createTable tableName="signed_serial_number" schemaName="ssndb">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="serial_number" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="issuance_counter" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="overrun_bit" type="BIT(1)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="domain_index" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="instant_ink" type="BIT(1)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="version" type="VARCHAR(5)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="srikanth" id="006.db.ssn.changelog-004">
+        <addUniqueConstraint columnNames="serial_number" constraintName="UK_serial_number" tableName="signed_serial_number" schemaName="ssndb"/>
+    </changeSet>
+    <changeSet author="srikanth" id="006.db.ssn.changelog-005">
+        <addUniqueConstraint columnNames="registration_domain" constraintName="UK_printer_registration_domain_registration_domain" tableName="printer_registration_domain" schemaName="ssndb"/>
+    </changeSet>
+    <changeSet author="srikanth" id="006.db.ssn.changelog-006">
+        <addUniqueConstraint columnNames="ssn_index" constraintName="UK_printer_registration_domain_ssn_index" tableName="printer_registration_domain" schemaName="ssndb"/>
+    </changeSet>
+    <changeSet author="srikanth" id="006.db.ssn.changelog-007">
+        <addForeignKeyConstraint baseTableSchemaName="ssndb" baseColumnNames="domain_id" baseTableName="printer_registration_domain_key" constraintName="printer_registration_domain_key_ibfk_1" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="domain_id" referencedTableSchemaName="ssndb" referencedTableName="printer_registration_domain"/>
+    </changeSet>
+    <changeSet author="srikanth" id="006.db.ssn.changelog-008">
+    	<insert tableName="printer_registration_domain" schemaName="ssndb">
+			<column name="domain_id">1</column>
+			<column name="registration_domain">test-domain</column>
+			<column name="ssn_index">0</column>
+		</insert>
+		<insert tableName="printer_registration_domain_key" schemaName="ssndb">
+			<column name="domain_id">1</column>
+			<column name="registration_domain_key">testDomainKey</column>
+		</insert>
+	</changeSet>
+</databaseChangeLog>

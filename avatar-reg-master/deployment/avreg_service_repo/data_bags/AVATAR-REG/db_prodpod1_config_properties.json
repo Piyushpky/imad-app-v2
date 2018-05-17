@@ -1,0 +1,171 @@
+{
+  "id": "db_prodpod1_config_properties",
+  "avatar-reg.is.postcard.enabled": {
+    "encrypted_data": "/53Kb3FVV3AGktnfi9q4tuWCMtZ8oFRxYNhFGFSBZZY=\n",
+    "iv": "KLierNWKSm7ew+fxerJ9Vg==\n",
+    "version": 1,
+    "cipher": "aes-256-cbc"
+  },
+  "avatar-reg.pod.code": {
+    "encrypted_data": "kmT1WN5TrFdNOfget9Xs0gma4XwQGcXKU1IKVGIrtcY=\n",
+    "iv": "HxXHggGlo3G3DmIdItpG2Q==\n",
+    "version": 1,
+    "cipher": "aes-256-cbc"
+  },
+  "avatar-reg.response.location.url": {
+    "encrypted_data": "YwltxUAw7Oa9qsxwnBxbhFvzT42x56JZBY5yHVfO/1yBqfocZyYRn4ST9vk5\neBxi7maYrGSvSs4sXFYpY4xDNXrn2IPmuzhoeucHmRmsamcO5zgu6sAgLmAa\nhRiY2lol\n",
+    "iv": "El0vUq6m6mcguOKQayog6A==\n",
+    "version": 1,
+    "cipher": "aes-256-cbc"
+  },
+  "postcard.db.jdbc.url": {
+    "encrypted_data": "dhUpsV1ZryvTIKvENWKNkO7p8JwG08t0+RFGEsID6SDKxiq4Sy8OK9oCkknY\nKj7K1qqufH/zE4K/2RzG6DFRkd0/D9GtTEZJV473WouWvLhAMrz1YK5FsjnK\ncMu/ftTp2IaR8xdvFakIC5UpjKWuZCaiUmIchyZLuPmG5yibBF8GbRB6z2ot\nB7e2HPmDF6zzVFjbaxuW0EjwKQAdd6o61w==\n",
+    "iv": "uWCbN+O1+ksN9fSgM4bwrg==\n",
+    "version": 1,
+    "cipher": "aes-256-cbc"
+  },
+  "postcard.db.user": {
+    "encrypted_data": "9FD6ky8h0cYK7CmameHMLemeCJh66Lqecq5ijJ2izwI=\n",
+    "iv": "n1RbbxoEDyfKOT08CZvOYw==\n",
+    "version": 1,
+    "cipher": "aes-256-cbc"
+  },
+  "postcard.db.password": {
+    "encrypted_data": "bykv9D2WnK8uy+mn7jxibwIgWWoJT2jtX7Sse4dINl0h+CokYOzJ4rzNGC4z\nVDdp\n",
+    "iv": "4QOwNR0kn+C5eQ2WRHeCrA==\n",
+    "version": 1,
+    "cipher": "aes-256-cbc"
+  },
+  "avatar-reg.ssn.db.jdbc.url": {
+    "encrypted_data": "pjEK4rSsAid12URAN3av52WwQ2FJnB4sjr225ar7f/MYXZQvlnLYqKKN1Szr\nTqJ4j1Lr0SVctnSjvRFnXfZG5P8B3iAalIYnskHj/UfMtUNZKzXIHokJM8Li\nY+9JkmhywowHGRsuk6M+yYYci71JvPRnQFFjQ6WbtIx/qQD4muNPCE1HoDuC\nezI3zRnm+cXIedZdwIsej74QULNqn1moAw==\n",
+    "iv": "DbnKqH69gTu93FFzrDuw+Q==\n",
+    "version": 1,
+    "cipher": "aes-256-cbc"
+  },
+  "avatar-reg.ssn.db.user": {
+    "encrypted_data": "Wzy0yuJebAyxkEjAf44QZ3GYzeJw75utgybObsij680=\n",
+    "iv": "BgWY4Hlw46xYaQ5YQBO9Lg==\n",
+    "version": 1,
+    "cipher": "aes-256-cbc"
+  },
+  "avatar-reg.ssn.db.password": {
+    "encrypted_data": "hiPl2Qa3Ph6XWu3+rV94qoJFmuoZ+hIB+DGLh1++i2guu58DXNjDoazjzEvI\nAXZw\n",
+    "iv": "x2Xl5Yzo8leFLZ8zmqekDw==\n",
+    "version": 1,
+    "cipher": "aes-256-cbc"
+  },
+  "avatar-reg.reg-service.db.jdbc.url": {
+    "encrypted_data": "ArirJhycinLGyq5qR5AFNELCLpg0S+5eiJRuXsXXhlL1MnTYjI9LN7iEyb9g\nBpq06xAlz44r/xo4fpsp9YaA9JS+Mhr7WIi5wSgCIenlTBIVQRSIMWw+13GY\np5U8C8C4iJEFhx/DwTQzH3QEgOBt37IA4CvRTjgp2pzYxF01ul9RmF5BXyNn\nw91gorsArbmqjcfKkld65zwNe/rh6RpeTg==\n",
+    "iv": "uGzyOQ9l4JXAYKN4nHb4Nw==\n",
+    "version": 1,
+    "cipher": "aes-256-cbc"
+  },
+  "avatar-reg.reg-service.db.user": {
+    "encrypted_data": "jSQv+Rhr1fzBZDgQ5ii+d1TzIzLTYrOZxWTwOizskNg=\n",
+    "iv": "JWM5E1aaPMXf3W9by0zgzw==\n",
+    "version": 1,
+    "cipher": "aes-256-cbc"
+  },
+  "avatar-reg.reg-service.db.password": {
+    "encrypted_data": "ORYvlxSUhttLUiqVa4Zk1P42mBZDUcxxlPAigcDXEpXWtRRqByG5jXvjTvWF\nef3o\n",
+    "iv": "cyDrpsCKPyuoCmozlmO0kA==\n",
+    "version": 1,
+    "cipher": "aes-256-cbc"
+  },
+  "avatar-reg.reg-device.db.jdbc.url": {
+    "encrypted_data": "8lD0lGAU2J3DPv9qZTS58ftZaHSBdAszZ8MIHb6D8MycMysJJiknIgG0Eo7r\nP/3v0zWcLOTx0mJgRtMugVBJ/qQ0P3CiU+WQOP+keBvqohWxaywaqVG0MdJC\nPFwAmaDntPE73blciBJ3EXBIPpeHRs1/U2wHU4DD6/9RMtXvro+2ortCpP63\nBdjsv+zYKhWS7aBwrfO644pqpQKMF8OzfA==\n",
+    "iv": "yyqx4ycHbTaNGZIHizUENA==\n",
+    "version": 1,
+    "cipher": "aes-256-cbc"
+  },
+  "avatar-reg.reg-device.db.user": {
+    "encrypted_data": "bjfzKEpeoxG1u5D5AZTzNc7+XrnTwppywmkbQRPnALw=\n",
+    "iv": "s0pbDwQ9XU3+vwqu9/O7Xg==\n",
+    "version": 1,
+    "cipher": "aes-256-cbc"
+  },
+  "avatar-reg.reg-device.db.password": {
+    "encrypted_data": "NMaPxC5W3vTCH7GFtf9CfPid/onrMST3L7uMd3RqEgLEINtHCg6BhWH8TQVD\nmRUW\n",
+    "iv": "q2QUwQvBwTrgLjRsumkCeQ==\n",
+    "version": 1,
+    "cipher": "aes-256-cbc"
+  },
+  "avatar-reg.reg-device.ssn.enabled.flag": {
+    "encrypted_data": "p+nW5LT/GqkHjudoJ7yl7bfX4JmkzLx9nCtE6VWqpis=\n",
+    "iv": "Ky2tN5sk3vnZuxK68UcvKg==\n",
+    "version": 1,
+    "cipher": "aes-256-cbc"
+  },
+  "avatar-reg.reg-device.device.claim.url": {
+    "encrypted_data": "Bqs1sxZxCezF1F60HqhKH/I/AkBZYZLTSzt8LfW2MXjzFP4HBcE2xwgxN34R\n26jzUkqBtrUJVP3epKzev+aQUn05H6Oky8HpSyfE17dt71Y/tXaNlpWEwybc\nSUka1ZGt6wH0zXZyk728/dBrqakuDw==\n",
+    "iv": "dMs7Wz1VVO+zp2yWSYEtIA==\n",
+    "version": 1,
+    "cipher": "aes-256-cbc"
+  },
+  "avatar-reg.event-notifier.region": {
+    "encrypted_data": "x4G6jz4+N9BcQ8E6Hlf7alD/KSqU6j8fnfwsYlu4tXg=\n",
+    "iv": "tqyUKP06k+GbfIRXGku+3A==\n",
+    "version": 1,
+    "cipher": "aes-256-cbc"
+  },
+  "avatar-reg.event-notifier.proxy.enabled": {
+    "encrypted_data": "dEDbE1Q9Z8zQZgb0SNxZ9KbtIpV1GUDJGdYi/G2X0Y4=\n",
+    "iv": "xXSDR013Y5YUZ5rUxeDNnw==\n",
+    "version": 1,
+    "cipher": "aes-256-cbc"
+  },
+  "avatar-reg.event-notifier.proxy.host": {
+    "encrypted_data": "jNjy+2vKVimX+5L9IqGaO4B5xtZFNPvtcSwx+rGxnHPjkklSCB29HFTZU0+r\nfE8v\n",
+    "iv": "uautz4mjYXDU/qsyxAjGhA==\n",
+    "version": 1,
+    "cipher": "aes-256-cbc"
+  },
+  "avatar-reg.event-notifier.proxy.port": {
+    "encrypted_data": "XfscWsxmKqdFSRTa3qY5odTzYRaOL6RCRq0o6ilNUL0=\n",
+    "iv": "P6dNSq0v3u62NVn2HCLSLA==\n",
+    "version": 1,
+    "cipher": "aes-256-cbc"
+  },
+  "avatar-reg.event-notifier.access.key.id": {
+    "encrypted_data": "p2Pv3JiIK5knheancusvLiDASxtEpq+RBxEvmC0IwoJJs25EN0cKGwZgcgPg\nY/3D\n",
+    "iv": "C+OC7bzqvnfV0jisB3/JwQ==\n",
+    "version": 1,
+    "cipher": "aes-256-cbc"
+  },
+  "avatar-reg.event-notifier.secret.key": {
+    "encrypted_data": "c1N9ROHM/r7/S0vZ5b7erSdW63oQUHebDC8BvutzDAD6PhP1r04mpM8qA7MN\nzrXpZ4QVfQjpkBoObg260J6pxQ==\n",
+    "iv": "j5m+ud3Qu8Wj31LyNNAMYA==\n",
+    "version": 1,
+    "cipher": "aes-256-cbc"
+  },
+  "avatar-reg.event-notifier.client.config.version": {
+    "encrypted_data": "fPr0oiG56jophEztHuIYA6HDeoW83Xy2caQwV9uhcyI=\n",
+    "iv": "WS9jRQNCqudGueTgsu02VA==\n",
+    "version": 1,
+    "cipher": "aes-256-cbc"
+  },
+  "avatar-reg.is.blacklist.enabled": {
+    "encrypted_data": "vm4zimrRMz5PGfbBedcgcrHxGzZX8u21Rzo8lh9KQaY=\n",
+    "iv": "1ZpSUlWyCgZHSGW9PQpuaw==\n",
+    "version": 1,
+    "cipher": "aes-256-cbc"
+  },
+  "avatar-reg.event-notifier.dereg.stream.name": {
+    "encrypted_data": "gr1TXAVJBKTQZuYbAzyOep4JJPDBsAEoUbgqx4iJxD1cuupprGKKrySBQHWp\nOmTERaUMVinECOFg/dyuY+dRWVgCDhIrlygWRN7ACe/3xPk=\n",
+    "iv": "5H+oqodlFf2rbs+6rlCXFg==\n",
+    "version": 1,
+    "cipher": "aes-256-cbc"
+  },
+  "avatar-reg.event-notifier.registration.stream.name": {
+    "encrypted_data": "CDMnVFdw8kBnD7CP1eg8bHZyfdqIXHeQIH9c4/4THprD9LEjgILyRmGpl0do\nJEAG3K9H5Nggwy0IZI/0DVlwg2xrEcT/Q3hSRw0L+Xu9eQM=\n",
+    "iv": "bgGQbeo+QBZsxuMiWbWnMQ==\n",
+    "version": 1,
+    "cipher": "aes-256-cbc"
+  },
+  "avatar-reg.device.claim.authentication.header": {
+    "encrypted_data": "xavba4uMGI0qFXsmAzXjgOj10YFqa/qghA5fmIB66DOXaDjV21WcV/eRHknY\n9Fa9gqWmOTwN/7FosagxEmH3yRNirBIHet0ItEU6uBb2snqD2Q+/xHuHfS4+\nad4ZJGP4W2xAG0REcwNNZRZuKEI7u4pXLuHabkXyJoR05ltvBHA=\n",
+    "iv": "uR2M4OGDiXTHiNVWNGOO/g==\n",
+    "version": 1,
+    "cipher": "aes-256-cbc"
+  }
+}

@@ -1,0 +1,295 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "http://avatar-postcard-schema.net",
+  "type": "object",
+  "title": "Root schema.",
+  "description": "An explanation about the puropose of this instance described by this schema.",
+  "name": "/",
+  "properties": {
+    "postcard_signed_info": {
+      "id": "http://avatar-postcard-schema.net/postcard_signed_info",
+      "type": "object",
+      "title": "Postcard_signed_info schema.",
+      "description": "An explanation about the puropose of this instance described by this schema.",
+      "name": "postcard_signed_info",
+      "properties": {
+        "version": {
+          "id": "http://avatar-postcard-schema.net/postcard_signed_info/version",
+          "type": "string",
+          "title": "Version schema.",
+          "description": "An explanation about the puropose of this instance described by this schema.",
+          "name": "version",
+          "default": "1.1"
+        },
+        "mime_type": {
+          "id": "http://avatar-postcard-schema.net/postcard_signed_info/mime_type",
+          "type": "string",
+          "title": "Mime_type schema.",
+          "description": "An explanation about the puropose of this instance described by this schema.",
+          "name": "mime_type",
+          "default": "application/vnd.hpi.postcard+json",
+          "enum" : [ "application/vnd.hpi.postcard+json", "application/vnd.hpi.postcard.service_instruction+json", "application/vnd.hpi.postcard.entity_instruction+json" ]
+        },
+        "application_id": {
+          "id": "http://avatar-postcard-schema.net/postcard_signed_info/application_id",
+          "type": "string",
+          "title": "Application_id schema.",
+          "description": "An explanation about the puropose of this instance described by this schema.",
+          "name": "application_id",
+          "default": "1"
+        },
+        "entity_id": {
+          "id": "http://avatar-postcard-schema.net/postcard_signed_info/entity_id",
+          "type": "string",
+          "title": "Entity_id schema.",
+          "description": "An explanation about the puropose of this instance described by this schema.",
+          "name": "entity_id"
+        },
+        "creator": {
+          "id": "http://avatar-postcard-schema.net/postcard_signed_info/creator",
+          "type": "string",
+          "title": "Creator schema.",
+          "description": "An explanation about the puropose of this instance described by this schema.",
+          "name": "creator",
+          "default": "service",
+          "enum" : [ "entity", "service" ]
+        },
+        "postcard_id": {
+          "id": "http://avatar-postcard-schema.net/postcard_signed_info/postcard_id",
+          "type": "string",
+          "title": "Postcard_id schema.",
+          "description": "An explanation about the puropose of this instance described by this schema.",
+          "name": "postcard_id"
+        },
+        "timestamp": {
+          "id": "http://avatar-postcard-schema.net/postcard_signed_info/timestamp",
+          "type": "string",
+          "title": "Timestamp schema.",
+          "description": "An explanation about the puropose of this instance described by this schema.",
+          "name": "timestamp",
+          "default": "2016-03-09T09:39:13Z"
+        },
+        "seq_num": {
+          "id": "http://avatar-postcard-schema.net/postcard_signed_info/seq_num",
+          "type": "integer",
+          "title": "Seq_num schema.",
+          "description": "An explanation about the puropose of this instance described by this schema.",
+          "name": "seq_num",
+          "default": 1
+        },
+        "key_id": {
+          "id": "http://avatar-postcard-schema.net/postcard_signed_info/key_id",
+          "type": "string",
+          "title": "Key_id schema.",
+          "description": "An explanation about the puropose of this instance described by this schema.",
+          "name": "key_id"
+        },
+        "keys": {
+          "id": "http://avatar-postcard-schema.net/postcard_signed_info/keys",
+          "type": "array",
+          "title": "Keys schema.",
+          "description": "An explanation about the puropose of this instance described by this schema.",
+          "name": "keys",
+          "items": {
+            "id": "http://avatar-postcard-schema.net/postcard_signed_info/keys/0",
+            "type": "object",
+            "title": "0 schema.",
+            "description": "An explanation about the puropose of this instance described by this schema.",
+            "name": "0",
+            "properties": {
+              "domain": {
+                "id": "http://avatar-postcard-schema.net/postcard_signed_info/keys/0/domain",
+                "type": "string",
+                "title": "Domain schema.",
+                "description": "An explanation about the puropose of this instance described by this schema.",
+                "name": "domain",
+                "default": "certificate_model"
+              },
+              "postcard_secret_key_id": {
+                "id": "http://avatar-postcard-schema.net/postcard_signed_info/keys/0/postcard_secret_key_id",
+                "type": "string",
+                "title": "Postcard_secret_key_id schema.",
+                "description": "An explanation about the puropose of this instance described by this schema.",
+                "name": "postcard_secret_key_id"
+              },
+              "key_agreement": {
+                "id": "http://avatar-postcard-schema.net/postcard_signed_info/keys/0/key_agreement",
+                "type": "object",
+                "title": "Key_agreement schema.",
+                "description": "An explanation about the puropose of this instance described by this schema.",
+                "name": "key_agreement",
+                "properties": {
+                  "rsa_kem": {
+                    "id": "http://avatar-postcard-schema.net/postcard_signed_info/keys/0/key_agreement/rsa_kem",
+                    "type": "object",
+                    "title": "Rsa_kem schema.",
+                    "description": "An explanation about the puropose of this instance described by this schema.",
+                    "name": "rsa_kem",
+                    "properties": {
+                      "server_public_key_id": {
+                        "id": "http://avatar-postcard-schema.net/postcard_signed_info/keys/0/key_agreement/rsa_kem/server_public_key_id",
+                        "type": "string",
+                        "title": "Server_public_key_id schema.",
+                        "description": "An explanation about the puropose of this instance described by this schema.",
+                        "name": "server_public_key_id"
+                      },
+                      "key_data": {
+                        "id": "http://avatar-postcard-schema.net/postcard_signed_info/keys/0/key_agreement/rsa_kem/key_data",
+                        "type": "string",
+                        "title": "Key_data schema.",
+                        "description": "An explanation about the puropose of this instance described by this schema.",
+                        "name": "key_data"
+                      },
+                      "entity_signature_validation": {
+                        "id": "http://avatar-postcard-schema.net/postcard_signed_info/keys/0/key_agreement/rsa_kem/entity_signature_validation",
+                        "type": "string",
+                        "title": "Entity_signature_validation schema.",
+                        "description": "An explanation about the puropose of this instance described by this schema.",
+                        "name": "entity_signature_validation"
+                      }
+                    }
+                  }
+                }
+              },
+              "entity_signature": {
+                "id": "http://avatar-postcard-schema.net/postcard_signed_info/keys/0/entity_signature",
+                "type": "object",
+                "title": "Entity_signature schema.",
+                "description": "An explanation about the puropose of this instance described by this schema.",
+                "name": "entity_signature",
+                "properties": {
+                  "pem_certificate": {
+                    "id": "http://avatar-postcard-schema.net/postcard_signed_info/keys/0/entity_signature/pem_certificate",
+                    "type": "string",
+                    "title": "Pem_certificate schema.",
+                    "description": "An explanation about the puropose of this instance described by this schema.",
+                    "name": "pem_certificate"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "messages": {
+          "id": "http://avatar-postcard-schema.net/postcard_signed_info/messages",
+          "type": "array",
+          "title": "Messages schema.",
+          "description": "An explanation about the puropose of this instance described by this schema.",
+          "name": "messages",
+          "items": {
+            "id": "http://avatar-postcard-schema.net/postcard_signed_info/messages/0",
+            "type": "object",
+            "title": "0 schema.",
+            "description": "An explanation about the puropose of this instance described by this schema.",
+            "name": "0",
+            "properties": {
+              "content_type": {
+                "id": "http://avatar-postcard-schema.net/postcard_signed_info/messages/0/content_type",
+                "type": "string",
+                "title": "Content_type schema.",
+                "description": "An explanation about the puropose of this instance described by this schema.",
+                "name": "content_type",
+                "default": "application/json"
+              },
+              "compression": {
+                "id": "http://avatar-postcard-schema.net/postcard_signed_info/messages/0/compression",
+                "type": "string",
+                "enum" : [ "gzip", "none", "deflate", "http_gzip" ],
+                "title": "Compression schema.",
+                "description": "An explanation about the puropose of this instance described by this schema.",
+                "name": "compression",
+                "default": "gzip"
+              },
+              "encryption": {
+                "id": "http://avatar-postcard-schema.net/postcard_signed_info/messages/0/encryption",
+                "type": "string",
+                "title": "Encryption schema.",
+                "description": "An explanation about the puropose of this instance described by this schema.",
+                "name": "encryption",
+                "default": "aes_128",
+                "enum" : [ "aes_128", "none" ]
+              },
+              "iv": {
+                "id": "http://avatar-postcard-schema.net/postcard_signed_info/messages/0/iv",
+                "type": "string",
+                "title": "Iv schema.",
+                "description": "An explanation about the puropose of this instance described by this schema.",
+                "name": "iv"
+              },
+              "content": {
+                "id": "http://avatar-postcard-schema.net/postcard_signed_info/messages/0/content",
+                "type": "string",
+                "title": "Content schema.",
+                "description": "An explanation about the puropose of this instance described by this schema.",
+                "name": "content"
+              }
+            }
+          }
+        }
+      },
+      "required": [
+        "version",
+        "mime_type",
+        "application_id",
+        "entity_id",
+        "creator",
+        "postcard_id",
+        "timestamp",
+        "seq_num",
+        "key_id",
+        "messages"
+      ]
+    },
+    "hash": {
+      "id": "http://avatar-postcard-schema.net/hash",
+      "type": "string",
+      "title": "Hash schema.",
+      "description": "An explanation about the puropose of this instance described by this schema.",
+      "name": "hash"
+    },
+    "signatures": {
+      "id": "http://avatar-postcard-schema.net/signatures",
+      "type": "array",
+      "title": "Signatures schema.",
+      "description": "An explanation about the puropose of this instance described by this schema.",
+      "name": "signatures",
+      "items": {
+        "id": "http://avatar-postcard-schema.net/signatures/0",
+        "type": "object",
+        "title": "0 schema.",
+        "description": "An explanation about the puropose of this instance described by this schema.",
+        "name": "0",
+        "properties": {
+          "signature": {
+            "id": "http://avatar-postcard-schema.net/signatures/0/signature",
+            "type": "string",
+            "title": "Signature schema.",
+            "description": "An explanation about the puropose of this instance described by this schema.",
+            "name": "signature"
+          },
+          "key_id": {
+            "id": "http://avatar-postcard-schema.net/signatures/0/key_id",
+            "type": "string",
+            "title": "Key_id schema.",
+            "description": "An explanation about the puropose of this instance described by this schema.",
+            "name": "key_id"
+          },
+          "signature_scheme": {
+            "id": "http://avatar-postcard-schema.net/signatures/0/signature_scheme",
+            "type": "string",
+            "enum" : [ "hmac_sha256", "raw_rsassa_pss", "sha256_with_rsa_and_mfg1" ],
+            "title": "Signature_scheme schema.",
+            "description": "An explanation about the puropose of this instance described by this schema.",
+            "name": "signature_scheme",
+            "default": "raw_rsassa_pss"
+          }
+        }
+      }
+    }
+  },
+  "required": [
+    "postcard_signed_info",
+    "hash",
+    "signatures"
+  ]
+}

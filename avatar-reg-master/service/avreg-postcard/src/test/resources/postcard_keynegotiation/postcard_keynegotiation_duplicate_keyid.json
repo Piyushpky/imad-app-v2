@@ -1,0 +1,47 @@
+{
+  "postcard_signed_info": {
+    "version": "1.1",
+    "mime_type": "application/vnd.hpi.postcard+json",
+    "application_id": "1",
+    "entity_id": "4b6840f8-887b-41b4-a03a-ea69e60cc9b6",
+    "creator": "entity",
+    "postcard_id": "YexWlZftRMTt8yDES6rL43See3TkxfztMw/x9AKmvco=",
+    "timestamp": "2016-06-21T08:56:59Z",
+    "seq_num": 1,
+    "key_id": "4711df99bc936ba22bc425f9d4f2ad7b",
+    "keys": [
+      {
+        "domain": "certificate_entity",
+        "postcard_secret_key_id": "4711df99bc936ba22bc425f9d4f2ad7b",
+        "key_agreement": {
+          "rsa_kem": {
+            "server_public_key_id": "8aee9ae803ad31ae",
+            "key_data": "TQXjWsywBLV834Ok0mPedJCwZlUj1kHD/60WJzuY3mp2LR38X166YKr6XezrnH4YHJmihAWt0JPMeam3LiXPYLZ93/9/40vN5mXbcC0N3jayUhRBBjGRmp5C9h53jmFt3EBoPNEgNzSD/FiqA5qzAgn7p3wCq/zoMyN5DIL1qEqkX0FJcFv1tKBvRuxA31ZdSN9OX6rtMFE7UXTRUC56wSURI/NBPAXuuGHGot8nAVdY2nG7ergacJlwsJASjELbsuEODrdSB2TQdltHAXOoEOQVhkTj8eA5im2Q5WVRkLKPmxbX703OoXQOtMt2l6D0dR78hGd3zLmGvHvQFe6Q4A==",
+            "entity_signature_validation": "aRoITMLkxDqwuzi/onYm1z1lhe1Jjj4V2VW5AYEuj6g="
+          }
+        },
+        "entity_signature": {
+          "entity_certificate_key_id": "0xf16033a564627721L",
+          "pem_certificate": "-----BEGIN CERTIFICATE-----\nMIIEdzCCA1+gAwIBAgIJAPFgM6VkYnchMA0GCSqGSIb3DQEBBQUAMIGDMQswCQYD\nVQQGEwJJTjESMBAGA1UECBMJS2FybmF0YWthMRIwEAYDVQQHEwlCYW5nYWxvcmUx\nDzANBgNVBAoTBkhQIElOQzEMMAoGA1UECxMDV1BQMQ8wDQYDVQQDEwZERVZJQ0Ux\nHDAaBgkqhkiG9w0BCQEWDWRldmljZUBocC5jb20wHhcNMTUxMTE1MTY0NTI2WhcN\nMTYxMTE0MTY0NTI2WjCBgzELMAkGA1UEBhMCSU4xEjAQBgNVBAgTCUthcm5hdGFr\nYTESMBAGA1UEBxMJQmFuZ2Fsb3JlMQ8wDQYDVQQKEwZIUCBJTkMxDDAKBgNVBAsT\nA1dQUDEPMA0GA1UEAxMGREVWSUNFMRwwGgYJKoZIhvcNAQkBFg1kZXZpY2VAaHAu\nY29tMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA2vlYscaLAuzfIjNm\nJIhUm7YcwVq9L7jwp6BGh3js/q6dD+6Prlp4q4VAJaDVdQu14rypmsanY2KtNEDW\njNIeiGtZzJnl7K4MpEGVmTxxZ0p4aMQEvMCfW7Ewtavbl+DYgWkxfbQzlt1pYBve\nUFST628ZBWNbMWp98IAi3QEKx6wKtHTF3NA3pa6eJxuk03eLkSiGnIx8lPbH8AaM\nnT9WCiM/a8Knh9diqZKjnZcXWWOzfnnQoO+gBnpcFWUwN7kldDQ2i9uMhFdSkehA\nd+YkTm5QaiC0yBFS9l7gSL6xchrKeLHcOJQg4EzYo5TWeWQYPqs2aojFNNVxmQDe\naiEruQIDAQABo4HrMIHoMB0GA1UdDgQWBBSh+fh5tgrFKt2D+EioUOn2lMeAwzCB\nuAYDVR0jBIGwMIGtgBSh+fh5tgrFKt2D+EioUOn2lMeAw6GBiaSBhjCBgzELMAkG\nA1UEBhMCSU4xEjAQBgNVBAgTCUthcm5hdGFrYTESMBAGA1UEBxMJQmFuZ2Fsb3Jl\nMQ8wDQYDVQQKEwZIUCBJTkMxDDAKBgNVBAsTA1dQUDEPMA0GA1UEAxMGREVWSUNF\nMRwwGgYJKoZIhvcNAQkBFg1kZXZpY2VAaHAuY29tggkA8WAzpWRidyEwDAYDVR0T\nBAUwAwEB/zANBgkqhkiG9w0BAQUFAAOCAQEARS+B9G7lYNSNUPlwln0Fbrx5PbCB\nKCNzcGkBsBbWaKvciFub8EHuS4ci5UDrodxQkgg4KXcr0keTgJU5ta9wzu3oWoCj\n1Ad3agHjIYaN/oCwYVCrmoECJqrKffMP9Mq5WKqFsbbxytRKpVE3pn7LEg/lYCY6\nRX4mSYkJjC8i/w7kX+FPSI3atkUAo/JkTAw3pDt52n4ZlS4cqtPoAHUAozVNyqRP\nLPZkvETKneidHojxxoYyexkMSJ3BF6hIvSOCs5XcAcgGz4jylT6V5NbiPkm2QnW4\nPhFo5WbpOXyQveTY7o4g/es/WI2quJIVDEXUF1ThS3eWvl15A3iYIV89dA==\n-----END CERTIFICATE-----\n"
+        }
+      }
+    ],
+    "messages": [
+      {
+        "content_type": "application/json",
+        "compression": "http_gzip",
+        "encryption": "aes_128",
+        "iv": "qzEtgBRZuAxreLaF+aOF5Q==",
+        "content": "RPuqOwXRC+iB6WtLijnKNh223irQf7GKzCl77kPlRKvgJPOGYtRGyeMphW4Srl/rt60hYS/YJNpHTgOR3y3QvT6APoVyilMbHfUWfd6qq0Yunv5C5cNreXCzhUncbkeXLOsVddlAUj00YibnAZICVhxaUtDrCiQprJumMyTH2GYVFY3cOehdGY/9GufE9pxQl4V7cnmCeYOxqvyca3EXf9C6M2xX+Z0D9vlokKQLqOxc/sUIraFyfSPogtAn39/hUKaXW5cwM493vdjYEbWxuoFXyZ5Mb7paSjEiqevOp405uX2fwJaOyMvN6xSqZR/k9cKHa7+pHF4iWU9sPwqGEQ8rufVfbuk9dqIgUe6R2cUw3UzWLbvdy3yhYFF1Uqbjhfd9VZATa7GvaIXH2Y7LRZRvhTXXpSYsAEDtPItCykkWJVUH5k9lGrU0DIfDol24pynuE98cWl9bl+G7xhA/PWnTW1vF82z/r6J/z0jhheLALP+NV8LQCKuSBQcolT5hvvr1D+quiJOOxhyTQ/PDD1koGcH1QtpV5obpTIp9xIw="
+      }
+    ]
+  },
+  "hash": "Ii48pz+fXZ+WqLk4dnfINUd6/eFaKTKOFqFdCtGrS5I=",
+  "signatures": [
+    {
+      "key_id": "4711df99bc936ba22bc425f9d4f2ad7b",
+      "signature": "PfF/Z7VfWZ2qmHfpuwmyF6Iv56lSdroW8pp/Tjqtezp4aUw6AMShNX0J74rUzG6VjfqNRa4c2Fl4Lca5qB37DmPZGB9AKSclrhtspLxH2lNMBKKRC0DHT2hDr8XicV+sITuDuW261+8QJwDSaFJKuUlyvDza+1oa//e2Dw/Y7FQEXj54b5jCFvo9SR59beVNYWK0cS0pQSUKFAxofdrlv34807MQyg8YQyDsNM69gf2ivfT3Z3nIp2wi6RLPd9oGKIwtQ6629TbB5wLNUbSyeGlyD6L8G4C4xJhRR4AbcGOiMg8emA4HQ49XJjVj1EPlOsPayyuPDDdNhoORd1aDNA==",
+      "signature_scheme": "raw_rsassa_pss"
+    }
+  ]
+}

@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:context="http://www.springframework.org/schema/context"	
+	xsi:schemaLocation="
+       http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+       http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.0.xsd
+       http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.0.xsd
+       http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd"
+       default-autowire="byName">
+	
+	<context:spring-configured />
+	
+	<context:component-scan base-package="com.hp.wpp.ssn" />
+	
+	<bean class="org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor" />
+	
+    <bean id="ssnDS" class="com.mchange.v2.c3p0.ComboPooledDataSource">
+		<property name="dataSourceName" value="avregSSNDataSource"></property>
+		<property name="driverClass" value="${avatar-reg.ssn.db.driver.class}"></property>
+		<property name="jdbcUrl" value="${avatar-reg.ssn.db.jdbc.url}"></property>
+		<property name="user" value="${avatar-reg.ssn.db.user}"></property>
+		<property name="password" value="${avatar-reg.ssn.db.password}"></property>
+		<property name="maxPoolSize" value="${avatar-reg.ssn.db.max.pool.size}" />
+		<property name="maxStatements" value="${avatar-reg.ssn.db.max.statements}" />
+		<property name="minPoolSize" value="${avatar-reg.ssn.db.min.pool.size}" />
+		<property name="maxIdleTime" value="${avatar-reg.ssn.db.max.idle.time}"/>		
+		<property name="maxIdleTimeExcessConnections" value="${avatar-reg.ssn.db.max.idle.time.excess.connections}"/>
+		<property name="checkoutTimeout" value="${avatar-reg.ssn.db.checkout.timeout}"/>			
+		<property name="acquireIncrement" value="${avatar-reg.ssn.db.acquire.increment}"/>
+		<property name="acquireRetryAttempts" value="${avatar-reg.ssn.db.acquire.retry.attempt}"/>
+		<property name="acquireRetryDelay" value="${avatar-reg.ssn.db.acquire.retry.delay}"/>
+		<property name="numHelperThreads" value="${avatar-reg.ssn.db.num.helper.threads}"/>
+		<property name="testConnectionOnCheckout" value="${avatar-reg.ssn.db.test.connection.on.checkout}"/>
+		<property name="testConnectionOnCheckin" value="${avatar-reg.ssn.db.test.connection.on.checkin}"/>		
+		<property name="idleConnectionTestPeriod" value="${avatar-reg.ssn.db.idle.connection.test.period}"/> 
+		<property name="preferredTestQuery" value="${avatar-reg.ssn.db.preferred.test.query}"/>
+	</bean>
+	
+
+	<bean id="ssnEntityManagerFactory"
+		class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
+		<property name="dataSource" ref="ssnDS" />
+		<property name="persistenceUnitName" value="ssn" />
+		<property name="jpaVendorAdapter">
+			<bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter">
+				<property name="showSql" value="${avatar-reg.ssn.db.show.sql}" />
+				<property name="generateDdl" value="${avatar-reg.ssn.db.generate.ddl}" />
+        		<property name="databasePlatform" value="${avatar-reg.ssn.db.dialect.class}"/>
+			</bean>
+		</property>
+		<property name="jpaProperties">
+			<map>
+				<!--
+				TRANSACTION_NONE	     		= 0
+				TRANSACTION_READ_UNCOMMITTED 	= 1
+				TRANSACTION_READ_COMMITTED   	= 2 
+				TRANSACTION_REPEATABLE_READ  	= 4
+				TRANSACTION_SERIALIZABLE     	= 8
+				 -->
+				<entry key="hibernate.connection.isolation" value="2" />
+			</map>
+		</property>
+	</bean>
+
+	<bean id="ssnTransactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
+		<property name="entityManagerFactory" ref="ssnEntityManagerFactory" />
+		<property name="nestedTransactionAllowed" value="true"></property>
+	</bean>
+	<tx:annotation-driven transaction-manager="ssnTransactionManager" />
+	   
+	<!-- business beans -->
+	<bean id="ssnDAO" class="com.hp.wpp.ssn.dao.impl.SignedSerialNumberDAOImpl" scope="singleton" />
+	<bean id="regDomainDAO" class="com.hp.wpp.ssn.dao.impl.PrinterRegistrationDomainDAOImpl" scope="singleton" />
+	<bean id="ssnValidator" class="com.hp.wpp.ssn.impl.SignedSerialNumberValidatorImpl" scope="singleton" />
+	
+</beans>
