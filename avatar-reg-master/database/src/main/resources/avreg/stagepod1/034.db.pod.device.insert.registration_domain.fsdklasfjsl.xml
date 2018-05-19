@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?> 
+ <databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" 
+                    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+                    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog 
+          http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-2.0.xsd"> 
+ 
+ 
+   	 
+ 	<changeSet author="bnshr" id=" C:\Users\kumapiyu\Documents\GitHub\imad-app-v2\avatar-reg-master\database\src\main\resources\avreg\stagepod1\034.db.pod.device.insert.registration_domain.fsdklasfjsl.xml "> 
+	<insert tableName="registration_domain" schemaName="pod_device"> 
+ 		<column name="domain_id">34</column> 
+ 		<column name="domain_name">fsdklasfjsl</column> 
+ 		<column name="domain_index">543</column>
+ 		<column name="domain_key">kfldjsa</column>
+ 		<column name="environment">423fed</column>
+ 	</insert> 
+     </changeSet>	 
+ 		 
+</databaseChangeLog> 
+ 
