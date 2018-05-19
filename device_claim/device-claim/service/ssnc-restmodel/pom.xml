@@ -1,0 +1,55 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>com.hp.wpp.deviceclaim</groupId>
+	<artifactId>device-claim</artifactId>
+	<version>${ssnc.version}</version>
+  </parent>
+  <artifactId>ssnc-restmodel</artifactId>
+  <packaging>jar</packaging>
+  
+  <!-- sonar will use the name tag value, to display the component-->
+  <name>ssnc-restmodel</name>
+  <dependencies>
+  	<dependency>
+		<groupId>${groupId}</groupId>
+		<artifactId>ssnc-entities</artifactId>
+		<version>${version}</version>
+	</dependency>
+  	<dependency>
+		<groupId>org.jboss.resteasy</groupId>
+		<artifactId>resteasy-jackson-provider</artifactId>
+		<version>${resteasy-version}</version>
+	</dependency>
+	<!-- Java and hibernate Validation -->
+ 		
+ 		<dependency>
+			<groupId>javax.validation</groupId>
+			<artifactId>validation-api</artifactId>
+			<version>${javax.validation.version}</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-validator</artifactId>
+			<version>${hibernate-validator.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>javax.el</groupId>
+			<artifactId>javax.el-api</artifactId>
+			<version>${javax.el-api.version}</version>
+		</dependency>
+  </dependencies>
+	<build>
+  <plugins>
+	<plugin>
+		<groupId>org.apache.maven.plugins</groupId>
+			<artifactId>maven-deploy-plugin</artifactId>
+			<version>2.8.2</version>
+			<configuration>
+			<skip>true</skip>
+			</configuration>
+	</plugin>
+  </plugins>
+	</build>
+</project>

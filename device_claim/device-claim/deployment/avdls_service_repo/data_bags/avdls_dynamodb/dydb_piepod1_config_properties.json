@@ -1,0 +1,7 @@
+{
+ 	"id": "dydb_pie_config_properties",
+	"dynamodb.accessKeyId": "AKIAJ5OJDEDW5M7VYRHQ",
+	"dynamodb.secretKey": "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",
+	"dynamodb.region": "us-west-2",
+	"environment":"pie"
+}

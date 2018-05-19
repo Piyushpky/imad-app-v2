@@ -1,0 +1,115 @@
+{
+  "id": "db_stagepod1_config_properties",
+  "ssnc.dynamodb.accessKeyId": {
+    "encrypted_data": "Ugt1+kp3LVdHy0Zsuk7xDjNMuAtl9RRr83+Qvt858XbSyEeOROAP\n",
+    "iv": "WYXw+BuMwUNrTOs3\n",
+    "auth_tag": "T3NgtnLEyn8+5sSZtnco6w==\n",
+    "version": 3,
+    "cipher": "aes-256-gcm"
+  },
+  "ssnc.dynamodb.secretKey": {
+    "encrypted_data": "Eqmu4qurknZqpEzAF7uAfm1ytFdk9ZIdLX/G7KMbqqMCEq4iZu8ukV9VoQVP\nF2BgJqM3qIJzgZfc5s8=\n",
+    "iv": "BbUSbpviPCdFVFLL\n",
+    "auth_tag": "uS3kByD5L9y7zz4heTBh/w==\n",
+    "version": 3,
+    "cipher": "aes-256-gcm"
+  },
+  "dynamodb.endpoint": {
+    "encrypted_data": "JrJI3JNp5tyxaSLkSrLzuwT5TzdhXapKhQ7dRIGpfNA9QWor1LxDk1+4wjo=\n",
+    "iv": "sPFn7zNp7PmKR2RH\n",
+    "auth_tag": "HueYyIDZMnL0pgkGbLcNag==\n",
+    "version": 3,
+    "cipher": "aes-256-gcm"
+  },
+  "dynamodb.default.region": {
+    "encrypted_data": "c3X+LZFvqSGOIMyQNOFUrRIbf7qjNw6/I7oxUg==\n",
+    "iv": "KVlCTe+SGukj0L0K\n",
+    "auth_tag": "dAvlulAULJ9Il03k8PYyJw==\n",
+    "version": 3,
+    "cipher": "aes-256-gcm"
+  },
+  "ssnc.test_domain_key.decode.ignore": {
+    "encrypted_data": "K2mn6RM/nEPUwxpdUmZtbzNQ1i3Qric=\n",
+    "iv": "61LEyVZjzYFEbPzW\n",
+    "auth_tag": "Qz80cCHvks9wGu9gdUwVkg==\n",
+    "version": 3,
+    "cipher": "aes-256-gcm"
+  },
+  "ssnc.domain_key.encyrpted.value": {
+    "encrypted_data": "1WZJXkv9NvHhBMfBYx8kVt5uoVqcnkWJslgJMjJBQFXfziQ=\n",
+    "iv": "K8FKsfKDfYJJ27sI\n",
+    "auth_tag": "3g25juU9GdviM3Yo7/97gw==\n",
+    "version": 3,
+    "cipher": "aes-256-gcm"
+  },
+  "ssnc.avdis.auth.header": {
+    "encrypted_data": "V74RcuoH/bedCqo2tA3ih1GL1Ykp2im4JUegVLyqdaEiDVaUOTyM67bkXWOn\nko7HNpiKUJ4jPE4+yZJ3iukQZvtI4640lpLIrJHlDXujvMJ04MaHiR3/8oS5\ndL9CjXDLp8NyvmXXQEjhx9QGYDk57sZU7Weu\n",
+    "iv": "Em21ldDYeafDduq3\n",
+    "auth_tag": "ngvjV98U1iBuX9YINRNnEA==\n",
+    "version": 3,
+    "cipher": "aes-256-gcm"
+  },
+  "avdis.base.url": {
+    "encrypted_data": "0TjBf41UsauOhZaURWTy+FNqiJ6Vfz8AhEvmps/UMw3N1dSIsksvgGpiUazR\nvksJsR3xWSVqrONy6SNd4DEobHjhG/dtYx1NnMzABQ==\n",
+    "iv": "LohXT/ADl81w8h2R\n",
+    "auth_tag": "s99TUIwJM+S3wzsoVORPXg==\n",
+    "version": 3,
+    "cipher": "aes-256-gcm"
+  },
+  "ssnc.kinesis.vpreg.stream.name": {
+    "encrypted_data": "TF+zf2IQwfwE1+0DO9H6Ss/yxmq9E1NHSBtMmw9GUX0Cd6D8ugB1C9Qy9Gcl\naWQNC77WPygPhnFkf+tX27j1nc9rNnKx5w==\n",
+    "iv": "APpdv9N6gtgzIpJV\n",
+    "auth_tag": "Hf/rQp0cOjypK0hP6u9ozg==\n",
+    "version": 3,
+    "cipher": "aes-256-gcm"
+  },
+  "ssnc.kinesis.vpreg.stream.region": {
+    "encrypted_data": "uutzommozOXGvdfqm2F8ejyuYC5izWjsH8KeiA==\n",
+    "iv": "jJEbod4trG+6ea6u\n",
+    "auth_tag": "gHq8Vjp/tESbPYwwoq7/Lw==\n",
+    "version": 3,
+    "cipher": "aes-256-gcm"
+  },
+  "ssnc.kinesis.access.key.id": {
+    "encrypted_data": "gYx9yBmAlbP85w6XYeIL9QwV0xzs18Khvqc3K4Z+lUld9zOkewCi\n",
+    "iv": "zeo2PwVO6P6nSSQq\n",
+    "auth_tag": "hC3w870+txEgQ1YqAfayCQ==\n",
+    "version": 3,
+    "cipher": "aes-256-gcm"
+  },
+  "ssnc.kinesis.secret.key": {
+    "encrypted_data": "/ktxxaV2oufDXgnYrTLINQAre9g2oxnTRt/lv1xfLIwKC3tEtCqBrsXBalvA\nlRC3BoiaDGE9vRvhOZY=\n",
+    "iv": "niaewn34Xjt9HvOn\n",
+    "auth_tag": "JISDuOj9uzSNOyMOqRsr2w==\n",
+    "version": 3,
+    "cipher": "aes-256-gcm"
+  },
+  "ssnc.kinesis.application.name": {
+    "encrypted_data": "2QpIFyxozU7h6HflFzmkZV45oZQSf6dTHLR+WCBR+nW2e7Ogk8DQPhXoShhU\nY3xYKeu3ddoAtitbxdKP5Bao\n",
+    "iv": "EbUfs4dYNKJLXN20\n",
+    "auth_tag": "VmFUwB1A88y8PDHbMn/abw==\n",
+    "version": 3,
+    "cipher": "aes-256-gcm"
+  },
+  "avdls.sqs.queue.name": {
+    "encrypted_data": "9le2HvFduBrD7cmO0fQ4c2sYJz+mqjXIbkgK7yPqTBMDuTgB6RZFivhNsjvU\nGGLMxkbOlc+WYZQPyHj2OA==\n",
+    "iv": "SsPe3wYbBz82M4Uj\n",
+    "auth_tag": "kkyybV+awLA1oj7Yfk8efw==\n",
+    "version": 3,
+    "cipher": "aes-256-gcm"
+  },
+  "avdls.sqs.accessKey": {
+    "encrypted_data": "jGMkTbD1tYv/xKsPhxazRYg2npAtvKTisJm1CCW+qI7ZEvWoJl36\n",
+    "iv": "FNerQPfDX51IvhYU\n",
+    "auth_tag": "jePHO3m2cxF/Na2z0TJjZQ==\n",
+    "version": 3,
+    "cipher": "aes-256-gcm"
+  },
+  "avdls.sqs.secretKey": {
+    "encrypted_data": "0fg0WbWbqsRuhPbM4UkMlvPzmmINHU7WzmxBiCtquF1qIf6hHz44B7wtwgs+\n9sdg/NKabkwJKQVcIoo=\n",
+    "iv": "PS+1+/nsDSHDbR9L\n",
+    "auth_tag": "zCKYyHRWS292bAeGwkAa2w==\n",
+    "version": 3,
+    "cipher": "aes-256-gcm"
+  }
+}

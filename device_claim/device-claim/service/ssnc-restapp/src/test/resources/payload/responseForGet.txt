@@ -1,0 +1,28 @@
+{
+  "version" : "1.0",
+  "sn_key" : "8AoN5gnYL2m6S33S1GZoVoHHNzSaQyBOcRE1By5J05Q",
+  "cloud_id" : "AQAAAAFU_JJZnAAAAAFpVlpF",
+  "is_registered" : true,
+  "printer_code" : {
+    "is_ink_capable" : true,
+    "ownership_counter" : 3,
+    "issuance_counter" : 0,
+    "overrun_bit" : true
+  },
+  "prev_printer_code" : {
+    "is_ink_capable" : true,
+    "ownership_counter" : 2,
+    "issuance_counter" : 0,
+    "overrun_bit" : false
+  },
+  "links" : [ {
+    "rel" : "self",
+    "href" : "http://pie-globalpod1-devcl-pod-lb-1129532228.us-west-2.elb.amazonaws.com/virtualprinter/v1/SSN_info/HAABKACUO0FVO4BNFF"
+  }, {
+    "rel" : "sn_key_lookup",
+    "href" : "http://pie-globalpod1-devcl-pod-lb-1129532228.us-west-2.elb.amazonaws.com/virtualprinter/v1/printer?SN_key=8AoN5gnYL2m6S33S1GZoVoHHNzSaQyBOcRE1By5J05Q"
+  }, {
+    "rel" : "printer_info",
+    "href" : "http://pie-pod1-vpdev-Pod-lb-557820310.us-west-2.elb.amazonaws.com/virtualprinter/v1/printers/info/AQAAAAFU_JJZnAAAAAFpVlpF"
+  } ]
+}

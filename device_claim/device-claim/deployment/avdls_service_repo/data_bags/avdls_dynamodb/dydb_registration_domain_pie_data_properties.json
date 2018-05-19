@@ -1,0 +1,27 @@
+{
+ 	"id": "dydb_registration_domain_pie_data_properties",
+
+"insert_items":[
+{
+  "domain_index": 9,
+  "domain_key": "1R+YeaCiPI94hYbqZIBFeSpAquJODAQZw8m9OpY2iOg="
+  
+ },
+{
+ "domain_index": 1,
+ "domain_key": "1R+YeaCiPI94hYbqZIBFeSpAquJODAQZw8m9OpY2iOg="
+ 
+},
+{
+ "domain_index": 0,
+ "domain_key": "1R+YeaCiPI94hYbqZIBFeSpAquJODAQZw8m9OpY2iOg="
+ }
+],
+"delete_items":[
+ 
+],
+"update_items":[
+
+]
+
+}

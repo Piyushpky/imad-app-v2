@@ -1,0 +1,7 @@
+{
+ 	"id": "dydb_stage_config_properties",
+	"dynamodb.accessKeyId": "AKIAIVNSCISDCCW36TPA",
+	"dynamodb.secretKey": "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",
+	"dynamodb.region": "us-west-2",
+	"environment":"stage"
+}

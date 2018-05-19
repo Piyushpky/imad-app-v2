@@ -1,0 +1,31 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>com.hp.wpp.deviceclaim</groupId>
+		<artifactId>device-claim</artifactId>
+		<version>${ssnc.version}</version>
+	</parent>
+	<artifactId>ssnc-exception</artifactId>
+	<name>ssnc-exception</name>
+	<description>exceptions for DeviceLookUp Service</description>
+	<dependencies>
+		<dependency>
+			<groupId>com.hp.wpp</groupId>
+			<artifactId>wpp-logger</artifactId>
+			<version>${wpp-logger.version}</version>
+		</dependency>
+	</dependencies>
+	<build>
+	<plugins>
+		<plugin>
+			<groupId>org.apache.maven.plugins</groupId>
+			<artifactId>maven-deploy-plugin</artifactId>
+			<version>2.8.2</version>
+			<configuration>
+				<skip>true</skip>
+			</configuration>
+		</plugin>
+	</plugins>
+	</build>
+</project>

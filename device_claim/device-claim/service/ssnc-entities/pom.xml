@@ -1,0 +1,266 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>com.hp.wpp.deviceclaim</groupId>
+		<artifactId>device-claim</artifactId>
+		<version>${ssnc.version}</version>
+	</parent>
+	<artifactId>ssnc-entities</artifactId>
+	<packaging>jar</packaging>
+	<!-- sonar will use the name tag value, to display the component -->
+	<name>ssnc-entities</name>
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-jar-plugin</artifactId>
+				<version>2.3.1</version>
+				<configuration>
+					<!-- <archive> <manifest> <addDefaultImplementationEntries>true</addDefaultImplementationEntries> 
+						</manifest> <manifestEntries> <Artifact-Version>${project.version}</Artifact-Version> 
+						<Artifact-Name>${project.artifactId}</Artifact-Name> <SVN_Revision>${buildNumber}</SVN_Revision> 
+						<Build-Time>${timestampFormat}</Build-Time> </manifestEntries> </archive> -->
+					<excludes>
+						<exclude>*.properties</exclude>
+					</excludes>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<configuration>
+					<argLine>-Djava.library.path=${lib.directory}/dynamodb-mock-nativelibs-tar.gz</argLine>
+					<executions>
+						<execution>
+							<id>unpack</id>
+							<phase>process-test-resources</phase>
+							<goals>
+								<goal>unpack-dependencies</goal>
+							</goals>
+						</execution>
+					</executions>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-dependency-plugin</artifactId>
+				<configuration>
+					<includeTypes>tar.gz</includeTypes>
+					<excludeTransitive>false</excludeTransitive>
+					<outputDirectory>${lib.directory}/</outputDirectory>
+					<useSubDirectoryPerArtifact>true</useSubDirectoryPerArtifact>
+					<stripVersion>true</stripVersion>
+					<executions>
+						<execution>
+							<id>unpack</id>
+							<phase>process-test-resources</phase>
+							<goals>
+								<goal>unpack-dependencies</goal>
+							</goals>
+						</execution>
+					</executions>
+				</configuration>
+					<executions>
+						<execution>
+							<id>unpack</id>
+							<phase>process-test-resources</phase>
+							<goals>
+								<goal>unpack-dependencies</goal>
+							</goals>
+						</execution>
+					</executions>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-deploy-plugin</artifactId>
+					<version>2.8.2</version>
+					<configuration>
+						<skip>true</skip>
+					</configuration>
+				</plugin>
+			</plugins>
+	</build>
+
+	<dependencies>
+
+		<!-- DynamoDB dependency -->
+		<dependency>
+			<groupId>com.amazonaws</groupId>
+			<artifactId>aws-java-sdk-dynamodb</artifactId>
+			<version>1.10.8</version>
+		</dependency>
+		<!-- Encryption dependency -->
+		<dependency>
+			<groupId>org.bouncycastle</groupId>
+			<artifactId>bcprov-ext-jdk15on</artifactId>
+			<version>1.52</version>
+		</dependency>
+		<!-- hibernate libs -->
+		<dependency>
+			<groupId>com.hp.wpp</groupId>
+			<artifactId>wpp-logger</artifactId>
+			<version>${wpp-logger.version}</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-core</artifactId>
+			<version>${hibernate.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-entitymanager</artifactId>
+			<version>${hibernate.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-core</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-web</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-aop</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-aspects</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-orm</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-tx</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<!-- unit testcsases libraries -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-test</artifactId>
+			<version>${spring.version}</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>c3p0</groupId>
+			<artifactId>c3p0</artifactId>
+			<version>${c3p0.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>${mysql.connector.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>javax.transaction</groupId>
+			<artifactId>jta</artifactId>
+			<version>1.1</version>
+		</dependency>
+		<dependency>
+			<groupId>org.testng</groupId>
+			<artifactId>testng</artifactId>
+			<scope>test</scope>
+			<version>${org.testng.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.mockito</groupId>
+			<artifactId>mockito-all</artifactId>
+			<scope>test</scope>
+			<version>${mockito.all.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.powermock</groupId>
+			<artifactId>powermock-module-testng</artifactId>
+			<scope>test</scope>
+			<version>${powermock.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.powermock</groupId>
+			<artifactId>powermock-api-mockito</artifactId>
+			<scope>test</scope>
+			<version>${powermock.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.hsqldb</groupId>
+			<artifactId>hsqldb</artifactId>
+			<version>${hsqldb.version}</version>
+			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.hsqldb</groupId>
+			<artifactId>sqltool</artifactId>
+			<version>${hsqldb.version}</version>
+			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.liquibase</groupId>
+			<artifactId>liquibase-core</artifactId>
+			<version>${liquibase-core.version}</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.hp.wpp</groupId>
+			<artifactId>dynamodb-mock</artifactId>
+			<version>1.0.0</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.hp.wpp</groupId>
+			<artifactId>wpp-configuration-client</artifactId>
+			<version>${wpp-config.version}</version>
+		</dependency>
+       <dependency>
+			<groupId>com.hp.wpp.deviceclaim</groupId>
+			<artifactId>ssnc-exception</artifactId>
+			<version>${ssnc.version}</version>
+		</dependency>
+
+		<!-- <dependency> -->
+		<!-- <groupId>com.amazonaws</groupId> -->
+		<!-- <artifactId>aws-java-sdk-dynamodb</artifactId> -->
+		<!-- <version>${aws-java-sdk-dynamodb.version}</version> -->
+		<!-- </dependency> -->
+		<!-- <dependency> -->
+		<!-- <groupId>com.amazonaws</groupId> -->
+		<!-- <artifactId>DynamoDBLocal</artifactId> -->
+		<!-- <version>${dynamodblocal.version}</version> -->
+		<!-- </dependency> -->
+		<!-- <dependency> -->
+		<!-- <groupId>com.hp.wpp</groupId> -->
+		<!-- <artifactId>dynamodb-mock-nativelibs</artifactId> -->
+		<!-- <version>${dynamodb-mock-nativelibs.version}</version> -->
+		<!-- <type>tar.gz</type> -->
+		<!-- </dependency> -->
+	</dependencies>
+	<properties>
+		<aws-java-sdk-dynamodb.version>1.10.8</aws-java-sdk-dynamodb.version>
+		<dynamodblocal.version>1.10.5.1</dynamodblocal.version>
+		<dynamodb-mock-nativelibs.version>1.0.0</dynamodb-mock-nativelibs.version>
+		<lib.directory>${project.basedir}/target/test-classes</lib.directory>
+	</properties>
+
+	<repositories>
+		<repository>
+			<id>dynamodb-local</id>
+			<name>DynamoDB Local Release Repository</name>
+			<url>http://dynamodb-local.s3-website-us-west-2.amazonaws.com/release</url>
+		</repository>
+	</repositories>
+</project>

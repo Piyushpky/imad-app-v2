@@ -1,0 +1,14 @@
+description "<%= @name %>"
+
+start on runlevel [234]
+stop on runlevel [!234]
+
+setuid <%= @user %>
+setgid <%= @group %>
+
+respawn
+respawn limit 3 30
+
+script
+  exec java -Djava.library.path=<%= @path %>/DynamoDBLocal_lib -jar <%= @path %>/DynamoDBLocal.jar -port <%= @port %> >> <%= @log_dir %>/<%= @port %>.log 2>&1
+end script

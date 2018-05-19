@@ -1,0 +1,6 @@
+{
+	"env_name": "stagepod1",
+	"java_opts": "-Xms512m -Xmx2048m -Dbootsstrap.configuration.source=/opt/wpp/gen2/config/config.bootstrap.properties",
+	"catalina_opts": "-Dcom.sun.management.jmxremote -Dcom.sun.management.jmxremote.rmi.port=9192 -Dcom.sun.management.jmxremote.port=9192 -Dcom.sun.management.jmxremote.authenticate=false -Dcom.sun.management.jmxremote.ssl=false",
+	"ENVIRONMENT": "_stage"
+	}

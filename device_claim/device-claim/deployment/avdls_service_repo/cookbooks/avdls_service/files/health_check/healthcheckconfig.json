@@ -1,0 +1,54 @@
+{
+  "healthcheck_configuration" : {
+	"service_name": "Avatar-Lookup-Service",
+	"service_version": "1.0.5",
+	"healthchecks":[
+	{
+		"healthcheck_name":"AVDIS HealthCheck",
+		"healthcheck_description":"HealthCheck for AVDIS",
+		"healthcheck_type":"net.url",
+		"options":[{
+			"option_key":"net.url.httpmethodname",
+			"option_value":"GET"
+		},{
+           "option_key": "net.url.location",
+            "option_value": "config://avdis.base.url"
+        }, {
+            "option_key": "net.url.remote.uri",
+            "option_value": "/avatar/v1/about"
+        },{
+			"option_key":"net.url.expectedResponseCodes",
+			"option_value":"200"
+		}],
+		"scope":"external",
+		"criticality":"critical"
+	},{
+		"healthcheck_name":"CPU HealthCheck",
+		"healthcheck_description":"HealthCheck for CPU",
+		"healthcheck_type":"system.cpu",
+		"options":[{
+			"option_key":"system.cpu.load.avg.threshold",
+			"option_value":"2"
+		}],
+		"scope":"internal",
+		"criticality":"non_critical"
+	},{
+		"healthcheck_name":"Memory HealthCheck",
+		"healthcheck_description":"HealthCheck for Memory",
+		"healthcheck_type":"system.jvm.memory",
+		"options":[{
+			"option_key":"system.jvm.memory.threshold",
+			"option_value":"70"
+		}],
+		"scope":"internal",
+		"criticality":"non_critical"
+	},{
+            "healthcheck_name": "Ops DB HealthCheck",
+            "healthcheck_description": "HealthCheck for Ops DB",
+            "healthcheck_type": "config.db",
+            "options": [],
+            "scope": "external",
+            "criticality": "critical"
+        }]
+  }
+}

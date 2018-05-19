@@ -1,0 +1,8 @@
+{"version":"1.0.0","originator":{"originatorId":"com.hp.cloud.wpp",
+"originatorDescription":{"version":"1.0.0","serviceName":"Avatar-Registration",
+"serviceVersion":"1.0.38","hostName":"10.101.34.143"}},
+"eventDetails":{"eventCategory":"com.hp.cloud.wpp.event.registration","eventDescription":
+{"version":"1.0.0","entityID":"Y1OA8NPZVL","domainIndex":"4","entityModel":"K7R96A","entityModelName":"ENVY Photo 7800 All-in-One Printer series",
+"entityVersionDate":"2016-11-08T08:23:19Z","entityVersion":"PALSUPPP1738B","entityType":"devices","entityClassifier":"printer",
+"countryAndRegionName":"unitedStates","language":"en","deviceUUID":"230e3bc8-3b93-451e-b6d9-a73d2e603099","resetCounter":"0",
+"requestOriginator":"front_panel","cloudID":"AQAAAAFfnhKWvAAAAAGu6CeJ","podID":"1","responseCode":"201","eventCreatedAt":"2017-11-08T23:58:59.358Z"}}}

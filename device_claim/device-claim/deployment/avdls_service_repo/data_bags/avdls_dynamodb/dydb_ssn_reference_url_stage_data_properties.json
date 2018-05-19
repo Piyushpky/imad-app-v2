@@ -1,0 +1,45 @@
+{
+ 	"id": "dydb_entitypodurl_stage_data_properties",
+
+"insert_items":[
+  {
+    "url_type": "printer_code",
+    "url_value": "https://devicelookup.stage.avatar.ext.hp.com/virtualprinter/v1/printer_code_info/%s"
+  },
+{
+  "url_type": "printer_info",
+  "url_value": "https://devicemgmt.pod1.stage.avatar.ext.hp.com/virtualprinter/v1/printers/generic/info/%s"
+},
+{
+  "url_type": "printer_info_registered",
+  "url_value": "https://devicemgmt.pod1.stage.avatar.ext.hp.com/virtualprinter/v1/printers/info/%s"
+},
+{
+  "url_type": "sn_key_lookup",
+  "url_value": "https://devicelookup.stage.avatar.ext.hp.com/virtualprinter/v1/printer?SN_key=%s"
+},
+{
+  "url_type": "ssn_claim",
+  "url_value": "https://devicelookup.stage.avatar.ext.hp.com/virtualprinter/v1/SSN_info/%s"
+},
+{
+  "url_type": "discovery_url",
+  "url_value": "https://stg-crs-pod1-avdis-podlb-510823035.us-west-2.elb.amazonaws.com/avatar/v1/entities?cloud-id=%s"
+},
+{
+  "url_type": "claim_code",
+  "url_value": "https://devicelookup.stage.avatar.ext.hp.com/virtualprinter/v1/printer/claim_code/%s"
+},
+{
+  "url_type": "claim_code_validation",
+  "url_value": "https://devicelookup.stage.avatar.ext.hp.com/virtualprinter/v1/printer/claim_code/%s"
+}
+
+],
+"delete_items":[
+ 
+],
+"update_items":[
+]
+
+}

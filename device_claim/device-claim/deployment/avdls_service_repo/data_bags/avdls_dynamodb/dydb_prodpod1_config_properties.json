@@ -1,0 +1,7 @@
+{
+ 	"id": "dydb_prod_config_properties",
+	"dynamodb.accessKeyId": "AKIAJJZHHMNBGM52AK6A",
+	"dynamodb.secretKey": "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",
+	"dynamodb.region": "us-west-2",
+	"environment":"prod"
+}

@@ -1,0 +1,29 @@
+---
+driver:
+  name: ec2
+  instance_type: t2.micro
+
+transport:
+  username: ec2-user
+  ssh_key: /home/ec2-user/aws-test.pem
+  
+provisioner:
+  name: chef_zero
+  cookbooks_path: ../../cookbooks
+  environments_path: ../../environments
+  client_rb:
+    environment: pie
+  data_bags_path: ../../data_bags
+
+platforms:
+  - name: chef_base
+    driver:
+      image_id: ami-b79c94ce
+#      username: ec2-user
+      region: us-east-1
+
+suites:
+  - name: default
+    run_list: ["recipe[avdls_service::default]","recipe[zabbixagent::agent_dereg]"]
+    attributes: { "service": { "artifact_url" : "http://52.1.56.86/nexus/content/repositories/morpheussnapshots/com/hp/wpp/ocm/ocm-restapp/1.0.0-NIGHTLY-Jun.29.2016.03.20.AM/ocm-restapp-1.0.0-NIGHTLY-Jun.29.2016.03.20.AM.war" } }
+

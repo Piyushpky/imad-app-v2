@@ -1,0 +1,80 @@
+
+require "aws-sdk-core"
+require "json"
+Aws.config.update({
+  region: '<%= node['avdls_dynamodb']['region'] %>',
+  credentials: Aws::Credentials.new("<%= node['avdls_dynamodb']['accesskey'] %>", "<%= node['avdls_dynamodb']['secretkey'] %>")
+})
+
+dynamodbclient = Aws::DynamoDB::Client.new
+tableName = "<%= node['avdls_dynamodb']['tablename2'] %>"
+
+#dynamo_db.tables.create('comments', 10, 5,
+#  :hash_key => { :blog_post_id => :number },
+#  :range_key => { :comment_id => :number }
+#)
+#dynamodbclient.create_table(<%= node['avdls_dynamodb']['template'] %>)
+
+
+insertItems = <%= node['avdls_dynamodb']['insert_items2'] %>
+#unless insertItems.any?
+insertItems.each{|insertItem|
+
+    params = {
+        table_name: "<%= node['avdls_dynamodb']['tablename2'] %>" ,
+        item: insertItem
+    }
+
+    begin
+        result = dynamodbclient.put_item(params)
+		puts "inserted item:"
+
+    rescue  Aws::DynamoDB::Errors::ServiceError => error
+        puts "Unable to add records:"
+        puts "#{error.message}"
+    end
+}
+#end
+
+deleteItems = <%= node['avdls_dynamodb']['delete_items2'] %>
+#unless deleteItems.any?
+deleteItems.each{|deleteItem|
+
+    params = {
+        table_name: "<%= node['avdls_dynamodb']['tablename2'] %>" ,
+        item: deleteItem
+    }
+
+    begin
+        result = dynamodbclient.delete_item(params)
+		puts "deleted item:"
+
+    rescue  Aws::DynamoDB::Errors::ServiceError => error
+        puts "Unable to delete records:"
+        puts "#{error.message}"
+    end
+}
+#end
+
+updateItems = <%= node['avdls_dynamodb']['update_items2'] %>
+#unless updateItems.any?
+updateItems.each{|updateItem|
+
+    params = {
+        table_name: "<%= node['avdls_dynamodb']['tablename2'] %>" ,
+        item: updateItem
+    }
+
+    begin
+        result = dynamodbclient.update_item(params)
+		puts "updated item:"
+
+    rescue  Aws::DynamoDB::Errors::ServiceError => error
+        puts "Unable to update records:"
+        puts "#{error.message}"
+    end
+}
+#end
+
+
+

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+            http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+            http://www.springframework.org/schema/context
+            http://www.springframework.org/schema/context/spring-context-4.0.xsd">
+
+    <context:annotation-config />
+
+<import resource="classpath:applicationContext-config.xml" />
+
+    <bean id="awsHelper" class="com.hp.wpp.ssnclaim.entities.dynamodb.AWSHelper" init-method="setRegion"/>
+    <bean id="dynamoDBClientConfiguration" class="com.amazonaws.ClientConfiguration">
+        <property name="connectionTimeout" value="${ssnc.dynamodb.httpclient.connection.timeout}" />
+        <property name="maxConnections" value="${ssnc.dynamodb.httpclient.max.connections}" />
+        <property name="maxErrorRetry" value="${ssnc.dynamodb.httpclient.max.error.retry}" />
+        <property name="proxyHost" value="#{dacProxyHelper.proxyHost}" />
+        <property name="proxyPort" value="#{dacProxyHelper.proxyPort}" />
+    </bean>
+
+    <bean id="dynamoDBClient" class="com.amazonaws.services.dynamodbv2.AmazonDynamoDBClient" >
+        <constructor-arg index="0" ref="dacDynamoDBCredentials" />
+        <constructor-arg index="1" ref="dynamoDBClientConfiguration" />
+		<property name="endpoint" value="#{awsHelper.getEndpoint()}" />
+    </bean>
+
+    <bean id="dynamoDBMapper" class="com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBMapper" >
+        <constructor-arg index="0" ref="dynamoDBClient" />
+    </bean>
+
+    <bean id="dacDynamoDBCredentials" class="com.hp.wpp.ssnclaim.entities.dynamodb.DACDynamoDBCredentials">
+        <constructor-arg index="0" value="${ssnc.dynamodb.accessKeyId}" />
+        <constructor-arg index="1" value="${ssnc.dynamodb.secretKey}" />
+    </bean>
+
+    <bean id="dacProxyHelper" class="com.hp.wpp.ssnclaim.entities.dynamodb.DACProxyHelper">
+        <constructor-arg index="0" value="${ssnc.dynamodb.httpclient.proxy.enabled}" />
+        <constructor-arg index="1" value="${ssnc.dynamodb.httpclient.proxy.host}" />
+        <constructor-arg index="2" value="${ssnc.dynamodb.httpclient.proxy.port}" />
+    </bean>
+	
+</beans>

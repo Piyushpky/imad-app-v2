@@ -1,0 +1,29 @@
+---
+driver:
+  name: ec2
+  instance_type: t2.nano
+
+transport:
+  username: ec2-user
+  ssh_key: C:/aws-test.pem
+  
+provisioner:
+  name: chef_zero
+  cookbooks_path: ../../cookbooks
+  environments_path: ../../environments
+  client_rb:
+    environment: dev
+  data_bags_path: ../../data_bags
+
+platforms:
+  - name: chef_base
+    driver:
+      image_id: ami-462bc826
+#      username: ec2-user
+      region: us-west-2
+
+suites:
+  - name: default
+    run_list: ["recipe[avdls_dynamodb::default]"]
+    attributes: 
+

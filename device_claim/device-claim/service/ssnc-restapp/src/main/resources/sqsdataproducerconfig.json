@@ -1,0 +1,20 @@
+{
+  "sqsClientConfig":{
+    "sqs_queue_name":"config://avdls.sqs.queue.name",
+    "sqs_access_key":"config://avdls.sqs.accessKey",
+    "sqs_secret_key":"config://avdls.sqs.secretKey",
+    "sqs_proxy_enabled":false,
+    "sqs_proxy_host":"web-proxy.cup.hp.com",
+    "sqs_proxy_port":8080,
+    "sqs_max_error_retry":3,
+    "sqs_max_connections":100,
+    "sqs_connection_timeout_in_millis":100000,
+    "sqs_request_timeout_in_millis":100000,
+    "sqs_connection_execution_timeout_in_millis":100000,
+    "sqs_socket_timeout_in_millis":100000,
+    "sqs_connection_max_idle_timeout_in_millis":100000,
+    "sqs_polling_batch_size":3,
+    "sqs_long_polling_in_seconds":10
+  }
+}
+

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:context="http://www.springframework.org/schema/context"	
+	xsi:schemaLocation="
+       http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+       http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.0.xsd
+       http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.0.xsd
+       http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd"
+       default-autowire="byName">
+
+	<context:spring-configured />
+
+	<import resource="classpath:applicationContext-entities.xml"/>
+    <import resource="classpath:/dynamodb-mock-applicationContext-test.xml" />
+	<import resource="classpath:application-context-avdis-client.xml"/>
+
+	<bean id="avdisConfiguration" class="com.hp.wpp.discovery.client.conf.DiscoveryConfig">
+		<constructor-arg ref="archaiusDynamicFactory"/>
+	</bean>
+
+    <bean id="deviceLookupDynamoMock" class="com.hp.wpp.ssnclaim.it.mock.DeviceLookupDynamoMock" scope="singleton"/>
+
+    <context:component-scan base-package="com.hp.wpp.ssnclaim.restapp" />
+
+	<bean class="org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor" />
+	<bean id="ssnValidator" class="com.hp.wpp.ssnclaim.service.ssn.service.impl.DeviceLookUpServiceImpl" scope="singleton" />
+	<bean id="generateLookUpResponse" class="com.hp.wpp.ssnclaim.service.response.LookUpResponseGenerator" scope="singleton" />
+	<bean id="generatePrinterCodeResponse" class="com.hp.wpp.ssnclaim.service.response.PrinterCodeResponseGenerator" scope="singleton" />
+	<bean id="printerCodeImpl" class="com.hp.wpp.ssnclaim.service.printercode.impl.PrinterCodeValidatorImpl" scope="singleton" />
+ <bean name="dynamicPropertyFactory" class="com.netflix.config.DynamicPropertyFactory" factory-method="getInstance" />
+
+</beans>

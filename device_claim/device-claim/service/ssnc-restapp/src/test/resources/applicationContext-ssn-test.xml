@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx" xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="
+       http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+       http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.0.xsd
+       http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.0.xsd
+       http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd"
+	default-autowire="byName">
+
+	<context:spring-configured />
+
+	<context:component-scan base-package="com.hp.wpp" />
+
+	<import resource="classpath:applicationContext-entities.xml" />
+
+	<bean id="printerResourceServiceConfig" class="com.hp.wpp.ssnc.common.config.PrinterResourceServiceConfig" />
+   
+
+	<bean
+		class="org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor" />
+	<bean id="ssnValidator"
+		class="com.hp.wpp.ssnclaim.restapp.ssn.service.impl.DeviceLookUpServiceImpl"
+		scope="singleton" />
+	<bean id="generateResponse"
+		class="com.hp.wpp.ssnclaim.restapp.response.DeviceClaimResponse"
+		scope="singleton" />
+	<bean id="snKeyLookUp"
+		class="com.hp.wpp.ssnclaim.restapp.snkeylookup.impl.SNKeyLookUpImpl"
+		scope="singleton" />
+	<bean id="printerCodeResponseGenerator"
+		  class="com.hp.wpp.ssnclaim.restapp.response.PrinterCodeResponseGenerator"
+		  scope="singleton" />
+	<!-- <bean name="ssnClaimApplicationConfig" class="com.hp.wpp.ssnclaim.com.hp.wpp.ssnclaim.service.config.SSNClaimApplicationConfig"
+		/> -->
+	<bean name="dynamicPropertyFactory" class="com.netflix.config.DynamicPropertyFactory"
+		factory-method="getInstance" />
+
+</beans>

@@ -1,0 +1,85 @@
+<project
+    xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.hp.wpp.gen2.cd.rp-avdls</groupId>
+    <artifactId>rp-avdls-service-databag-env</artifactId>
+    <version>1.0.21</version>
+    <name>rp-avdls-service-databag-env</name>
+    <packaging>pom</packaging>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>1.6</source>
+                    <target>1.6</target>
+                </configuration>
+            </plugin>
+            <plugin>
+                <artifactId>maven-antrun-plugin</artifactId>
+                <version>1.7</version>
+                <executions>
+                    <execution>
+                        <id>${project.artifactId}-package</id>
+                        <phase>package</phase>
+                        <configuration>
+                            <target>
+                                <echo message="Packaging Databags and Environments" />
+                                <exec executable="mkdir">
+                                    <arg value="-p"/>
+                                    <arg value="${project.basedir}/packages/${project.artifactId}_pkg"/>
+                                </exec>
+                                <exec executable="cp">
+                                    <arg value="-R"/>
+                                    <arg value="${project.basedir}/environments"/>
+                                    <arg value="${project.basedir}/packages/${project.artifactId}_pkg"/>
+                                </exec>
+                                <exec executable="cp">
+                                    <arg value="-R"/>
+                                    <arg value="${project.basedir}/data_bags"/>
+                                    <arg value="${project.basedir}/packages/${project.artifactId}_pkg"/>
+                                </exec>
+                                <tar destfile="${project.build.directory}/${project.artifactId}.tar" basedir="${project.basedir}/packages/${project.artifactId}_pkg" />
+                                <gzip destfile="${project.build.directory}/${project.artifactId}.tar.gz" src="${project.build.directory}/${project.artifactId}.tar" />
+                            </target>
+                        </configuration>
+                        <goals>
+                            <goal>run</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>build-helper-maven-plugin</artifactId>
+                <version>1.3</version>
+                <executions>
+                    <execution>
+                        <id>attach-distribution</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>attach-artifact</goal>
+                        </goals>
+                        <configuration>
+                            <artifacts>
+                                <artifact>
+                                    <file>target/${project.artifactId}.tar.gz</file>
+                                    <type>tar.gz</type>
+                                </artifact>
+                            </artifacts>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+    <distributionManagement>
+        <repository>
+            <id>devops-releases</id>
+            <url>http://repository.cd.wppg2.com/nexus/content/repositories/devops-releases/</url>
+        </repository>
+    </distributionManagement>
+</project>

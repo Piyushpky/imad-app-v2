@@ -1,0 +1,19 @@
+{
+ "id": "db_piepod1_config_properties",
+ "ssnc.dynamodb.accessKeyId": "AKIAJ5OJDEDW5M7VYRHQ",
+ "ssnc.dynamodb.secretKey": "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",
+ "dynamodb.endpoint": "dynamodb.%s.amazonaws.com",
+ "dynamodb.default.region":"us-west-2",
+ "ssnc.test_domain_key.decode.ignore":"true",
+ "ssnc.domain_key.encyrpted.value":"UGLLQXZHDGFYUGXH", 
+ "ssnc.avdis.auth.header" : "Basic YXZjX2RsczFfMDIxN19kZXY6T0RZMVpUUm1NV1F0T1RJMFlTMDBOVFkyTFRrM1lqQXRZbUptTkdaalpXVTVNVFUx",
+ "avdis.base.url" : "https://entitydiscovery.pie.avatar.ext.hp.com/avatar/v1",
+ "ssnc.kinesis.vpreg.stream.name" : "pie-stream-cross-region-notification-registration",
+ "ssnc.kinesis.vpreg.stream.region": "us-west-2",
+ "ssnc.kinesis.access.key.id": "AKIAI66RYHLC2E5LZMYA",
+ "ssnc.kinesis.secret.key": "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",
+ "ssnc.kinesis.application.name":"pie-stream-cross-region-notification-avdls",
+ "avdls.sqs.queue.name": "pie-DlsToDcs-pod1-reg-notification-queue",
+ "avdls.sqs.accessKey": "AKIAIKCKWLUE5TT53AKA",
+ "avdls.sqs.secretKey": "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"
+}

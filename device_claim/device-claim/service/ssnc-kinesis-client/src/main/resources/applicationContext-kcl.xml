@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx" xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="
+       http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+       http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.0.xsd
+       http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.0.xsd
+       http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd"
+	default-autowire="byName">
+
+	<context:spring-configured />
+
+	<context:component-scan base-package="com.hp.wpp.ssnclaim.kinesis" />
+
+	<bean
+		class="org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor" />
+
+	<bean id="printerResourceServiceConfig" class="com.hp.wpp.ssnc.common.config.PrinterResourceServiceConfig" />
+  
+	<bean id="kinesisHelper" class="com.hp.wpp.ssnclaim.kinesis.client.helper.KinesisHelper" scope="singleton"/>
+
+	<bean id="messageStreamConfig" class="com.hp.wpp.streamconsumer.config.MessageStreamConfig">
+		<property name="applicationName" value="${ssnc.kinesis.application.name}" />
+		<property name="streamName" value="${ssnc.kinesis.vpreg.stream.name}" />
+		<property name="region" value="#{kinesisHelper.getRegion()}" />
+		<property name="proxyEnabled" value="${ssnc.kinesis.httpclient.proxy.enabled}" />
+		<property name="proxyHost" value="${ssnc.kinesis.httpclient.proxy.host}" />
+		<property name="proxyPort" value="${ssnc.kinesis.httpclient.proxy.port}" />
+		<property name="accessKeyId" value="${ssnc.kinesis.access.key.id}" />
+		<property name="secretKey" value="${ssnc.kinesis.secret.key}" />
+		<property name="backoffIntervalinMiliSecs" value="${ssnc.kinesis.backoff.interval.milisecs}" />
+		<property name="retryAttempts" value="${ssnc.kinesis.retry.attempts}" />
+		<property name="checkPointIntervalinMiliSecs" value="${ssnc.kinesis.check.point.interval.milisecs}" />
+	</bean>
+
+	<bean id="messageRecordProcessor" class="com.hp.wpp.streamconsumer.message.MessageRecordProcessor">
+		<constructor-arg ref="messageStreamConfig" />
+		<constructor-arg ref="customProcessor" />
+	</bean>
+
+	<bean id="customProcessor" class="com.hp.wpp.ssnclaim.kinesis.client.RegistrationNotificationProcessor" />
+
+	<bean id="messageRecordProcessorFactory" class="com.hp.wpp.streamconsumer.message.MessageRecordProcessorFactory">
+		<constructor-arg ref="messageStreamConfig" />
+		<constructor-arg ref="messageRecordProcessor" />
+	</bean>
+
+	<bean id="messageStreamClientConfiguration" class="com.hp.wpp.streamconsumer.MessageStreamClientConfiguration"
+		init-method="startUp" destroy-method="shutDown">
+		<constructor-arg ref="messageStreamConfig" />
+		<constructor-arg ref="messageRecordProcessorFactory" />
+	</bean>
+	<bean id="sqsmessageproducer" class="com.hp.wpp.dataproducer.producer.SQSMessageProducer" scope="singleton"/>
+	<bean id="sqseventhelper" class="com.hp.wpp.ssnclaim.sqshelper.SQSEventHelper" scope="singleton">
+		<constructor-arg ref="sqsmessageproducer" />
+	</bean>
+
+</beans>
+	

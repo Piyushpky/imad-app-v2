@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+            http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+            http://www.springframework.org/schema/context
+            http://www.springframework.org/schema/context/spring-context-4.0.xsd">
+
+    <context:annotation-config />
+
+    <bean id="localDynamoDBCredentials" class="com.hp.wpp.mock.dynamodb.credentials.DynamoDBCredentials">
+        <constructor-arg index="0" value="${dynamodb.accessKeyId}" />
+        <constructor-arg index="1" value="${dynamodb.secretKey}" />
+    </bean>
+
+    <bean id="dynamoDBClient" class="com.amazonaws.services.dynamodbv2.AmazonDynamoDBClient">
+        <constructor-arg index="0" ref="localDynamoDBCredentials" />
+        <property name="endpoint" value="${local.dynamodb.http.endpoint}" />
+    </bean>
+
+    <bean id="dynamoDBMapper" class="com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBMapper">
+        <constructor-arg index="0" ref="dynamoDBClient" />
+    </bean>
+
+    <bean id="dynamoDBHttpMockService" class="com.hp.wpp.mock.dynamodb.http.DynamoDBHttpMockService">
+    </bean>
+
+    <bean id="dynamoDBEmbeddedMockService" class="com.hp.wpp.mock.dynamodb.embedded.DynamoDBEmbeddedMockService">
+    </bean>
+
+</beans>

@@ -1,0 +1,373 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.hp.wpp.deviceclaim</groupId>
+	<artifactId>device-claim</artifactId>
+	<version>${ssnc.version}</version>
+	<packaging>pom</packaging>
+	<modules>
+		<module>ssnc-common</module>
+		<module>ssnc-entities</module>
+		<module>ssnc-restmodel</module>
+		<module>ssnc-restapp</module>
+		<module>ssnc-kinesis-client</module>
+		<module>ssnc-exception</module>
+		<module>ssnc-service</module>
+	</modules>
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-deploy-plugin</artifactId>
+				<version>2.8.2</version>
+			</plugin>
+
+			<plugin>
+				<groupId>com.fortify.ps.maven.plugin</groupId>
+				<artifactId>maven-sca-plugin</artifactId>
+				<version>2.6.0002-SNAPSHOT</version>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>${maven.compiler.plugin.version}</version>
+				<configuration>
+					<source>${jdk.version}</source>
+					<target>${jdk.version}</target>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-pmd-plugin</artifactId>
+				<version>2.4</version>
+				<executions>
+					<execution>
+						<id>PMD</id>
+						<phase>test</phase>
+						<goals>
+							<goal>pmd</goal>
+							<goal>cpd</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<outputDirectory>${project.reporting.outputDirectory}</outputDirectory>
+					<targetDirectory>${project.build.directory}</targetDirectory>
+					<targetJdk>1.7</targetJdk>
+					<linkXref>true</linkXref>
+					<sourceEncoding>utf-8</sourceEncoding>
+					<minimumTokens>100</minimumTokens>
+				</configuration>
+			</plugin>
+			<!-- <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-pmd-plugin</artifactId> 
+				<version>2.4</version> <executions> <execution> <id>PMD</id> <phase>test</phase> 
+				<goals> <goal>pmd</goal> <goal>cpd</goal> </goals> </execution> </executions> 
+				<configuration> <outputDirectory>${project.reporting.outputDirectory}</outputDirectory> 
+				<targetDirectory>${project.build.directory}</targetDirectory> <targetJdk>${jdk.version}</targetJdk> 
+				<linkXref>true</linkXref> <sourceEncoding>utf-8</sourceEncoding> <minimumTokens>100</minimumTokens> 
+				</configuration> </plugin> -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-dependency-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>dependency</id>
+						<phase>package</phase>
+						<goals>
+							<goal>analyze-dep-mgt</goal>
+							<goal>analyze-only</goal>
+						</goals>
+						<configuration>
+							<ignoreNonCompile>true</ignoreNonCompile>
+							<outputXML>true</outputXML>
+							<verbose>false</verbose>
+							<!-- configure the plugin here -->
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>buildnumber-maven-plugin</artifactId>
+				<version>1.3</version>
+				<executions>
+					<execution>
+						<phase>validate</phase>
+						<goals>
+							<goal>create</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<doCheck>false</doCheck>
+					<doUpdate>false</doUpdate>
+					<getRevisionOnlyOnce>true</getRevisionOnlyOnce>
+					<useLastCommittedRevision>true</useLastCommittedRevision>
+					<timestampFormat>{0,date,MM/dd/yyyy hh:mm:ss a}</timestampFormat>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-jar-plugin</artifactId>
+				<version>2.1</version>
+				<configuration>
+
+					<archive>
+						<manifest>
+							<addDefaultImplementationEntries>true</addDefaultImplementationEntries>
+						</manifest>
+						<manifestEntries>
+							<Artifact-Version>${project.version}</Artifact-Version>
+							<Artifact-Name>${project.artifactId}</Artifact-Name>
+							<SVN_Revision>${buildNumber}</SVN_Revision>
+							<Build-Time>${timestampFormat}</Build-Time>
+						</manifestEntries>
+					</archive>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-war-plugin</artifactId>
+				<version>2.1.1</version>
+				<configuration>
+					<archive>
+						<manifest>
+							<addDefaultImplementationEntries>true</addDefaultImplementationEntries>
+						</manifest>
+						<manifestEntries>
+							<Artifact-Version>${project.version}</Artifact-Version>
+							<Artifact-Name>${project.artifactId}</Artifact-Name>
+							<SVN_Revision>${buildNumber}</SVN_Revision>
+							<Build-Time>${timestampFormat}</Build-Time>
+						</manifestEntries>
+					</archive>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>cobertura-maven-plugin</artifactId>
+				<version>2.7</version>
+				<executions>
+					<execution>
+						<id>coverageReportGeneration</id>
+						<!--<phase>test</phase> -->
+						<goals>
+							<goal>cobertura</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<instrumentation>
+						<includes>
+							<include>**/*.class</include>
+						</includes>
+						<excludes>
+							<exclude>**/*Test.class</exclude>
+							<exclude>**/*$AjcClosure*</exclude>
+							<exclude>com/hp/wpp/ssnclaim/exception/**/*.class</exclude>
+							<exclude>com/hp/wpp/ssnc/common/**/*.class</exclude>
+							<exclude>com/hp/wpp/ssnclaim/restmodel/**/*.class</exclude>
+							<exclude>com/hp/wpp/ssnclaim/entities/**/*.class</exclude>
+							<exclude>com/hp/wpp/ssnclaim/restapp/application/SSNClaimApplication.class</exclude>
+							<exclude>com/hp/wpp/ssnclaim/restapp/resources/PrinterResource.class</exclude>
+							<exclude>com/hp/wpp/ssnclaim/service/ssn/data/SSNFields.class</exclude>
+						</excludes>
+					</instrumentation>
+					<formats>
+						<format>html</format>
+						<format>xml</format>
+					</formats>
+				</configuration>
+			</plugin>
+            <plugin>
+                <groupId>org.jacoco</groupId>
+                <artifactId>jacoco-maven-plugin</artifactId>
+                <version>${maven.jacoco.plugin.version}</version>
+                <executions>
+                    <execution>
+                        <id>default-prepare-agent-integration</id>
+                        <goals>
+                            <goal>prepare-agent-integration</goal>
+                        </goals>
+                        <configuration>
+                            <includes>
+                                <include>com/hp/wpp/*</include>
+                            </includes>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>default-report-integration</id>
+                        <goals>
+                            <goal>report-integration</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+		</plugins>
+	</build>
+	<properties>		
+		<!--about api-->
+		<wpp-about.version>0.9.5</wpp-about.version>
+		<wpp-sqs-dataproducer-version>1.0.0</wpp-sqs-dataproducer-version>
+		
+		<!-- vp registration jars-->
+
+		<ssnc.version>1.0.30</ssnc.version>
+		
+		<!-- JDK Properties -->
+		<jdk.version>1.8</jdk.version>
+
+		<!-- Resteasy Version -->
+		<resteasy-version>3.0.10.Final</resteasy-version>
+		<rest-assured.version>2.4.0</rest-assured.version>
+
+		<!-- Commons-io version -->
+		<commons-io.version>2.1</commons-io.version>
+		<commons-codec.version>1.7</commons-codec.version>
+		<!-- Hystrix Core Versions -->
+		<hystrix-core-version>1.4.14</hystrix-core-version>
+
+		<!-- netflix version -->
+		<archaius.version>0.6.5</archaius.version>
+
+		<!-- Guava Cache -->
+		<guava.version>18.0</guava.version>
+
+		<!-- Archaius version -->
+		<archaius.version>0.6.6</archaius.version>
+
+		<!-- Testing Vesrions -->
+		<org.testng.version>6.9.4</org.testng.version>
+		<liquibase-core.version>3.2.3</liquibase-core.version>
+
+		<!-- Mock and Powermock versions -->
+		<powermock.version>1.5.1</powermock.version>
+		<mockito.all.version>1.9.5</mockito.all.version>
+
+		<!-- Hibernate Versions -->
+		<asm-all-version>2.2.3</asm-all-version>
+		<cglib-version>2.1_3</cglib-version>
+		<hibernate.version>4.3.8.Final</hibernate.version>
+		<hibernate-validator.version>5.1.3.Final</hibernate-validator.version>
+		
+		<!-- Spring versions -->
+		<spring.version>4.2.5.RELEASE</spring.version>
+		
+
+		<!-- DB versions -->
+		<mysql.connector.version>5.1.34</mysql.connector.version>
+
+		<!-- c3p0 versions -->
+		<c3p0.version>0.9.1.2</c3p0.version>
+
+		<!-- Aspectj versions -->
+		<aspectjrt.version>1.6.5</aspectjrt.version>
+		<aspectjweaver.version>1.6.5</aspectjweaver.version>
+
+
+		<!-- HTTP Components versions -->
+		<httpcomponents.client.version>4.1.3</httpcomponents.client.version>
+		<httpcomponents.core.version>4.1.4</httpcomponents.core.version>
+		<commons.lang.version>2.4</commons.lang.version>
+		<asm.all.version>3.1</asm.all.version>
+		
+		<!-- Jdom Version -->
+		<jdom.version>2.0.2</jdom.version>
+
+		<!-- Logging Versions -->
+		<wpp-logger.version>2.0.2</wpp-logger.version>
+		<org.slf4j.version>1.6.4</org.slf4j.version>
+		<ch.qos.logback.version>1.0.0</ch.qos.logback.version>
+		<wpp-config.version>1.0.0</wpp-config.version>
+		
+		<!-- Hsqldb Versions -->
+		<hsqldb.version>2.3.2</hsqldb.version>
+		<liquibase-core.version>3.2.3</liquibase-core.version>
+		
+		<!-- javax jars -->
+		<javax.validation.version>1.1.0.Final</javax.validation.version>
+		<javax.el-api.version>2.2.4</javax.el-api.version>
+		<javax.servlet.version>2.5</javax.servlet.version>
+
+		<!-- maven plugin versions -->
+		<maven.compiler.plugin.version>2.0.2</maven.compiler.plugin.version>
+		<maven.surefire.plugin.version>2.4.2</maven.surefire.plugin.version>
+		<maven.assembly.plugin.version>2.3</maven.assembly.plugin.version>
+        <maven.build.helper.version>1.9.1</maven.build.helper.version>
+        <maven.failsafe.plugin.version>2.18.1</maven.failsafe.plugin.version>
+        <maven.jacoco.plugin.version>0.7.4.201502262128</maven.jacoco.plugin.version>
+
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+
+        <!-- cucumber versions -->
+        <cucumber.version>1.2.0</cucumber.version>
+        <restito.version>0.4</restito.version>
+        <junit.version>4.11</junit.version>
+		<avdisclient.version>1.1.0</avdisclient.version>
+
+		<!--Healthcheck -->
+		<wpp-web-healthcheck.version>1.0.9</wpp-web-healthcheck.version>
+        <wpp-httclient-version>2.3.1</wpp-httclient-version>
+		<kcl.version>1.0.3</kcl.version>
+		<aws.sdk.version>1.11.76</aws.sdk.version>
+		<jackson.version>2.6.6</jackson.version>
+
+	</properties>
+	<reporting>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-deploy-plugin</artifactId>
+						<version>2.8.2</version>
+						<configuration>
+						<skip>true</skip>
+						</configuration>
+			</plugin>			
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-project-info-reports-plugin</artifactId>
+				<version>2.7</version>
+
+				<configuration>
+					<dependencyLocationsEnabled>false</dependencyLocationsEnabled>
+				</configuration>
+			</plugin>
+
+			<!-- integrate maven emma plugin to project site -->
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>emma-maven-plugin</artifactId>
+				<version>1.0-alpha-3</version>
+				<inherited>true</inherited>
+			</plugin>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>cobertura-maven-plugin</artifactId>
+				<version>2.7</version>
+				<configuration>
+					<formats>
+						<format>html</format>
+						<format>xml</format>
+					</formats>
+				</configuration>
+			</plugin>
+		</plugins>
+	</reporting>
+	<distributionManagement>
+		<snapshotRepository>
+			<id>snapshots</id>
+			<url>http://repository.cd.wppg2.com/nexus/content/repositories/snapshots/</url>
+		</snapshotRepository>
+		<repository>
+			<id>releases</id>
+			<url>http://repository.cd.wppg2.com/nexus/content/repositories/releases/</url>
+		</repository>
+	</distributionManagement>
+
+	<scm>
+		<connection>scm:git:git://github.azc.ext.hp.com/WPPg2/device_claim.git</connection>
+		<developerConnection>scm:git:git://github.azc.ext.hp.com/WPPg2/device_claim.git</developerConnection>
+		<url>scm:git:git://github.azc.ext.hp.com/WPPg2/device_claim.git</url>
+	</scm>
+</project>

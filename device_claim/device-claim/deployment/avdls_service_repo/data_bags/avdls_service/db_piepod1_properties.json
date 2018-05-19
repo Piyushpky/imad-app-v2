@@ -1,0 +1,8 @@
+{
+	"id": "db_piepod1_properties",
+	"config_db_user": "appconfig",
+	"config_db_password": "appconfig",
+	"config_db_driver": "com.mysql.jdbc.Driver",
+	"config_db_jdbcurl": "jdbc:mysql://pie-crs-pod1-rds-crscommon-db.pie-wppinternal.com:3306/ops_db",
+	"config_db_host": "pie-crs-pod1-rds-crscommon-db.pie-wppinternal.com"
+}

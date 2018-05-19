@@ -1,0 +1,122 @@
+{	"id":"rp_piepod1_properties",
+    "env_name": "piepod1",
+    "service_sourcetype" : "rp-avdls-logs",
+    "zabbix_hostgroups": ["RP-Avatar-Lookup-Service"],
+    "zabbix_service_name": "rp-avdls",
+    "worker_processes": "1",
+    "worker_connections": "1024",
+    "proxy_buffering": "off",
+    "client_max_body_size": "10m",
+    "listen_port": "8080",
+    
+	"credentials" : [
+        {"user-name":"av_avreg1_1117_dev",	"password": "ODMwNjFkYTEtOGIxNi00ODZlLWIwMmItN2ZiNGU1NWFlMzk4"},
+		{"user-name":"av_email_gateway1_0517_dev",	"password": "MzNlODJhZTEtN2ZjNi00YzBlLWFiYmEtMThiNWNhYWZlYTVi"},
+		{"user-name":"av_reg_notfication_svc1_2817_dev",	"password": "NTIyNjQzNmQtMTYwYy00ODI1LWJkNTctNWZkNjMyZWEzZDYy"},
+		{"user-name":"av_gateway_4616_dev",	"password": "YTk0ZjJjNzMtYmFiMC00MzJkLWJiNTEtZmE2MTk2OTJiMzAw"},
+		{"user-name":"av_dcs1_1617_dev",	"password": "ZmQ2NTZjZDMtMzYwZS00ZjQxLWE0MGEtMjVjMTdmNTc0MmVl"}			
+	   ],
+    "llb_url": "http://pie-crs-pod1-llb-avdls.pie-wppinternal.com:8080",
+    "configurations": [
+    {
+      "api_name": "OAuthProtectedSSNResource",
+      "uri": "/virtualprinter/v1/SSN_info/",
+      "redirects": {
+        "pre_steps": [],
+        "supported_method": "POST",
+        "header_validations": [],
+        "post_steps": ["return BASIC_AUTH,OAUTH2"]
+      }
+    },
+ {
+      "api_name": "OAuthProtectedSnkeyResource",
+      "uri": "/virtualprinter/v1/printer",
+      "redirects": {
+        "pre_steps": [],
+        "supported_method": "GET",
+        "header_validations": [],
+        "post_steps": ["return BASIC_AUTH,OAUTH2"]
+      }
+    },
+{
+      "api_name": "OAuthProtectedprinterResource",
+      "uri": "/virtualprinter/v1/printers",
+      "redirects": {
+        "pre_steps": [],
+        "supported_method": "GET",
+        "header_validations": [],
+        "post_steps": ["return BASIC_AUTH,OAUTH2"]
+      }
+    },
+{
+      "api_name": "OAuthProtectedPrintercodeResource",
+      "uri": "/virtualprinter/v1/printer_code_info",
+      "redirects": {
+        "pre_steps": [],
+        "supported_method": "GET|DELETE",
+        "header_validations": [],
+        "post_steps": ["return BASIC_AUTH,OAUTH2"]
+      }
+    },
+        {
+      "api_name": "OAuthProtectedNotificationResource",
+      "uri": "/virtualprinter/v1/notification/printer",
+      "redirects": {
+        "pre_steps": [],
+        "supported_method": "PUT",
+        "header_validations": [],
+        "post_steps": ["return BASIC_AUTH,OAUTH2"]
+      }
+    },
+	    {
+      "api_name": "GenerateClaimCodeResource",
+      "uri": "/virtualprinter/v1/printer/claim_code",
+      "redirects": {
+        "pre_steps": [],
+        "supported_method": "POST|GET",
+        "header_validations": [],
+        "post_steps": ["return BASIC_AUTH"]
+      }
+    },
+        {
+          "api_name": "NoAuthResource",
+          "uri": "/virtualprinter/v1/about",
+          "redirects": {
+            "pre_steps": [],
+            "supported_method": "GET",
+            "header_validations": [],
+            "post_steps": ["return NO_AUTH"]
+          }
+    },
+	{
+ 	  "api_name": "OAuthProtectedUUIDResource",
+ 	  "uri": "= /virtualprinter/v1/printer/discovery",
+ 	  "redirects": {
+ 		"pre_steps": [],
+ 		"supported_method": "POST",
+ 		"header_validations": [],
+ 		"post_steps": ["return BASIC_AUTH,OAUTH2"]
+ 	  }
+ 	},
+	{
+ 	  "api_name": "HealthCheckStatus",
+ 	  "uri": "= /virtualprinter/health/status",
+ 	  "redirects": {
+ 		"pre_steps": [],
+ 		"supported_method": "HEAD|GET",
+ 		"header_validations": [],
+ 		"post_steps": ["return NO_AUTH"]
+ 	  }
+ 	}, 
+	{
+ 	  "api_name": "HealthCheckDetail",
+ 	  "uri": "= /virtualprinter/health/detail",
+ 	  "redirects": {
+ 		"pre_steps": [],
+ 		"supported_method": "HEAD|GET",
+ 		"header_validations": [],
+ 		"post_steps": ["return NO_AUTH"]
+ 	  }
+    }
+    ]
+}

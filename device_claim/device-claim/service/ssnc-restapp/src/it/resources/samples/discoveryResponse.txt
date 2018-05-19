@@ -1,0 +1,31 @@
+{
+  "version" : "1.0",
+  "links" : [ {
+    "rel" : "App_player",
+    "href" : "http://localhost/virtualprinter/v1/printers/info/app_player/{CLOUD_ID}"
+  }, {
+    "rel" : "OrionPrintJob",
+    "href" : "http://localhost/v1/printers/{CLOUD_ID}/print_jobs"
+  }, {
+    "rel" : "PushPrintJob",
+    "href" : "http://localhost/pushprt/v1/printers/print_jobs/{CLOUD_ID}"
+  }, {
+    "rel" : "cloud_config",
+    "href" : "http://localhost/virtualprinter/v1/printers/cloudconfig/{CLOUD_ID}"
+  }, {
+    "rel" : "device_status",
+    "href" : "http://localhost/v1/printers/status/{CLOUD_ID}"
+  }, {
+    "rel" : "email_address",
+    "href" : "http://localhost/virtualprinter/v1/printers/emailaddress/{CLOUD_ID}"
+  }, {
+    "rel" : "printer_info",
+    "href" : "http://localhost:9037/v1/printers/info/{CLOUD_ID}"
+  }, {
+    "rel" : "signal-mgmt",
+    "href" : "http://localhost/avatar/v1/entities/connectivityconfig/{CLOUD_ID}"
+  }, {
+    "rel" : "vp-print",
+    "href" : "http://localhost/vp/v1/printers/{CLOUD_ID}/print/delivery"
+  } ]
+}
