@@ -192,6 +192,14 @@
 {
 "dydb_registration_domain_stage_data_pro": "666",
 "domain_key": "b7d3a03c1ad561c58190f345505775686528e774"
+},
+{
+"dydb_registration_domain_stage_data_properties.json": "99",
+"domain_key": "11ed97fa0ce56fe1783a4689c8b631d71d732599"
+},
+{
+"dydb_registration_domain_stage_data_pro": "99",
+"domain_key": "11ed97fa0ce56fe1783a4689c8b631d71d732599"
 }
 ],
 "delete_items": [],
