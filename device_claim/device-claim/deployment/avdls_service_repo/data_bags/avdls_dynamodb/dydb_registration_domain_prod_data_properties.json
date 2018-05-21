@@ -188,6 +188,10 @@
 {
 "domain_index": 77,
 "domain_key": "keyForTheDomain"
+},
+{
+"domain_index": 14,
+"domain_key": "ffff"
 }
 ],
 "delete_items": [],
