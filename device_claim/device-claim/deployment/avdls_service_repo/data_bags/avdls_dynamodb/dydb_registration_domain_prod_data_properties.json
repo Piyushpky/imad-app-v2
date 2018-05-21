@@ -1,196 +1,195 @@
 {
- 	"id": "dydb_registration_domain_prod_data_properties",
-
-"insert_items":[
+"id": "dydb_registration_domain_prod_data_properties",
+"insert_items": [
 {
-  "domain_index": 7,
-  "domain_key": "A0uH7XopS/5pkS2xIVL5ZaqI6fb5eIF6bXiUUOSKicnwunW5KZJhRwRBVKMr8kJF"
+"domain_index": 7,
+"domain_key": "A0uH7XopS/5pkS2xIVL5ZaqI6fb5eIF6bXiUUOSKicnwunW5KZJhRwRBVKMr8kJF"
 },
 {
-  "domain_index": 8,
-  "domain_key": "ee6YkWVAJL3nrkhiMiBGZCS5ieI6azt8kn0l1quh/wtTEqLUBRVeOHFDIaeXX80d"
+"domain_index": 8,
+"domain_key": "ee6YkWVAJL3nrkhiMiBGZCS5ieI6azt8kn0l1quh/wtTEqLUBRVeOHFDIaeXX80d"
 },
 {
-  "domain_index": 9,
-  "domain_key": "/TVwXTEytYraiJ/phC0fgjP6IuvrgvyiNxubEZLOIW0= "
+"domain_index": 9,
+"domain_key": "/TVwXTEytYraiJ/phC0fgjP6IuvrgvyiNxubEZLOIW0= "
 },
 {
-  "domain_index": 6,
-  "domain_key": "cY6PRgA8xMrhBVNzdERRwem3gFtISvrCfqRI7d2NPym0ZNnx/ByJH7CICtQcKdIF"
+"domain_index": 6,
+"domain_key": "cY6PRgA8xMrhBVNzdERRwem3gFtISvrCfqRI7d2NPym0ZNnx/ByJH7CICtQcKdIF"
 },
 {
-  "domain_index": 1,
-  "domain_key": "/TVwXTEytYraiJ/phC0fgjP6IuvrgvyiNxubEZLOIW0= "
+"domain_index": 1,
+"domain_key": "/TVwXTEytYraiJ/phC0fgjP6IuvrgvyiNxubEZLOIW0= "
 },
 {
-  "domain_index": 0,
-  "domain_key": "testDomainKey"
+"domain_index": 0,
+"domain_key": "testDomainKey"
 },
 {
-  "domain_index": 5,
-  "domain_key": "AAI8ZdMD/rjZ2dycbvaZ2jD0cYorW6usJtgTMx/al9Ctk9zCgxh/lgYztwI2WfhE"
+"domain_index": 5,
+"domain_key": "AAI8ZdMD/rjZ2dycbvaZ2jD0cYorW6usJtgTMx/al9Ctk9zCgxh/lgYztwI2WfhE"
 },
 {
-  "domain_index": 10,
-  "domain_key": "FqeqSeY0C01DEBAASKVp7MOnhBM3/dOdrgQl+eGtkyCzynsi9Y4zqoGSuK+xeT2Z"
+"domain_index": 10,
+"domain_key": "FqeqSeY0C01DEBAASKVp7MOnhBM3/dOdrgQl+eGtkyCzynsi9Y4zqoGSuK+xeT2Z"
 },
 {
-  "domain_index": 11,
-  "domain_key": "kqa/fddaFv63xMA2B40f0mGIIg7F+fxphC0yItf3r1o5KjLrQfI+Zdl0wPaqM7Gw"
+"domain_index": 11,
+"domain_key": "kqa/fddaFv63xMA2B40f0mGIIg7F+fxphC0yItf3r1o5KjLrQfI+Zdl0wPaqM7Gw"
 },
 {
-  "domain_index": 12,
-  "domain_key": "64F7D3lgnVLYSc2m+sBJqipL1WlL7lNQ3ZOo39UHHaT1QAgesZRpMIQXk+61q5pq"
-},
-{ 
- "domain_index": 31,
- "domain_key": "PdQu/A3Ok2CC8rDFGlieRjn7N5teoVpBiQQ+QxcDJG4hSvOTktA52rSId0nimsAD"
+"domain_index": 12,
+"domain_key": "64F7D3lgnVLYSc2m+sBJqipL1WlL7lNQ3ZOo39UHHaT1QAgesZRpMIQXk+61q5pq"
 },
 {
- "domain_index": 32,
- "domain_key": "UN8mQa29jgm8K1qCoQ6vSX3BkKzCIdXb1axhOIr4X1AYNezUgR6S7cW8rQn/MopC"
+"domain_index": 31,
+"domain_key": "PdQu/A3Ok2CC8rDFGlieRjn7N5teoVpBiQQ+QxcDJG4hSvOTktA52rSId0nimsAD"
 },
 {
- "domain_index": 33,
- "domain_key": "NSC7rZPFl8/offAgKy410m1GsfeqlP9WSWUWhPGIs/dz0/mqWjl5vaojqaclFdJa"
+"domain_index": 32,
+"domain_key": "UN8mQa29jgm8K1qCoQ6vSX3BkKzCIdXb1axhOIr4X1AYNezUgR6S7cW8rQn/MopC"
 },
 {
- "domain_index": 34,
- "domain_key": "JyKe707WehgrbZdCZ7hQZ0eRImaVvZ4vGQyITLpZBA9n+Nq3WAaVrJlNePRs0rKS"
+"domain_index": 33,
+"domain_key": "NSC7rZPFl8/offAgKy410m1GsfeqlP9WSWUWhPGIs/dz0/mqWjl5vaojqaclFdJa"
 },
 {
- "domain_index": 35,
- "domain_key": "WUJoi5iJSs+kmXMJdZCPz03i8lX/SuyF7layF6pF3PhWsKPQ9DLbVWRRYWHP/dDr"
+"domain_index": 34,
+"domain_key": "JyKe707WehgrbZdCZ7hQZ0eRImaVvZ4vGQyITLpZBA9n+Nq3WAaVrJlNePRs0rKS"
 },
 {
- "domain_index": 36,
- "domain_key": "syxK7d3+D+UmuZVc17dOQ9pzZaUu9pAe56px8tdt/9RPiqF9i7398h4buDyM+aLp"
+"domain_index": 35,
+"domain_key": "WUJoi5iJSs+kmXMJdZCPz03i8lX/SuyF7layF6pF3PhWsKPQ9DLbVWRRYWHP/dDr"
 },
 {
- "domain_index": 37,
- "domain_key": "y4PnaJxAQxypJ+8wsv4rJSv/0gaPWYaQtosklTJ3PmQ09lQ/6KKhc8OpmzW+8qq3"
+"domain_index": 36,
+"domain_key": "syxK7d3+D+UmuZVc17dOQ9pzZaUu9pAe56px8tdt/9RPiqF9i7398h4buDyM+aLp"
 },
 {
- "domain_index": 38,
- "domain_key": "/CvGksUQd9/qJivxCfzQ08ucwkxo5IFVlzdbqfROL0KA1WF/cCCbT0l5Hcf4+dWq"
+"domain_index": 37,
+"domain_key": "y4PnaJxAQxypJ+8wsv4rJSv/0gaPWYaQtosklTJ3PmQ09lQ/6KKhc8OpmzW+8qq3"
 },
 {
- "domain_index": 39,
- "domain_key": "faFPcw/6xtDGrkh38dQDwqJf2+dCE1u9Ki90Mf7Xmvmf7vBQUJQVBsWXDz+OYe/o"
+"domain_index": 38,
+"domain_key": "/CvGksUQd9/qJivxCfzQ08ucwkxo5IFVlzdbqfROL0KA1WF/cCCbT0l5Hcf4+dWq"
 },
 {
- "domain_index": 40,
- "domain_key": "MjCi1GjHjGz+5l+Ka29JeN/x2q+s7QmX7k7+pVkeBJ+7HCJxVXJeg4uUmzzDGLHV"
+"domain_index": 39,
+"domain_key": "faFPcw/6xtDGrkh38dQDwqJf2+dCE1u9Ki90Mf7Xmvmf7vBQUJQVBsWXDz+OYe/o"
 },
 {
- "domain_index": 41,
- "domain_key": "wJCYh4aNiQ8Ck4ouFJTagK64Y2D3jXErcvE3fCoPnpdcSKSA382idSN6/pUrzJwm"
+"domain_index": 40,
+"domain_key": "MjCi1GjHjGz+5l+Ka29JeN/x2q+s7QmX7k7+pVkeBJ+7HCJxVXJeg4uUmzzDGLHV"
 },
 {
- "domain_index": 17, 
- "domain_key": "5lganLo4plP2T5Wt/6OhyEOn68/cn2OA+AjB+apopC6K0k0ypkNwj7T2y/34ZpeN"
+"domain_index": 41,
+"domain_key": "wJCYh4aNiQ8Ck4ouFJTagK64Y2D3jXErcvE3fCoPnpdcSKSA382idSN6/pUrzJwm"
 },
 {
- "domain_index": 18, 
- "domain_key": "WWvunpMtjqfM8L6+3gcyRTkuDWxfs4admuUeDNAQC7Z12mAcXnZzLrkRS69LLAsP"
+"domain_index": 17,
+"domain_key": "5lganLo4plP2T5Wt/6OhyEOn68/cn2OA+AjB+apopC6K0k0ypkNwj7T2y/34ZpeN"
 },
 {
- "domain_index": 19, 
- "domain_key": "8JR2EKBUAdFSq5b4ENyZDWE+X/EtSSTNQLh4AtAzu15H7MXzEvmdkh+y/RLnkci6"
+"domain_index": 18,
+"domain_key": "WWvunpMtjqfM8L6+3gcyRTkuDWxfs4admuUeDNAQC7Z12mAcXnZzLrkRS69LLAsP"
 },
 {
- "domain_index": 20, 
- "domain_key": "5e9IEYPnD/3VRP/tqFt873BIM9DGPwkiISH7ce6CTg16gf27Ecly7s+qoSb8OiVX"
+"domain_index": 19,
+"domain_key": "8JR2EKBUAdFSq5b4ENyZDWE+X/EtSSTNQLh4AtAzu15H7MXzEvmdkh+y/RLnkci6"
 },
 {
- "domain_index": 21, 
- "domain_key": "FntZnC4qsp10xKkbDpibEYWH+kusvwG7rF+//c8Jbz6FqWkUzQBUubyE8mVvTm5y"
+"domain_index": 20,
+"domain_key": "5e9IEYPnD/3VRP/tqFt873BIM9DGPwkiISH7ce6CTg16gf27Ecly7s+qoSb8OiVX"
 },
 {
- "domain_index": 22, 
- "domain_key": "b7V2AHJx0PYf+ke5FmETcj5dmQW0W8MFOujLAOSKOObvCYHR7j1kkEguid3Kcht8"
+"domain_index": 21,
+"domain_key": "FntZnC4qsp10xKkbDpibEYWH+kusvwG7rF+//c8Jbz6FqWkUzQBUubyE8mVvTm5y"
 },
 {
- "domain_index": 23, 
- "domain_key": "tkhvGd4auZCcmIFR1lElggh6XS8DaGraDC26G3qpQF1uZrFFvdxdFs04/T4A27IP"
+"domain_index": 22,
+"domain_key": "b7V2AHJx0PYf+ke5FmETcj5dmQW0W8MFOujLAOSKOObvCYHR7j1kkEguid3Kcht8"
 },
 {
- "domain_index": 24, 
- "domain_key": "CXLVCnCRAufBFQn8DiWUdEtz9WCDX9HK5KQ2IcMzR5gqltoyMCGKa9thbQ1/P+LQ"
+"domain_index": 23,
+"domain_key": "tkhvGd4auZCcmIFR1lElggh6XS8DaGraDC26G3qpQF1uZrFFvdxdFs04/T4A27IP"
 },
 {
- "domain_index": 25, 
- "domain_key": "XKya4+2RcIvH9khG25yjmEKoqlNBW8do2kLKzFg2hhBlWSwOAd+0+p5+Fp9SEpJq"
+"domain_index": 24,
+"domain_key": "CXLVCnCRAufBFQn8DiWUdEtz9WCDX9HK5KQ2IcMzR5gqltoyMCGKa9thbQ1/P+LQ"
 },
 {
- "domain_index": 26, 
- "domain_key": "JJVMhM+TcGFvHiaaNZ8Om40jDHP16fofaaw/s15/ki4iK3ZaW6/YfXSrwU6x8SNm"
+"domain_index": 25,
+"domain_key": "XKya4+2RcIvH9khG25yjmEKoqlNBW8do2kLKzFg2hhBlWSwOAd+0+p5+Fp9SEpJq"
 },
 {
- "domain_index": 27, 
- "domain_key": "YqMjLU4t83iHPD7FUel2aZy4YbhydD+6SP5kM+uDewVfuosBRSE3PwCOVz0XNBfv"
+"domain_index": 26,
+"domain_key": "JJVMhM+TcGFvHiaaNZ8Om40jDHP16fofaaw/s15/ki4iK3ZaW6/YfXSrwU6x8SNm"
 },
 {
- "domain_index": 28, 
- "domain_key": "7kujJY/8bvDDbpWorY7hv2VbuufbaZXUAs0UC9I09uEmOQNaU5MLmtMpoOmTUrwY"
+"domain_index": 27,
+"domain_key": "YqMjLU4t83iHPD7FUel2aZy4YbhydD+6SP5kM+uDewVfuosBRSE3PwCOVz0XNBfv"
 },
 {
- "domain_index": 29, 
- "domain_key": "1uJymvFy+eOIrCn3lL+G9aGPUXN+vXo62bi/84ahzMhqv9alv7x7T/2vimljQ9nc"
+"domain_index": 28,
+"domain_key": "7kujJY/8bvDDbpWorY7hv2VbuufbaZXUAs0UC9I09uEmOQNaU5MLmtMpoOmTUrwY"
 },
 {
- "domain_index": 30, 
- "domain_key": "94LtbCubJeJ28cgxTfLhirA5w94dNxezCt+ahDkXY5T3kJwd2VT16o1MRxNxddrE"
+"domain_index": 29,
+"domain_key": "1uJymvFy+eOIrCn3lL+G9aGPUXN+vXo62bi/84ahzMhqv9alv7x7T/2vimljQ9nc"
 },
 {
- "domain_index": 42, 
- "domain_key": "DiH+P9fpWjTx2PLpYCWPBVDYiuF7+ZFV+k6fuakZ3R2OMffSGCcdg/ZUINbq4ykg"
+"domain_index": 30,
+"domain_key": "94LtbCubJeJ28cgxTfLhirA5w94dNxezCt+ahDkXY5T3kJwd2VT16o1MRxNxddrE"
 },
 {
- "domain_index": 13, 
- "domain_key": "EynaWjSVaiVJJ8gvwy/y9+RQP53x+WVL1rU0vNVk2kWFj2X1wCv4jGSorYhFm0HW"
+"domain_index": 42,
+"domain_key": "DiH+P9fpWjTx2PLpYCWPBVDYiuF7+ZFV+k6fuakZ3R2OMffSGCcdg/ZUINbq4ykg"
 },
 {
- "domain_index": 14, 
- "domain_key": "j/EVq0XiN6MWUpRp8vkM9Lvlaf8cbddGWaXwbXVinarUilcGKf+itE5JQPaqoHxC"
+"domain_index": 13,
+"domain_key": "EynaWjSVaiVJJ8gvwy/y9+RQP53x+WVL1rU0vNVk2kWFj2X1wCv4jGSorYhFm0HW"
 },
 {
- "domain_index": 48, 
- "domain_key": "WZUW5uKows1RRG9bOk/yMah8C8GR7PokDK9kDxX0gVzflIQ9RaD2uTVRa77Dw8NR"
+"domain_index": 14,
+"domain_key": "j/EVq0XiN6MWUpRp8vkM9Lvlaf8cbddGWaXwbXVinarUilcGKf+itE5JQPaqoHxC"
 },
 {
- "domain_index": 49, 
- "domain_key": "NFQBHIm3le4GVBXDGNh9MX+OE527nwwckTxMnGVHhJGURIcux47sXLpRa2DhnjUl"
+"domain_index": 48,
+"domain_key": "WZUW5uKows1RRG9bOk/yMah8C8GR7PokDK9kDxX0gVzflIQ9RaD2uTVRa77Dw8NR"
 },
 {
- "domain_index": 50, 
- "domain_key": "FAr/jrHZWo/ISsg5OsOyjSGH5aTmNb2JPqoPWsIXk9BNB7Vg0RpIQyUOG0ajiYbN"
+"domain_index": 49,
+"domain_key": "NFQBHIm3le4GVBXDGNh9MX+OE527nwwckTxMnGVHhJGURIcux47sXLpRa2DhnjUl"
 },
 {
- "domain_index": 51, 
- "domain_key": "Ig1IIwgy3/Ed5if2Rn9t3roDRT2tWR6EfmAr+XXlRhLRibbPsS1sC8cxKS1VnOg6"
+"domain_index": 50,
+"domain_key": "FAr/jrHZWo/ISsg5OsOyjSGH5aTmNb2JPqoPWsIXk9BNB7Vg0RpIQyUOG0ajiYbN"
 },
 {
- "domain_index": 15, 
- "domain_key": "RZgOmwVWhqItYbFtaOUfz9F+G+w1y8OvUZfs5fMs7WO5drBeFpriTv3mBNUmt5kq"
+"domain_index": 51,
+"domain_key": "Ig1IIwgy3/Ed5if2Rn9t3roDRT2tWR6EfmAr+XXlRhLRibbPsS1sC8cxKS1VnOg6"
 },
 {
- "domain_index": 43, 
- "domain_key": "PsroIcRxXnc4owbYfgGYP32zIMfRx9kgBsdhZ5dASPSo54klAbHvWxrNpkOkh+vO"
+"domain_index": 15,
+"domain_key": "RZgOmwVWhqItYbFtaOUfz9F+G+w1y8OvUZfs5fMs7WO5drBeFpriTv3mBNUmt5kq"
 },
 {
- "domain_index": 44, 
- "domain_key": "wbSciH48eDzoStqbAcUJwFuyQ9jfNOKbIwC1HEo2YTUpvqXCk9hs/wLaW410Mexr"
+"domain_index": 43,
+"domain_key": "PsroIcRxXnc4owbYfgGYP32zIMfRx9kgBsdhZ5dASPSo54klAbHvWxrNpkOkh+vO"
 },
 {
- "domain_index": 45, 
- "domain_key": "uvSi7Ist8vq6DiB3YPlqvN8WfZHXGZ3rcMLQQuP0/JOTrOgLC6OPUbuIQrrHrsKi"
+"domain_index": 44,
+"domain_key": "wbSciH48eDzoStqbAcUJwFuyQ9jfNOKbIwC1HEo2YTUpvqXCk9hs/wLaW410Mexr"
+},
+{
+"domain_index": 45,
+"domain_key": "uvSi7Ist8vq6DiB3YPlqvN8WfZHXGZ3rcMLQQuP0/JOTrOgLC6OPUbuIQrrHrsKi"
+},
+{
+"domain_index": 77,
+"domain_key": "keyForTheDomain"
 }
 ],
-"delete_items":[
- 
-],
-"update_items":[
-]
-
+"delete_items": [],
+"update_items": []
 }
