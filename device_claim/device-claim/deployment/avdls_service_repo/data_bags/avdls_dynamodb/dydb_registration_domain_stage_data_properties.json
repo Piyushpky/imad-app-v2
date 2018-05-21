@@ -200,6 +200,14 @@
 {
 "dydb_registration_domain_stage_data_pro": "99",
 "domain_key": "11ed97fa0ce56fe1783a4689c8b631d71d732599"
+},
+{
+"dydb_registration_domain_stage_data_properties.json": "01",
+"domain_key": "15853c25950629c6c14d446990e9eafa8bdf03ec"
+},
+{
+"dydb_registration_domain_stage_data_pro": "01",
+"domain_key": "15853c25950629c6c14d446990e9eafa8bdf03ec"
 }
 ],
 "delete_items": [],
